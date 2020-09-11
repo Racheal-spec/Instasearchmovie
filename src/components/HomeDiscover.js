@@ -8,17 +8,18 @@ const HomeDiscover = () => {
  const[results, setResults] = useState([]);
  
     useEffect(() => {
-     searchMovies();
+      const searchMovies = async () => {
+        const Api_key = "6b00a02116b6c9fb27ad808ea1eaedbd";
+    
+        const searchUrl = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=${Api_key}&language=en-US&page=1&include_adult=false&query=${query}`);
+        const response = await searchUrl.json();
+        console.log(response);
+        setResults(response.results);
+    }
+    searchMovies();
  }, [query])
 
- const searchMovies = async () => {
-    const Api_key = "6b00a02116b6c9fb27ad808ea1eaedbd";
 
-    const searchUrl = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=${Api_key}&language=en-US&page=1&include_adult=false&query=${query}`);
-    const response = await searchUrl.json();
-    console.log(response);
-    setResults(response.results);
-}
 const updateResults = (e) =>{
     e.preventDefault();
   setSearches(e.target.value);

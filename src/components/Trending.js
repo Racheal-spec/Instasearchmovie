@@ -3,23 +3,23 @@ import Movie from './Movie';
 
 const Trending = () => {
 
-const[query, setQuery] = useState('');
+//const[query, setQuery] = useState('');
 const[movies, setMovies] = useState([]);
 
 useEffect(() => {
 
+  const getMovies = async () =>{
+    const Api_key = "6b00a02116b6c9fb27ad808ea1eaedbd";
+    
+    const apiUrl = await fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${Api_key}&language=en-US&page=1&include_adult=false`);
+    const data = await apiUrl.json();
+    setMovies(data.results)
+    console.log(data);
+  }
   getMovies();
 
-}, [query])
+})
 
-const getMovies = async () =>{
-  const Api_key = "6b00a02116b6c9fb27ad808ea1eaedbd";
-  
-  const apiUrl = await fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${Api_key}&language=en-US&page=1&include_adult=false&query=${query}`);
-  const data = await apiUrl.json();
-  setMovies(data.results)
-  console.log(data);
-}
 
 return(
     <div className="search-section">
