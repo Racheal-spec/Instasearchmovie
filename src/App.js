@@ -6,6 +6,7 @@ import {BrowserRouter as Router, Switch,Route} from 'react-router-dom';
 import Watchlist from './components/Watchlist';
 import Trending from './components/Trending';
 import HomeDiscover from './components/HomeDiscover';
+import Movies from './components/Movies';
 
 
 const App = () => {
@@ -16,6 +17,7 @@ const App = () => {
   <Nav />
   <Switch>
   <Route path= '/' exact component={HomeDiscover} />
+  <Route path= '/HomeDiscover:' component={Movies} />
   <Route path= '/trending' component={Trending} />
   <Route path= '/watchlist' component={Watchlist} />
   </Switch>

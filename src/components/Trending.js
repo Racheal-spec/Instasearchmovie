@@ -1,9 +1,9 @@
 import React, {useState, useEffect} from 'react';
-import Movie from './Movie';
+import TrendingMovie from './TrendingMovie';
+
 
 const Trending = () => {
 
-//const[query, setQuery] = useState('');
 const[movies, setMovies] = useState([]);
 
 useEffect(() => {
@@ -18,14 +18,14 @@ useEffect(() => {
   }
   getMovies();
 
-})
+}, [])
 
 
 return(
     <div className="search-section">
   <div className = "card-overall">
       {movies.map((movie) => (
-        <Movie
+        <TrendingMovie
         key = {movie.id}
         posterImg = {movie.poster_path}
         title = {movie.title}

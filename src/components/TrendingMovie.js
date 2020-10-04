@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Movie = ({title,posterImg,overview}) => {
+const TrendingMovie = ({title,posterImg,overview}) => {
 
     return(
     <div className = "card">
@@ -16,5 +16,5 @@ const Movie = ({title,posterImg,overview}) => {
   
 }
 
-export default Movie;
+export default TrendingMovie;
 
