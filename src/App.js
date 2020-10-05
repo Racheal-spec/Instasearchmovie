@@ -17,14 +17,13 @@ const App = () => {
   <Nav />
   <Switch>
   <Route path= '/' exact component={HomeDiscover} />
-  <Route path= '/HomeDiscover:' component={Movies} />
+  <Route path= '/HomeDiscover' component={Movies} />
   <Route path= '/trending' component={Trending} />
   <Route path= '/watchlist' component={Watchlist} />
   </Switch>
     </div>
     <Footer />
     </Router>
-
 )
 
     }

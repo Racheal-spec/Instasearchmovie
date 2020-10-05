@@ -1,10 +1,10 @@
 
 import React from 'react';
 import {Link} from 'react-router-dom';
-//import Movies from './Movies';
 
 const Search = ({title, posterImg, overview}) => {
- 
+
+  //let {path, url} = useRouteMatch;
 return (
     <div className= "card">
        <Link to={`/HomeDiscover/${title}`}>
@@ -19,6 +19,7 @@ return (
     <p>OVERVIEW:{overview}</p>
     </div>
     </div>
+
 )
 
 }

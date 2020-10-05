@@ -1,3 +1,4 @@
+
 import React, {useState, useEffect} from 'react';
 //import Movies from './Movies';
 import Search from './Search';
@@ -68,3 +69,4 @@ return (
 
   export default HomeDiscover;
   
+
