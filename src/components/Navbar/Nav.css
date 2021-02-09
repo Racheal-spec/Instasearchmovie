@@ -1,0 +1,33 @@
+nav {
+    min-height: 10vh;
+    background-color: #242323;
+  }
+  nav .navbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;  
+    margin: 0 30px;
+  }
+  .logo h2{
+    color: white;
+  }
+  .navLists{
+    display: flex;
+    font-weight: bold;
+    list-style: none;
+    margin: 15px 0;
+  }
+  .link{
+    text-decoration: none;
+    margin: 0 8px;
+    color: white;
+  }
+.link h2{
+  font-family:Georgia, 'Times New Roman', Times, serif;
+}
+
+@media screen and (max-width:600px){
+  nav{
+    min-height: 5vh;
+  }
+}
