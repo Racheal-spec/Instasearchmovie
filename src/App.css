@@ -1,4 +1,10 @@
 .app{
   text-align: center;
   background: #1a1a1a;
+  margin: 0 80px;
+}
+@media screen and (max-width: 600px){
+ .app{
+  margin: 0 5px;
+ }
 }
