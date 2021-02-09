@@ -5,7 +5,6 @@ import Footer from './components/Footer/Footer';
 import {BrowserRouter as Router, Switch,Route} from 'react-router-dom';
 import Watchlist from './components/Watchlist/Watchlist';
 import Home from './components/HomePage/Home';
-import Movies from './components/Movies';
 
 
 const App = () => {

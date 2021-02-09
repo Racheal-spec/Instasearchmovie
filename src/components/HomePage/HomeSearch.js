@@ -1,7 +1,5 @@
 import React, {useState, useEffect} from 'react';
 import {Link} from 'react-router-dom';
-import Movies from '../Movies';
-
 
 const HomeSearch = () => {
     const[query, setQuery] = useState('');
@@ -66,7 +64,7 @@ const HomeSearch = () => {
             <h4>RELEASE-DATE:{result.release_date}</h4>
             <p>OVERVIEW: {result.overview}</p> 
             <div className="cancel-btn">
-           <i class="far fa-times-circle" onClick={btnClick}></i>
+           <i className="far fa-times-circle" onClick={btnClick}></i>
            </div>
            </div>
            ))
