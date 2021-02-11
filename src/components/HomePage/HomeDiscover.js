@@ -1,4 +1,5 @@
-import React, {useState, useEffect} from 'react';
+import React, { useEffect, useState} from 'react';
+import HomeTrend from './HomeTrend';
 
 const HomeDiscover = () => {
 
@@ -27,21 +28,15 @@ return(
       </div>
   <div className = "trending-card">
       {trends.map((trend) => (
-         <div className = "card" key = {trend.id}>
-         <img className="card--img"
-          src= {`https://image.tmdb.org/t/p/w500${trend.poster_path}`}
-          alt="images" />
-          <div className = "card--content">
-          <p>
-          <i className="fas fa-star"></i>
-            {trend.vote_average}
-          </p>  
-          <h1>{trend.title || trend.name}</h1> 
-          <p>{trend.release_date || trend.first_air_date}</p>
-          <button className="trend-btn"><i className="fas fa-plus"></i>Watchlist</button>
-          {/*<p>OVERVIEW:{trend.overview}</p>*/}
-         </div>
-             </div>
+         <HomeTrend 
+          key= {trend.id}
+          id= {trend.id}
+          vote_average={trend.vote_average}
+          title = {trend.title}
+          release_date = {trend.release_date}
+          poster_path = {trend.poster_path}
+          overview = {trend.overview}
+         />
         ))}
        </div>
   </div>

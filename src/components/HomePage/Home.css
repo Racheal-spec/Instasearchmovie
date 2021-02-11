@@ -18,7 +18,7 @@
   }
   .search-form{
     padding: 20px;
-    margin-top: 50px;
+    margin-top: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -159,5 +159,13 @@
   .card-overall{
     width: 80%;
     left: 40px;
+  }
+  .search-card{
+     width: 85%;
+   }
+   .card-overall{
+    top: 40%;
+    left: 5%;
+    width: 90%;
   }
   }
