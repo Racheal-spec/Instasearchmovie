@@ -1,0 +1,1 @@
+GET https://api.themoviedb.org/3/movie/{id}?api_key=6b00a02116b6c9fb27ad808ea1eaedbd&language=en-US&page=1&include_adult=false

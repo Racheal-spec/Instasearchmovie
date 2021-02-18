@@ -1,18 +1,17 @@
 import React, { useEffect, useState} from 'react';
 import HomeContent from './HomeContent';
 
-const HomeDiscover = () => {
+const LatestMovies = () => {
 
-const[trends, setTrends] = useState([]);
+const[latest, setLatest] = useState([]);
 
 useEffect(() => {
 
   const getMovies = async () =>{
     const Api_key = "6b00a02116b6c9fb27ad808ea1eaedbd";
-    
-    const apiUrl = await fetch(`https://api.themoviedb.org/3/trending/all/day?api_key=${Api_key}&language=en-US&page=1&include_adult=false`);
+    const apiUrl = await fetch(` https://api.themoviedb.org/3/movie/top_rated?api_key=${Api_key}&language=en-US&page=1&include_adult=false`);
     const data = await apiUrl.json();
-    setTrends(data.results)
+    setLatest(data.results)
     console.log(data);
   }
   getMovies();
@@ -23,11 +22,11 @@ useEffect(() => {
 return(
     <div className="search-section">
       <div className="title">
-        <h1>Trending Movies</h1>
+        <h1>Top Rated Movies</h1>
         <div className="line"></div>
       </div>
   <div className = "trending-card">
-      {trends.map((trend) => (
+      {latest.map((trend) => (
          <HomeContent
           key= {trend.id}
           id= {trend.id}
@@ -44,4 +43,4 @@ return(
 
 }
 
-export default HomeDiscover;
+export default LatestMovies;

@@ -1,7 +1,8 @@
 import React from 'react';
 import {useStateValue} from '../Context/StateContext';
+import {Link} from 'react-router-dom';
 
-const HomeTrend = ({id,title,overview,vote_average,release_date,first_air_date,name, poster_path}) => {
+const HomeContent = ({id,title,overview,vote_average,release_date,first_air_date,name, poster_path}) => {
 
     const [, dispatch] = useStateValue();
 
@@ -22,9 +23,11 @@ const HomeTrend = ({id,title,overview,vote_average,release_date,first_air_date,n
       
     return(
         <div className = "card" key = {id}>
+          <Link to={`Details/${title}`}>
         <img className="card--img"
          src= {`https://image.tmdb.org/t/p/w500${poster_path}`}
          alt="images" />
+         </Link>
          <div className = "card--content">
          <p>
          <i className="fas fa-star"></i>
@@ -39,4 +42,4 @@ const HomeTrend = ({id,title,overview,vote_average,release_date,first_air_date,n
     )
 }
 
-export default HomeTrend;
+export default HomeContent;
