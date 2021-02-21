@@ -4,6 +4,7 @@
     background-size: cover;
     background-repeat: no-repeat;
     height: 70vh;
+    margin-bottom: 20px;
   }
   .first-section h1{
     font-size: 1.9rem;
@@ -42,7 +43,7 @@
  .title{
      color: white;
      text-align: left;
-     margin: 15px 20px;
+     margin: 5px 20px;
      font-size: 0.9rem;
  }
  .line{
@@ -54,6 +55,7 @@
   .card{
     border-radius: 20px;
     background-color: #242323;
+    margin: 30px 0;
   }
   .trending-card{
     position: relative;
@@ -168,4 +170,32 @@
     left: 5%;
     width: 90%;
   }
+  }
+
+  /* Disover section*/
+
+  .discover-section{
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.644), rgba(0, 0, 0, 0.5)), url(../../images/Sonic.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  .discover-card{
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(20, 250px);
+    grid-gap: 60px;
+    overflow-y: hidden;
+  }
+  ::-webkit-scrollbar {
+    width: 12px;  
+    height: 13px;             
+  }
+  ::-webkit-scrollbar-track {
+    background: #141414;      
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: teal;   
+    border-radius: 20px;      
+    border: 2px solid white;  
   }

@@ -1,7 +1,7 @@
 
 
 export const initialState = {
-    watchlists: [],
+    watchlists: []
 };
 
 const reducer = (state, action) => {

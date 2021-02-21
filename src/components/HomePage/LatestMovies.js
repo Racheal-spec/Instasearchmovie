@@ -1,5 +1,6 @@
 import React, { useEffect, useState} from 'react';
 import HomeContent from './HomeContent';
+import './Home.css';
 
 const LatestMovies = () => {
 
@@ -26,15 +27,15 @@ return(
         <div className="line"></div>
       </div>
   <div className = "trending-card">
-      {latest.map((trend) => (
+      {latest.map((latest) => (
          <HomeContent
-          key= {trend.id}
-          id= {trend.id}
-          vote_average={trend.vote_average}
-          title = {trend.title}
-          release_date = {trend.release_date}
-          poster_path = {trend.poster_path}
-          overview = {trend.overview}
+          key= {latest.id}
+          id= {latest.id}
+          vote_average={latest.vote_average}
+          title = {latest.title}
+          release_date = {latest.release_date || latest.first_air_date}
+          poster_path = {latest.poster_path}
+          overview = {latest.overview}
          />
         ))}
        </div>

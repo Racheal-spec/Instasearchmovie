@@ -23,7 +23,7 @@ const HomeContent = ({id,title,overview,vote_average,release_date,first_air_date
       
     return(
         <div className = "card" key = {id}>
-          <Link to={`Details/${title}`}>
+          <Link to={`Details/${id}`}>
         <img className="card--img"
          src= {`https://image.tmdb.org/t/p/w500${poster_path}`}
          alt="images" />

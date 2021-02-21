@@ -1,9 +1,8 @@
 import React from 'react';
-import HomeDiscover from './HomeDiscover';
 import HomeSearch from './HomeSearch';
-import './Home.css';
 import LatestMovies from './LatestMovies';
-import MovieVideo from './MovieVideo';
+import MovieDiscover from './MovieDiscover';
+import HomeTrending from './HomeTrending';
 
 
 const Home = () =>{
@@ -11,9 +10,9 @@ const Home = () =>{
     return (
 <div>
     <HomeSearch />
-    <HomeDiscover />
-    <LatestMovies />
-    <MovieVideo />
+    <HomeTrending />
+    <MovieDiscover />
+    <LatestMovies />  
 </div>
     )
 }
