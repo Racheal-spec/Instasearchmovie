@@ -52,7 +52,7 @@ const HomeSearch = () => {
         </div>
 
         <div className={click? "card-overall" : "cancel"}>
-         {results?.length === 0 ? (
+         {results?.length < 1 ? (
           <h2>Opps! This movie is currently not available. Please check that the title is spelt correctly</h2>
           ) : (
           results&& results.filter((result) => result.poster_path).map((result) => (

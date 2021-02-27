@@ -1,18 +1,26 @@
 import React from 'react';
-import HomeSearch from './HomeSearch';
+import HomeTrending from './HomeTrending';
 import LatestMovies from './LatestMovies';
 import MovieDiscover from './MovieDiscover';
-import HomeTrending from './HomeTrending';
+import './Home.scss';
+/*
+import HomeSearch from './HomeSearch';
 
 
+
+*/
 const Home = () =>{
 
     return (
 <div>
+<HomeTrending />
+<MovieDiscover />
+<LatestMovies /> 
+    {/*
     <HomeSearch />
-    <HomeTrending />
-    <MovieDiscover />
-    <LatestMovies />  
+ 
+   
+    */}
 </div>
     )
 }

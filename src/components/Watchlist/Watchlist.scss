@@ -1,0 +1,59 @@
+.watch-msg{
+   padding: 10px 0;
+   background-color: rgb(241, 238, 238);
+   h1{
+    margin-bottom: 30px;
+    color: teal;
+    font-size: 1.8rem;
+}
+    .watchmsg-div{
+        img{
+            max-width: 30%;
+        }
+    }
+    .watchlist-card{
+        background-color: white;
+        color: black;
+        border: none;
+        margin: 10px 30px;
+    }
+}
+
+.watch-card{
+    display: flex;
+    .watchcard--img{
+        max-width: 25%;
+    }
+   .watchcard--content{
+    width: 75%;
+    text-align: left;
+    margin: 10px 30px;
+    .watch-btn{
+        width: 20%;
+        height: 40px;
+        border-radius: 8px;
+        margin: 10px 0;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #2c2929e5;
+        border: none;
+        color: teal;
+        cursor: pointer;
+    }
+    p{
+        font-weight: 400;
+        margin: 5px 0;
+    }
+    .fa-star{
+        margin: 5px 0;
+        color: burlywood;
+      }
+      h1{
+        font-size: 18px;
+        margin: 5px 0;
+      }
+   } 
+}
+

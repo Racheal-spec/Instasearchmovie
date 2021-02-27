@@ -1,33 +1,24 @@
-import React, { useEffect, useState} from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { loadMovies } from '../Actions/Action';
 import HomeContent from './HomeContent';
 
 const MovieVideo = () => {
 
-const[discover, setDiscover] = useState([]);
+const dispatch = useDispatch();
 
 useEffect(() => {
+dispatch(loadMovies());
+}, [dispatch])
 
-  const getDiscover = async () =>{
-    const Api_key = "6b00a02116b6c9fb27ad808ea1eaedbd";
-
-    const apiUrl = await fetch(`https://api.themoviedb.org/3/discover/tv?api_key=${Api_key}&language=en-US&sort_by=popularity.desc&page=1&timezone=America%2FNew_York&include_null_first_air_dates=false`);
-   
-    const data = await apiUrl.json();
-    setDiscover(data.results)
-    console.log(data);
-  }
-  getDiscover();
-
-}, [])
-
-
+const {Discover} = useSelector(state => state.Movies);
 return(
     <div className="discover-section">
       <div className="title">
         <h1>Discover new movies</h1>
       </div>
   <div className = "discover-card">
-      {discover.map((discover) => (
+      {Discover.map((discover) => (
          <HomeContent 
           key= {discover.id}
           vote_average={discover.vote_average}
@@ -37,7 +28,7 @@ return(
           overview = {discover.overview}
         
          />
-        ))}
+      ))}
        </div>
   </div>
 )

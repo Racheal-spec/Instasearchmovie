@@ -1,80 +1,53 @@
+import React from 'react';
+import './Details.scss';
+import { useSelector } from 'react-redux';
 
-import React, {useEffect, useState} from 'react';
-import { useParams } from 'react-router-dom';
-import { useStateValue } from '../Context/StateContext';
+const Details = () => {
 
-const Details = ({id,title,overview,vote_average,release_date,first_air_date,name, poster_path}) => {
-  const[, dispatch] = useStateValue();
-  const[details, setDetails] = useState([]);
-    const clickBtn= () => {
-        dispatch({
-          type: 'ADD_TO_WATCHLIST',
-          movie: {
-            id: id,
-            title: title,
-            vote_average: vote_average,
-            release_date: release_date,
-            poster_path: poster_path,
-            overview: overview
-          },
-        })
-      }
- 
-  let {slug} = useParams();
-/*  console.log(slug);*/
+  const {details} = useSelector(state => state.Detail);
 
-useEffect(() => {
- const getDetails = async () => {
-  const Api_key = "6b00a02116b6c9fb27ad808ea1eaedbd";
- 
-  const apiUrl = await fetch(`https://api.themoviedb.org/3/movie/${slug}?api_key=${Api_key}&append_to_response=videos&language=en-US&page=1&include_adult=false`);
-  const data = await apiUrl.json();
-  setDetails(data);
-  console.log(data);
- }
-getDetails();
-}, [slug])
+  const videos = useSelector(state => state.Detail.details.videos);
+  console.log(videos);
 
 
-   return(
-    <div className = "trending-card"> 
-   {Object.keys(details).map(()=>(
-  <div className = "watch-card" key = {id}>
-  <img className="watchcard--img"
-   src= {`https://image.tmdb.org/t/p/w500${poster_path}`}
-   alt="images" />
-   <div className = "watchcard--content">
-   <p>
-   <i className="fas fa-star"></i>
-     {vote_average}
-   </p>  
-   <h1>{title || name}</h1> 
-   <p>{release_date || first_air_date}</p>
-   <p>{overview}</p>
-   <button className="trend-btn" onClick={clickBtn}><i className="fas fa-plus"></i>Watchlist</button>
-  </div>
+  return(
+    <div className = "moviedetail-page" key = {details.id || details.Im}> 
+    <div className="detail-content">
+      <h1>{details.title || details.name}</h1>
+      <h4>{details.tagline}</h4>
+      <div className = "moviedetail-wrapper" >
+      <img className="card--img"
+       src= {`https://image.tmdb.org/t/p/w500${details.poster_path}`}
+       alt="images" />
+       <div className = "moviedetail-content">
+        <h5>Overview</h5>
+       <p>{details.overview}</p>
+       <h5>Rating</h5>
+       <p>
+       <i className="fas fa-star"></i>
+         {details.vote_average}
+       </p>
+       <h5>Release Date</h5>  
+       <p>{details.release_date || details.first_air_date}</p>
       </div>
-   
-   ))
+          </div>
+       <div className="movie-video">
+         { /*
+           videos && videos.map((video) => (
+          <div>
+              {video.id}
+            {video.size}
+            {video.site}
+          </div>
+           ))
+           */ }
+     
+       </div>
+       </div>
+         </div>
+  )
 }
-</div>
- 
-   )
-   
-}
-/*
-const oneDetail = (ownProps) => {
-  const[details, setDetails] = useState([]);
-  let {slug} = useParams();
 
-  return{
-     detail: details.find(detail => detail.slug === slug)
-      
-  }
-  
-}
-*/
-  export default Details;
-
+export default Details;
   
   

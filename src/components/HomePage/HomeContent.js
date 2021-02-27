@@ -1,11 +1,17 @@
 import React from 'react';
-import {useStateValue} from '../Context/StateContext';
+import { useDispatch } from 'react-redux';
+import {loadDetail} from '../Actions/detailAction';
 import {Link} from 'react-router-dom';
 
-const HomeContent = ({id,title,overview,vote_average,release_date,first_air_date,name, poster_path}) => {
 
-    const [, dispatch] = useStateValue();
+const HomeContent = ({id,title,imdb_id,overview,vote_average,release_date,first_air_date,name, poster_path}) => {
 
+  const dispatch = useDispatch();
+
+const detailHandler = () => {
+  dispatch(loadDetail(id))
+}
+  
     const clickBtn= () => {
         dispatch({
           type: 'ADD_TO_WATCHLIST',
@@ -20,14 +26,15 @@ const HomeContent = ({id,title,overview,vote_average,release_date,first_air_date
         })
       }
 
-      
+   
     return(
+      
         <div className = "card" key = {id}>
-          <Link to={`Details/${id}`}>
-        <img className="card--img"
-         src= {`https://image.tmdb.org/t/p/w500${poster_path}`}
-         alt="images" />
-         </Link>
+         <Link to={`Details/${id}`} onClick={detailHandler}>
+      <img className="card--img"
+       src= {`https://image.tmdb.org/t/p/w500${poster_path}`}
+       alt="images" />
+       </Link>
          <div className = "card--content">
          <p>
          <i className="fas fa-star"></i>
@@ -35,8 +42,7 @@ const HomeContent = ({id,title,overview,vote_average,release_date,first_air_date
          </p>  
          <h1>{title || name}</h1> 
          <p>{release_date || first_air_date}</p>
-         <button className="trend-btn" onClick={clickBtn}><i className="fas fa-plus"></i>Watchlist</button>
-         {/*<p>OVERVIEW:{trend.overview}</p>*/}
+         <button className="click-btn" onClick={clickBtn}><i className="fas fa-plus"></i>Watchlist</button>
         </div>
             </div>
     )

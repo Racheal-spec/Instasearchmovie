@@ -1,33 +1,26 @@
-import React, { useEffect, useState} from 'react';
+import React, { useEffect} from 'react';
 import HomeContent from './HomeContent';
-import './Home.css';
+import {loadMovies } from '../Actions/Action';
+import { useDispatch, useSelector } from 'react-redux';
 
 const LatestMovies = () => {
 
-const[latest, setLatest] = useState([]);
+const dispatch = useDispatch();
 
 useEffect(() => {
+dispatch(loadMovies());
+}, [dispatch])
 
-  const getMovies = async () =>{
-    const Api_key = "6b00a02116b6c9fb27ad808ea1eaedbd";
-    const apiUrl = await fetch(` https://api.themoviedb.org/3/movie/top_rated?api_key=${Api_key}&language=en-US&page=1&include_adult=false`);
-    const data = await apiUrl.json();
-    setLatest(data.results)
-    console.log(data);
-  }
-  getMovies();
-
-}, [])
-
-
+const {Latest} = useSelector(state => state.Movies);
 return(
-    <div className="search-section">
+    <div className="main-section">
       <div className="title">
         <h1>Top Rated Movies</h1>
         <div className="line"></div>
       </div>
-  <div className = "trending-card">
-      {latest.map((latest) => (
+  <div className = "main-card">
+    
+      {Latest.map((latest) => (
          <HomeContent
           key= {latest.id}
           id= {latest.id}
@@ -37,7 +30,7 @@ return(
           poster_path = {latest.poster_path}
           overview = {latest.overview}
          />
-        ))}
+      ))}
        </div>
   </div>
 )

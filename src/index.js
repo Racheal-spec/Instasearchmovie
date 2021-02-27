@@ -3,15 +3,20 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
 import App from './App';
-import { MovieProvider } from './components/Context/StateContext';
-import reducer, { initialState } from './components/Context/Reducer';
+import {createStore, applyMiddleware, compose} from 'redux';
+import rootReducer from './components/Reducers/index';
+import {Provider} from 'react-redux';
+import thunk from 'redux-thunk';
 
+const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+const store = createStore(rootReducer, composeEnhancer(applyMiddleware(thunk)));
 
 ReactDOM.render(
   <React.StrictMode>
-    <MovieProvider initialState={initialState} reducer={reducer}>
+    <Provider store={store}>
     <App />
-    </MovieProvider>
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );

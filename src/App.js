@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import './App.scss';
 import Nav from './components/Navbar/Nav';
 import Footer from './components/Footer/Footer';
 import {BrowserRouter as Router, Switch,Route} from 'react-router-dom';
@@ -17,8 +17,7 @@ const App = () => {
   <Route path= '/' exact component={Home} />
   <Route path= '/HomeSearch/:id' component={Home} />
   <Route path= '/watchlist' component={Watchlist} />
-  
-  <Route path= '/Details/:slug' component={Details} />
+  <Route path= '/:slug' component={Details} />
   </Switch>
     </div>
     <Footer />

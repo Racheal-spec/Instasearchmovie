@@ -1,21 +1,26 @@
 import React from 'react';
-import { useStateValue } from '../Context/StateContext';
+import { useSelector } from 'react-redux';
 import MovieList from './MovieList';
-import './Watchlist.css';
-const Watchlist = () => {
+import undraw from '../../images/undraw-pending.svg';
+import './Watchlist.scss';
 
-const[{watchlists}] = useStateValue();
+const Watchlist = () => {
+const {watchlists} = useSelector(state => state.Movies);
 
 return (
 <div className="watch-msg">
+    
     {watchlists?.length === 0 ? (
-        <h2>You haven't saved any movie yet</h2>
+        <div className="watchmsg-div">
+        <h1>Your watchlist is currently empty</h1>
+        <img src={undraw} alt='empty-watchlist' />
+        </div>
     ) : (
         <div>
-        <h2>Here are your saved movies</h2>
+        <h1>Here are your saved movies</h1>
         {watchlists.map((list)=>(
             <div className="watchlist-card"  key={list.id} >
-                <MovieList
+            <MovieList
             id = {list.id}
             title = {list.title}
             poster_path = {list.poster_path}
@@ -25,12 +30,14 @@ return (
             />
             </div>
         ))}
+      
         </div>
     )
 
 }
+ 
 </div> 
-
+ 
 )
 
 }

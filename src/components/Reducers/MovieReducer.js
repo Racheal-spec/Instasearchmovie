@@ -1,14 +1,25 @@
 
-
-export const initialState = {
+const initialState = {
+    Trends: [],
+    Latest: [],
+    Discover: [],
+    Search: [],
     watchlists: []
 };
 
-const reducer = (state, action) => {
+const MovieReducer = (state=initialState, action) => {
     console.log(action);
-
+    
     switch (action.type) {
-        case "ADD_TO_WATCHLIST":
+        case "FETCH_MOVIES":
+     
+     return{
+        ...state,
+        Trends: action.load.Trends,
+        Latest: action.load.Latest,
+        Discover: action.load.Discover
+     }  
+     case "ADD_TO_WATCHLIST":
 
         return {
             ...state,
@@ -27,11 +38,11 @@ const reducer = (state, action) => {
            return{
              ...state,
              watchlists: newList,
-           }
-     default:
+           } 
+     default:  
          return state;
 }
 
 }
 
-export default reducer;
+export default MovieReducer;
