@@ -4,14 +4,15 @@ import {loadDetail} from '../Actions/detailAction';
 import {Link} from 'react-router-dom';
 
 
-const HomeContent = ({id,title,imdb_id,overview,vote_average,release_date,first_air_date,name, poster_path}) => {
+const HomeContent = ({id,title,overview,vote_average,release_date,first_air_date,name, poster_path}) => {
 
+  
   const dispatch = useDispatch();
 
-const detailHandler = () => {
-  dispatch(loadDetail(id))
-}
-  
+  const detailHandler = () => {
+    dispatch(loadDetail(id))
+  }
+
     const clickBtn= () => {
         dispatch({
           type: 'ADD_TO_WATCHLIST',
@@ -30,7 +31,7 @@ const detailHandler = () => {
     return(
       
         <div className = "card" key = {id}>
-         <Link to={`Details/${id}`} onClick={detailHandler}>
+         <Link to={`Details/${title}`} onClick={detailHandler}>
       <img className="card--img"
        src= {`https://image.tmdb.org/t/p/w500${poster_path}`}
        alt="images" />

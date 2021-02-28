@@ -1,6 +1,9 @@
 const initialState = { 
-    details: {},
-    watchlists: []
+    details: {
+        genres: [],
+        production_companies: [],
+        videos: {results: []}
+    },
 }
 
 const detailReducer = (state=initialState, action) => {
@@ -12,12 +15,6 @@ const detailReducer = (state=initialState, action) => {
             ...state,
             details: action.load.details
         }
-        case "ADD_TO_WATCHLIST":
-
-            return {
-                ...state,
-                watchlists: [...state.watchlists, action.movie]
-            }
         default: 
            return state;
 

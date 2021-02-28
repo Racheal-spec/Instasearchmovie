@@ -21,8 +21,16 @@
 
 .watch-card{
     display: flex;
+   @media screen and (max-width:600px) {
+    flex-direction: column;  
+   }
     .watchcard--img{
         max-width: 25%;
+    @media screen and (max-width:600px) {
+      max-width: 100%;
+      height: 300px;
+      object-fit: cover;
+        }
     }
    .watchcard--content{
     width: 75%;
@@ -41,6 +49,9 @@
         border: none;
         color: teal;
         cursor: pointer;
+        @media screen and (max-width: 600px) {
+            width: 50%;
+        }
     }
     p{
         font-weight: 400;

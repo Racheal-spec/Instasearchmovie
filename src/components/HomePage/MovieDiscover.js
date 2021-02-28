@@ -12,6 +12,7 @@ dispatch(loadMovies());
 }, [dispatch])
 
 const {Discover} = useSelector(state => state.Movies);
+
 return(
     <div className="discover-section">
       <div className="title">
@@ -21,8 +22,9 @@ return(
       {Discover.map((discover) => (
          <HomeContent 
           key= {discover.id}
+          id= {discover.id}
           vote_average={discover.vote_average}
-          title = {discover.name}
+          title = {discover.title || discover.name}
           release_date = {discover.release_date|| discover.first_air_date}
           poster_path = {discover.poster_path}
           overview = {discover.overview}
