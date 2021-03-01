@@ -4,7 +4,7 @@ import { loadSearched } from '../Actions/Action';
 import './Home.scss';
 import HomeContent from './HomeContent';
 
-const HomeSearch = ({id}) => {
+const HomeSearch = () => {
     const[searches, setSearches] = useState('');
     const[click, setClick] = useState(false);
     const dispatch = useDispatch();
@@ -15,7 +15,7 @@ const HomeSearch = ({id}) => {
     }, [])//eslint-disable-line react-hooks/exhaustive-deps
          
     const updateResults = (e) =>{
-        setSearches(e.target.value);   
+        setSearches(e.target.value);  
       }
       const getResults = (e) =>{
         e.preventDefault();
@@ -39,14 +39,14 @@ const HomeSearch = ({id}) => {
           <button className = "search-btn" type = "submit">search</button>
         </form>
         </div>
-
+       
         <div className={click? "card-overall" : "cancel"}>
         <div className= "search-card">
         <div className="cancel-btn">
            <i className="far fa-times-circle" onClick={btnClick}></i>
            </div>
-         {Searched?.length < 1 ? (
-          <p>Opps! This movie is currently not available.</p>
+           {Searched.length === 0 ? (
+          <p>You haven't searched any movie</p>
           ) : (
           Searched && Searched.filter((result) => result.poster_path).map((result) => (
             <HomeContent
@@ -61,8 +61,12 @@ const HomeSearch = ({id}) => {
     )
          
         } 
+     
 </div>
+
       </div>
+      
+      
         </section>
         </div>
     )
