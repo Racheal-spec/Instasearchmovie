@@ -66,8 +66,23 @@
               margin: 20px 5px;
              }
              .genre{
+            
                li{
                  list-style: none;
+                
+                 p{
+                   background-color: teal;
+                   color: white;
+                   font-weight: 500;
+                   margin: 10px 0;
+                   width: 15%;
+                   padding: 5px;
+                   text-align: center;
+                   border-radius: 10px;
+                   @media screen and (max-width:600px) {
+                     width: 35%;
+                   }
+                 }
                }
              }
             .fa-star{
