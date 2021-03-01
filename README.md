@@ -21,6 +21,6 @@ LIVE DEMO
 
 TECHNICAL NOTES
 
-State management using React-Redux
-Responsive design using css-grid
-Environment set-up using Create-React-App
+1. State management using React-Redux
+2. Responsive design using css-grid
+3. Environment set-up using Create-React-App
