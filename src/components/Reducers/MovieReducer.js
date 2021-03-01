@@ -3,7 +3,7 @@ const initialState = {
     Trends: [],
     Latest: [],
     Discover: [],
-    Search: [],
+    Searched: [],
     watchlists: []
 };
 
@@ -19,6 +19,12 @@ const MovieReducer = (state=initialState, action) => {
         Latest: action.load.Latest,
         Discover: action.load.Discover
      }  
+     case "SEARCHED_MOVIES":
+
+     return{
+         ...state,
+         Searched: action.load.Searched
+     }
      case "ADD_TO_WATCHLIST":
 
         return {

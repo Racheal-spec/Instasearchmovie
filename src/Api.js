@@ -14,3 +14,7 @@ export const LatestMoviesURL = () => `${BASE_URL}${LatestMovies}`;
 export const DiscoverMoviesURL = () => `${BASE_URL}${DiscoverMovies}`;
 //MOVIE DETAILS
 export const movieDetailsURL = (movie_id) => `${BASE_URL}movie/${movie_id}?api_key=${Api_key}&language=en-US&include_adult=false&append_to_response=videos`;
+//SIMILAR MOVIES
+export const similarMovieURL = (movie_id) => `${BASE_URL}movie/${movie_id}/similar?api_key=${Api_key}&language=en-US&page=1`;
+//SEARCHED MOVIES
+export const searchedMoviesURL = (query) => `${BASE_URL}search/movie?api_key=${Api_key}&language=en-US&page=1&include_adult=false&query=${query}`

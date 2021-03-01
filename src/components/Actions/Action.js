@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {DiscoverMoviesURL, LatestMoviesURL, TrendingMoviesURL } from '../../Api';
+import {DiscoverMoviesURL, LatestMoviesURL, searchedMoviesURL, TrendingMoviesURL } from '../../Api';
 
 //ACTION CREATOR
 
@@ -17,6 +17,17 @@ export const loadMovies = () => async (dispatch) => {
         } 
       })
     
+  }
+
+  export const loadSearched = (query) => async (dispatch)=> {
+const searchedData = await axios.get(searchedMoviesURL(query))
+
+dispatch({
+  type: 'SEARCHED_MOVIES',
+  load: {
+    Searched: searchedData.data.results
+  }
+})
   }
  
  

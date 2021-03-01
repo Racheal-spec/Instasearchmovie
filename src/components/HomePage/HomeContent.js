@@ -30,8 +30,8 @@ const HomeContent = ({id,title,overview,vote_average,release_date,first_air_date
    
     return(
       
-        <div className = "card" key = {id}>
-         <Link to={`Details/${title}`} onClick={detailHandler}>
+      <div className = "card" key = {id}>
+      <Link to={`Details/${title}`} onClick={detailHandler}>
       <img className="card--img"
        src= {`https://image.tmdb.org/t/p/w500${poster_path}`}
        alt="images" />
@@ -41,7 +41,7 @@ const HomeContent = ({id,title,overview,vote_average,release_date,first_air_date
          <i className="fas fa-star"></i>
            {vote_average}
          </p>  
-         <h1>{title || name}</h1> 
+         <h5>{title || name}</h5> 
          <p>{release_date || first_air_date}</p>
          <button className="click-btn" onClick={clickBtn}><i className="fas fa-plus"></i>Watchlist</button>
         </div>

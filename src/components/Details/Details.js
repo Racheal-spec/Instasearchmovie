@@ -1,16 +1,21 @@
 import React from 'react';
 import './Details.scss';
 import { useSelector } from 'react-redux';
-import {Link} from 'react-router-dom';
 
 const Details = () => {
 
-  const {details} = useSelector(state => state.Detail);
+  const {details, isLoading} = useSelector(state => state.Detail);
   const videos = useSelector(state => state.Detail.details.videos);
-  console.log(videos);
 
+//Youtube trailer URL
+ const URL_YOUTUBE = 'https://www.youtube.com/embed/';
+
+ //Similar Movies
+ const similars = useSelector(state=> state.Detail.similars);
 
   return(
+    <>
+    {!isLoading && (
     <div className = "moviedetail-page" key = {details.id}> 
     <div className="detail-content">
       <h1>{details.title || details.name}</h1>
@@ -31,6 +36,7 @@ const Details = () => {
        <a href={details.homepage}>
       {details.homepage}
          </a>
+       <h5>Duration: {details.runtime} mins</h5>  
        <h5>Release Date</h5>  
        <p>{details.release_date || details.first_air_date}</p>
        <div className="genre">
@@ -43,8 +49,18 @@ const Details = () => {
           </div>
       </div>
           </div>
+          <h3>Trailers</h3>
+          <div className="movie-video">
+       {
+          videos.results.map((video) => (
+          <div key={video.id}>
+            <iframe title={video.title} src={`${URL_YOUTUBE}${video.key}`} allowFullScreen/>
+          </div>
+           ))
+          }
+       </div>
           <div className="companies">
-            <h5>Poduction Companies</h5>
+          <h3>Production Companies</h3>
             <div className="companies-list">
             {details.production_companies.map((companies) => (
               <li key={companies.id}>
@@ -54,25 +70,24 @@ const Details = () => {
             )) }
             </div>
           </div> 
-       <div className="movie-video">
-       {
-          videos.results.map((video) => (
-          <div key={video.id}>
-            {video.id}
-            {video.iso_639_1}
-            {video.iso_3166_1}
-            {video.key}
-            {video.name}
-            {video.size}
-            {video.site}
-            {video.type}
-          </div>
-           ))
-          }
-     
+      
        </div>
+       <h3>Movies like {details.title}</h3>
+       <div className="similar-section">
+       {
+           similars.results.map((similar)=> (
+             <div key={similar.id} className="similar-card">
+             <img className="card--img"
+            src= {`https://image.tmdb.org/t/p/w500${similar.poster_path}`}
+            alt="images" />
+            <h5>{similar.title}</h5>
+             </div>
+           ) )
+         }
        </div>
          </div>
+          )}
+         </>
   )
 }
 

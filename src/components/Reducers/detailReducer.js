@@ -4,6 +4,8 @@ const initialState = {
         production_companies: [],
         videos: {results: []}
     },
+    similars: {results: []},
+    isLoading: true
 }
 
 const detailReducer = (state=initialState, action) => {
@@ -13,8 +15,15 @@ const detailReducer = (state=initialState, action) => {
 
         return{
             ...state,
-            details: action.load.details
+            details: action.load.details,
+            similars: action.load.similars,
+            isLoading: false
         }
+        case 'LOADING_DETAIL':
+            return{
+                ...state,
+                isLoading: true
+            }
         default: 
            return state;
 

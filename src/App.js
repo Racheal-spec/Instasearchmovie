@@ -15,9 +15,9 @@ const App = () => {
   <Nav />
   <Switch>
   <Route path= '/' exact component={Home} />
-  <Route path= '/HomeSearch/:id' component={Home} />
   <Route path= '/watchlist' component={Watchlist} />
   <Route path= '/:slug' component={Details} />
+  <Route path= 'HomeSearch/:id' component={Details} />
   </Switch>
     </div>
     <Footer />
