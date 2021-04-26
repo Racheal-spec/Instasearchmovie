@@ -31,7 +31,7 @@ const HomeSearch = () => {
             <motion.h1 
             initial={{opacity: 0}}
             animate={{opacity: 1}}
-            transition={{delay: 0.5, duration: 2}}
+            transition={{delay: 0.5, duration: 1}}
             >Welcome to Instamoviesearch.<br /> 
             Now you can search your favourite movie and explore.
             </motion.h1>
