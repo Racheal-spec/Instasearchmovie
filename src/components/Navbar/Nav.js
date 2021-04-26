@@ -1,11 +1,16 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import './Nav.css';
+import {motion} from 'framer-motion';
+import './Nav.scss';
 const Nav = () => {
 
 return (
  <nav>
-   <div className="navbar">
+   <motion.div className="navbar"
+   initial={{y: -200}}
+   animate={{y: 0}}
+   transition={{delay: 0.2, type: 'spring', stiffness: 60}}
+   >
     <div className="logo">
     <Link to='/' className="link">
     <h2>IMS</h2>
@@ -21,7 +26,7 @@ return (
     </Link>
 </ul>
    </div>
-   </div>
+   </motion.div>
 </nav>
 )
 

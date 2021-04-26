@@ -21,9 +21,9 @@ const Details = () => {
       <h1>{details.title || details.name}</h1>
       <h4>{details.tagline}</h4>
       <div className = "moviedetail-wrapper" >
-      <img className="card--img"
+      <img className="lozad"
        src= {`https://image.tmdb.org/t/p/w500${details.poster_path}`}
-       alt="images" />
+      alt="images" />
        <div className = "moviedetail-content">
         <h5>Overview</h5>
        <p>{details.overview}</p>
@@ -42,7 +42,7 @@ const Details = () => {
        <div className="genre">
             <h5>Genres</h5>
             {details.genres.map((genre) => (
-              <li key={genre.id}>
+            <li key={genre.id}>
             <p>{genre.name}</p>
             </li>
             )) }
@@ -64,7 +64,7 @@ const Details = () => {
             <div className="companies-list">
             {details.production_companies.map((companies) => (
               <li key={companies.id}>
-             <img src={`https://image.tmdb.org/t/p/w500${companies.logo_path}`} alt={companies.name} />   
+             <img src={`https://image.tmdb.org/t/p/w500${companies.logo_path}`} className="lozad" alt={companies.name} />   
             <p>{companies.name}</p>
             </li>
             )) }
@@ -77,8 +77,9 @@ const Details = () => {
        {
            similars.results.map((similar)=> (
              <div key={similar.id} className="similar-card">
-             <img className="card--img"
+             <img
             src= {`https://image.tmdb.org/t/p/w500${similar.poster_path}`}
+            className="lozad"
             alt="images" />
             <h5>{similar.title}</h5>
              </div>

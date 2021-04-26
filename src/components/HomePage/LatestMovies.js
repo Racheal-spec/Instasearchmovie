@@ -1,6 +1,6 @@
 import React, { useEffect} from 'react';
 import HomeContent from './HomeContent';
-import {loadMovies } from '../Actions/Action';
+import {loadMovies} from '../Actions/Action';
 import { useDispatch, useSelector } from 'react-redux';
 
 const LatestMovies = () => {
@@ -14,6 +14,10 @@ dispatch(loadMovies());
 const {Latest} = useSelector(state => state.Movies);
 return(
     <div className="main-section">
+      <div className="heading">
+        <h2>Top rated movies, Tv and more</h2>
+        <p>Watch top rated hollywood, nollywood and bollywood hits for family and kids----All free</p>
+        </div>
       <div className="title">
         <h1>Top Rated Movies</h1>
         <div className="line"></div>

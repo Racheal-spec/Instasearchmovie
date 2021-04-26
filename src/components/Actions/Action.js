@@ -19,7 +19,7 @@ export const loadMovies = () => async (dispatch) => {
     
   }
 
-  export const loadSearched = (query) => async (dispatch)=> {
+export const loadSearched = (query) => async (dispatch)=> {
 const searchedData = await axios.get(searchedMoviesURL(query))
 
 dispatch({

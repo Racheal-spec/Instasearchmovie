@@ -2,11 +2,9 @@ import React, {useEffect, useState} from 'react';
 import { useDispatch } from 'react-redux';
 import {loadDetail} from '../Actions/detailAction';
 import {Link} from 'react-router-dom';
-import lozad from 'lozad';
-import {motion, useAnimation} from 'framer-motion';
-import {useInView} from 'react-intersection-observer';
 
-const HomeContent = ({id,title,overview,vote_average,release_date,first_air_date,name, poster_path}) => {
+
+const SearchList = ({id,title,overview,vote_average,release_date,first_air_date,name, poster_path}) => {
   const[itemAdded, setItemAdded] = useState(false);
   
   const dispatch = useDispatch();
@@ -33,47 +31,16 @@ const HomeContent = ({id,title,overview,vote_average,release_date,first_air_date
 useEffect(()=> {
   const timer = setTimeout(()=> {
     setItemAdded(false)
-  }, 1000)  
+  }, 3000)  
   return () => clearTimeout(timer)    
 })
-const observer = lozad(); 
-observer.observe();
-
-//Framer motion
-const {ref, inView} = useInView();
-const fadeIn = useAnimation();
-
-useEffect(()=> {
-  if(inView){
-    fadeIn.start({
-      opacity: 1,
-      y: 0,
-      transition: {
-        type: 'tween',
-        delay: 0.2,
-        duration: 1
-      }
-    })
-  }
-
-if(!inView){
-  fadeIn.start({
-    opacity: 0,
-    y: '-400'
-  })
-}
-
-}, [inView, fadeIn])
 
     return(
       <>
-      <motion.div ref={ref} className = "card" key = {id}
-        animate={fadeIn}
-        >
+      <div className = "card" key = {id}>
       <Link to={`Details/${title}`} onClick={detailHandler}>
       <img className="lozad" 
-       data-src= {`https://image.tmdb.org/t/p/w500${poster_path}`}
-       data-placeholder-background="grey"
+       src= {`https://image.tmdb.org/t/p/w500${poster_path}`}
        alt="images" />
        </Link>
          <div className = "card--content">
@@ -83,14 +50,7 @@ if(!inView){
          </p>  
          <h5>{title || name}</h5> 
          <p>{release_date || first_air_date}</p>
-         <motion.button className="click-btn" onClick={clickBtn}
-         whileHover={{
-           scale: 1.1,
-           textShadow: "0px 0px 1px rgb(255,255,255)",
-           boxShadow: "0px 0px 5px rgb(255,255,255)"
-         }}
-         ><i className="fas fa-plus"></i>Watchlist
-         </motion.button>
+         <button className="click-btn" onClick={clickBtn}><i className="fas fa-plus"></i>Watchlist</button>
          <div>
             {itemAdded && (
                    <div className= "added">
@@ -100,10 +60,10 @@ if(!inView){
                  )}
             </div>
         </div>
-            </motion.div>
+            </div>
            
             </>  
     )
 }
 
-export default HomeContent;
+export default SearchList;

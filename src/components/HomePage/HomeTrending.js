@@ -5,15 +5,18 @@ import {loadMovies} from '../Actions/Action';
 
 const HomeTrending = () => {
 
-  const dispatch = useDispatch();
+const dispatch = useDispatch();
 
 useEffect(() => {
 dispatch(loadMovies());
 }, [dispatch])
 
 const {Trends} = useSelector(state => state.Movies);
+
 return(
     <div className="main-section">
+      <div className="">
+      </div>
       <div className="title">
         <h1>Trending Movies</h1>
         <div className="line"></div>

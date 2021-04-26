@@ -5,6 +5,7 @@ import MovieDiscover from './MovieDiscover';
 import './Home.scss';
 import { useSelector } from 'react-redux';
 import HomeSearch from './HomeSearch';
+import Brands from './Brands';
 
 const Home = () =>{
 
@@ -16,8 +17,9 @@ const Home = () =>{
 <div>
 <HomeSearch /> 
 <HomeTrending />
-<MovieDiscover />
 <LatestMovies /> 
+<MovieDiscover />
+<Brands />
 </div>
 )}
 </>
