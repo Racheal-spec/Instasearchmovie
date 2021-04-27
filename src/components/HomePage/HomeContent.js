@@ -50,7 +50,6 @@ useEffect(()=> {
       y: 0,
       transition: {
         type: 'tween',
-        delay: 0.2,
         duration: 1
       }
     })

@@ -5,12 +5,18 @@ nav {
     align-items: center;
     justify-content: space-between; 
     margin: 0 40px;
+    @media screen and (max-width: 600px) {
+      margin: 0 10px;
+    }
       .logo{
-        h2{
-          color: white;
-          border: 2px solid teal;
-          border-radius: 6px;
-          padding: 3px 20px;
+        .link{
+          text-decoration: none;
+          h2{
+            color: white;
+            border: 2px solid teal;
+            border-radius: 6px;
+            padding: 3px 20px;
+          }
         }
       }
       .navbar-list{
