@@ -2,7 +2,11 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import {motion} from 'framer-motion';
 import './Nav.scss';
+import { useSelector } from 'react-redux';
+
 const Nav = () => {
+
+const {watchlists} = useSelector(state => state.Movies);
 
 return (
  <nav>
@@ -22,7 +26,7 @@ return (
     <li>Home</li>
     </Link>
     <Link to='/watchlist' className="link">
-    <li>Watchlist</li>
+    <li>Watchlist [{watchlists?.length}]</li>
     </Link>
 </ul>
    </div>

@@ -64,7 +64,10 @@ const Details = () => {
             <div className="companies-list">
             {details.production_companies.map((companies) => (
               <li key={companies.id}>
-             <img src={`https://image.tmdb.org/t/p/w500${companies.logo_path}`} className="lozad" alt={companies.name} />   
+             <img src={`https://image.tmdb.org/t/p/w500${companies.logo_path}`} 
+             className="lozad" alt={companies.name}
+             />   
+           
             <p>{companies.name}</p>
             </li>
             )) }
