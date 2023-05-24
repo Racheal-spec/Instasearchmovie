@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import "./Nav.scss";
 import { useAppSelector } from "../../services/hooks";
+import Button from "../Button";
 
 const Nav: React.FC = () => {
   const watchlists = useAppSelector(
@@ -18,7 +19,7 @@ const Nav: React.FC = () => {
       >
         <div className="logo">
           <Link to="/" className="link">
-            <h2>IMS</h2>
+            <h2>InstaMovieSearch</h2>
           </Link>
         </div>
         <div className="navbar-list">
@@ -27,8 +28,18 @@ const Nav: React.FC = () => {
               <li>Home</li>
             </Link>
             <Link to="/watchlist" className="link">
-              <li>Watchlist [{watchlists?.length}]</li>
+              <li>
+                Watchlist{" "}
+                <span className="listLengthSpan">{watchlists?.length}</span>
+              </li>
             </Link>
+          </ul>
+        </div>
+
+        <div className="navbar-list">
+          <ul className="navLists">
+            <Button primary>Sign Up</Button>
+            <Button outline>Login</Button>
           </ul>
         </div>
       </motion.div>

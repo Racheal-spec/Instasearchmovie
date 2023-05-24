@@ -1,63 +1,47 @@
-.first-section{
-    background:  linear-gradient(to bottom, rgba(0, 0, 0, 0.534), rgba(0, 0, 0, 0.5)), url(../../images/greenland.jpg);
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    min-height: 85vh;
-    margin-bottom: 20px;
-    @media screen and (max-width: 600px) {
-      padding-top: 20%;
-      min-height: 70vh;
-    }
-    h1{
-      font-size: 1.9rem;
-      color: white;
-      text-align: center;
-      padding-top: 17%;
-    }
-    .search-section{
-      .search-form{
-        padding: 20px;
-        margin-top: 40px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: row;
-        .search-input{
-          padding: 15px;
-          width: 60%;
-          border: .5px solid rgba(128, 128, 128, 0.692);
-        } 
-        .search-btn{
-          padding: 14px;
-          background-color: darkcyan;
-          color: white;
-          font-weight: bold;
-          font-size: 1rem;
-          cursor: pointer;
-          border: none;
-          &:hover{
-            background-color: teal;
-          }
+.searchResult {
+  .search-section {
+    .search-form {
+      padding: 20px;
+      margin-top: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: row;
+      .search-input {
+        padding: 15px;
+        width: 60%;
+        border: 0.5px solid rgba(128, 128, 128, 0.692);
+      }
+      .search-btn {
+        padding: 14px;
+        background-color: darkcyan;
+        color: white;
+        font-weight: bold;
+        font-size: 1rem;
+        cursor: pointer;
+        border: none;
+        &:hover {
+          background-color: teal;
         }
       }
     }
   }
-  
+}
+
 /*Search Card section*/
 
-.card-overall h2{
+.card-overall h2 {
   color: white;
 }
-.search-result{
+.search-result {
   background: #1a1a1a;
   color: white;
-  h2{
+  h2 {
     text-align: left;
     padding-left: 20px;
     padding-top: 10px;
   }
-  .search-card{
+  .search-card {
     display: grid;
     grid-template-columns: repeat(auto-fill, 150px);
     grid-gap: 20px;
@@ -66,13 +50,13 @@
     @media screen and (max-width: 600px) {
       grid-template-columns: repeat(auto-fill, 310px);
       position: relative;
-      z-index: 9; 
+      z-index: 9;
       background: #1a1a1a;
     }
-   }
+  }
 }
 
-.cancel-btn{
+.cancel-btn {
   position: absolute;
   right: 60px;
   z-index: 2;
@@ -82,139 +66,145 @@
     right: 0;
   }
 }
-.cancel{
+.cancel {
   display: none;
 }
 
-
-  /*MAIN SECTION STYLES*/
-  .main-section{
-    padding: 30px 0;
-    margin: 0 30px;
-    .heading{
-      padding: 20px 0;
-      h2,p{color: white; margin: 15px 0;}
-    }
-    .title{
+/*MAIN SECTION STYLES*/
+.main-section {
+  padding: 30px 0;
+  margin: 0 30px;
+  .heading {
+    padding: 20px 0;
+    h2,
+    p {
       color: white;
-      text-align: left;
-      margin: 5px 20px;
-      font-size: 0.6rem;
-      .line{
-        width: 80px;
-        height: 6px;
-        background-color: teal;
-        margin: 4px 0;
-      }
-    }
-    .main-card{
-      position: relative;
-      display: grid;
-      grid-template-columns: repeat(20, 200px);
-      grid-gap: 20px;
-      overflow-x: scroll;
+      margin: 15px 0;
     }
   }
- 
+  .title {
+    color: white;
+    text-align: left;
+    margin: 5px 20px;
+    font-size: 0.6rem;
+    .line {
+      width: 80px;
+      height: 6px;
+      background-color: teal;
+      margin: 4px 0;
+    }
+  }
+  .main-card {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(20, 200px);
+    grid-gap: 20px;
+    overflow-x: scroll;
+  }
+}
 
 //HOME CONTENT STYLES
 
-  .card{
-    border-radius: 20px;
-    background-color: #242323;
-    margin: 30px 0;
-    .lozad{
-      width:100%;
-      height: 30vh;
-      object-fit: cover;
+.card {
+  border-radius: 20px;
+  background-color: #242323;
+  margin: 30px 0;
+  .lozad {
+    width: 100%;
+    height: 30vh;
+    object-fit: cover;
+  }
+  .card--content {
+    color: white;
+    margin: 10px 10px;
+    text-align: left;
+    .fa-star {
+      margin: 5px 0;
+      color: burlywood;
     }
-    .card--content{
-      color: white;
-      margin: 10px 10px;
+    h5 {
+      margin: 5px 0;
       text-align: left;
-      .fa-star{
-        margin: 5px 0;
-        color: burlywood;
+    }
+    .click-btn {
+      width: 100%;
+      height: 40px;
+      border-radius: 8px;
+      margin: 10px 0;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #2c2929e5;
+      border: none;
+      color: teal;
+      cursor: pointer;
+      &:hover {
+        background-color: #252424c0;
       }
-      h5{
-        margin: 5px 0;
-        text-align: left;
-      }
-      .click-btn{
-        width: 100%;
-        height: 40px;
-        border-radius: 8px;
-        margin: 10px 0;
-        font-weight: bold;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background-color: #2c2929e5;
-        border: none;
-        color: teal;
-        cursor: pointer;
-        &:hover{
-          background-color: #252424c0;
-        }
-      }
-      .fa-plus{
-        font-size: 1.2rem;
-        margin: 0 4px;
-      }
-      .added{
-        background-color: teal;
-        color: white;
-        padding: 10px;
-        border-radius: 6px;
-        position: absolute;
-        z-index: 2;
-      }
+    }
+    .fa-plus {
+      font-size: 1.2rem;
+      margin: 0 4px;
+    }
+    .added {
+      background-color: teal;
+      color: white;
+      padding: 10px;
+      border-radius: 6px;
+      position: absolute;
+      z-index: 2;
     }
   }
-  
-  
-   /* Disover section*/
+}
 
-   .discover-section{
-    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.541), rgba(0, 0, 0, 0.425)), url(../../images/poor1.jpg);
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    .title{
-      color: white;
-      text-align: left;
-      margin: 5px 20px;
-      font-size: 0.7rem;
-    }
-    .discover-card{
-      position: relative;
-      display: grid;
-      grid-template-columns: repeat(20, 250px);
-      grid-gap: 60px;
-      overflow-y: hidden;
-      margin: 0 30px;
-    }
+/* Disover section*/
+
+.discover-section {
+  background-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.541),
+      rgba(0, 0, 0, 0.425)
+    ),
+    url(../../images/poor1.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  .title {
+    color: white;
+    text-align: left;
+    margin: 5px 20px;
+    font-size: 0.7rem;
   }
+  .discover-card {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(20, 250px);
+    grid-gap: 60px;
+    overflow-y: hidden;
+    margin: 0 30px;
+  }
+}
 
 //BRANDS
-.brands{
+.brands {
   padding: 30px 0;
-  .heading{
+  .heading {
     padding-bottom: 100px;
     @media screen and (max-width: 600px) {
       padding-bottom: 50px;
     }
-    h3{
+    h3 {
       color: white;
-      }
+    }
   }
-  .brands-container{
+  .brands-container {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     @media screen and (max-width: 600px) {
       grid-template-columns: repeat(2, 1fr);
     }
-    img{
+    img {
       max-width: 25%;
       @media screen and (max-width: 600px) {
         padding: 10px 0;
@@ -223,46 +213,44 @@
   }
 }
 
-  
 //MEDIA QUERIES
-  @media screen and (max-width: 600px){
-    .first-section{
-      height: 45vh;
-     h1{
-        font-size: 1.4rem;
-        padding-top: 60px;
+@media screen and (max-width: 600px) {
+  .first-section {
+    height: 45vh;
+    h1 {
+      font-size: 1.4rem;
+      padding-top: 60px;
+    }
+    .title {
+      font-size: 0.6rem;
+      .line {
+        width: 60px;
+        height: 5px;
       }
-      .title{
-        font-size: 0.6rem;
-        .line{
-          width: 60px;
-          height: 5px;
-        }
     }
-    }
-  .card-overall{
+  }
+  .card-overall {
     left: 40px;
     top: 40%;
     left: 5%;
     width: 90%;
   }
-  .search-card{
-     width: 85%;
-   }
+  .search-card {
+    width: 85%;
   }
+}
 
- 
-  //SCROLLBAR STYLES
+//SCROLLBAR STYLES
 
-  ::-webkit-scrollbar {
-    width: 8px;  
-    height: 7px;             
-  }
-  ::-webkit-scrollbar-track {
-    background: #141414;      
-  }
-  ::-webkit-scrollbar-thumb {
-    background-color: teal;   
-    border-radius: 20px;      
-    border: 2px solid white;  
-  }
+::-webkit-scrollbar {
+  width: 8px;
+  height: 7px;
+}
+::-webkit-scrollbar-track {
+  background: #141414;
+}
+::-webkit-scrollbar-thumb {
+  background-color: teal;
+  border-radius: 20px;
+  border: 2px solid white;
+}

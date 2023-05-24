@@ -6,14 +6,16 @@ import "./Home.scss";
 import Brands from "../../components/HomePage/Brands";
 import HomeSearch from "../../components/HomePage/HomeSearch";
 import { useFetchTrendsQuery } from "../../services/MoviesApiSlice/ApiSlice";
+import Herosection from "../../components/HomePage/HeroSection";
 
 const Home = () => {
   const { data = [], isLoading } = useFetchTrendsQuery();
-  console.log(data);
+  // console.log(data);
   return (
     <>
       {!isLoading && (
-        <div>
+        <div className="homewrapper">
+          <Herosection />
           <HomeSearch />
           <HomeTrending />
           <LatestMovies />

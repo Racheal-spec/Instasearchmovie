@@ -12,6 +12,7 @@ export type ContentProp = {
 export type DetailsResponse = {
   adult: boolean;
   backdrop_path: string;
+  name: string;
   belongs_to_collection: {
     backdrop_path: string;
     id: number;

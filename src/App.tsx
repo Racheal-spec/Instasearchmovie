@@ -21,25 +21,28 @@ const App = () => {
         <>
           <div className="app">
             <Nav />
+
             <React.Suspense fallback={<h2>Loading...</h2>}>
-              <Routes>
-                <Route path="/" element={<Home />} />
-                <Route
-                  path="/watchlist"
-                  element={
-                    <Watchlist
-                      id={0}
-                      title={""}
-                      overview={""}
-                      vote_average={0}
-                      release_date={""}
-                      poster_path={""}
-                    />
-                  }
-                />
-                {/* <Route path="HomeSearch/:id" element={<Details />} /> */}
-                <Route path="/Details/:id" element={<Details />} />
-              </Routes>
+              <div className="wrapper">
+                <Routes>
+                  <Route path="/" element={<Home />} />
+                  <Route
+                    path="/watchlist"
+                    element={
+                      <Watchlist
+                        id={0}
+                        title={""}
+                        overview={""}
+                        vote_average={0}
+                        release_date={""}
+                        poster_path={""}
+                      />
+                    }
+                  />
+                  {/* <Route path="HomeSearch/:id" element={<Details />} /> */}
+                  <Route path="/Details/:id" element={<Details />} />
+                </Routes>
+              </div>
             </React.Suspense>
           </div>
           <Footer />

@@ -1,49 +1,56 @@
+@import "../../../colors";
+
 nav {
-    padding: 10px 0;
-    position: fixed;
-    width: 100%;
-    background-color: black;
-    z-index: 2;
-  .navbar{
+  padding: 10px 0;
+  position: fixed;
+  width: 100%;
+  background-color: transparent;
+  z-index: 2;
+  .navbar {
     display: flex;
     align-items: center;
-    justify-content: space-between; 
+    justify-content: space-between;
     margin: 0 40px;
     @media screen and (max-width: 600px) {
       margin: 0 10px;
     }
-      .logo{
-        .link{
-          text-decoration: none;
-          h2{
-            color: white;
-            border: 2px solid teal;
-            border-radius: 6px;
-            padding: 3px 20px;
-          }
+    .logo {
+      .link {
+        text-decoration: none;
+        h2 {
+          color: white;
+          border-radius: 6px;
+          padding: 3px 5px;
         }
       }
-      .navbar-list{
-        .navLists{
-          display: flex;
-          font-weight: bold;
-          list-style: none;
-          margin: 15px 0;
-          .link{
-            text-decoration: none;
-            margin: 0 8px;
-            color: white;
-            h2{
-              font-family:Georgia, 'Times New Roman', Times, serif;
-            }
+    }
+    .navbar-list {
+      .navLists {
+        display: flex;
+        font-weight: bold;
+        list-style: none;
+        margin: 15px 0;
+        .link {
+          text-decoration: none;
+          margin: 0 8px;
+          color: white;
+          h2 {
+            font-family: Georgia, "Times New Roman", Times, serif;
+          }
+          .listLengthSpan {
+            background-color: $whiteText;
+            color: $textDark;
+            border: 1px solid teal;
+            padding: 0px 6px;
           }
         }
       }
     }
   }
+}
 
-@media screen and (max-width:600px){
-  nav{
+@media screen and (max-width: 600px) {
+  nav {
     min-height: 5vh;
   }
 }

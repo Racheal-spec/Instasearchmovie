@@ -1,0 +1,75 @@
+@import "../../../colors";
+
+.root {
+  * {
+    margin: 5px;
+  }
+}
+.root_enable {
+  height: 30px;
+  padding: 0px 13px;
+  border-radius: 2px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: "none";
+  text-transform: capitalize;
+  font-size: 16;
+  font-weight: bold;
+  border: none;
+  line-height: 1.5;
+  background-color: $primaryColor;
+  color: $whiteText;
+  cursor: pointer;
+  &:hover {
+    background-color: rgb(128, 117, 4);
+    border-color: $secondaryColor;
+    box-shadow: none;
+  }
+  &:active {
+    box-shadow: none;
+    background-color: $primaryColor;
+    border-color: $secondaryColor;
+  }
+}
+.root_disabled {
+  height: 35px;
+  padding: 0px 10px;
+  border-radius: 2px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: none;
+  text-transform: capitalize;
+  font-size: 16;
+  border: none;
+  line-height: 1.5;
+  color: #fff;
+  background-color: gray;
+  border-color: #c9c9c9;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+.outlineBtn {
+  background-color: transparent;
+  border-radius: 4;
+  color: $whiteText;
+  border: 1px solid $whiteText;
+  text-transform: capitalize;
+  cursor: pointer;
+  font-weight: bold;
+}
+.PrimaryColor {
+  background-color: $primaryColor;
+  color: $textDark;
+  cursor: pointer;
+  font-weight: bold;
+}
+.secondaryColor {
+  background-color: $secondaryColor;
+  color: $whiteText;
+  font-size: 14px;
+  //   border: 1px solid #a646dc;
+  font-weight: bold;
+  cursor: pointer;
+}

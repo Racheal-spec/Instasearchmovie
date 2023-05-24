@@ -48,7 +48,7 @@ export const moviesApiSlice = createApi({
           return DiscoverMovies;
         },
       }),
-      moviesDetails: builder.query<Partial<DetailsProp>, string>({
+      moviesDetails: builder.query<Partial<DetailsProp>, string | number>({
         query: (movie_id) => {
           return movieDetailsURL(movie_id);
         },
