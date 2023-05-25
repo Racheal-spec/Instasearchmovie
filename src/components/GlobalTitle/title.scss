@@ -1,0 +1,14 @@
+@import "../../../colors";
+
+.title {
+  color: $whiteText;
+  text-align: left;
+  margin: 5px 0px;
+  font-size: 0.8rem;
+  .line {
+    width: 50px;
+    height: 6px;
+    background-color: $secondaryColor;
+    margin: 4px 0;
+  }
+}

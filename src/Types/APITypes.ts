@@ -21,6 +21,13 @@ export interface MoviesType {
   total_results?: number;
 }
 
+export interface GenresType {
+  genres: {
+    id: number;
+    name: string;
+  }[];
+}
+
 export type VideosProp = {
   iso_639_1: string;
   iso_3166_1: string;

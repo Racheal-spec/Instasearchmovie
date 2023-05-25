@@ -53,7 +53,7 @@ const SearchList: React.FC<CommonContentProp> = ({
             alt="images"
           />
         </Link>
-        <div className="card--content">
+        <div className="cardcontent">
           <p>
             <i className="fas fa-star"></i>
             {vote_average}

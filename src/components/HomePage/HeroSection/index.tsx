@@ -9,10 +9,8 @@ import { DetailsProp } from "../../../Types/ComponentTypes/ComponentTypes";
 import { URL_YOUTUBE } from "../../../Api";
 import { VideosProp } from "../../../Types/APITypes";
 import TagButton from "../../Button/TagButton";
+import { bgProp } from "../../../Types/ComponentTypes/HeroSectionTypes";
 
-type bgProp = {
-  background: string;
-};
 const Herosection: React.FC = () => {
   const { data, isLoading } = useFetchTrendsQuery();
 
@@ -26,10 +24,6 @@ const Herosection: React.FC = () => {
   });
   const { data: moviedata } = useMoviesDetailsQuery(elementObj.id!);
 
-  //look for how to call the detailqueryhook inside a useeffect
-  //Apparently, I need the hook to be called everytime there's a new element from the timeout
-  //Then I can grab the id of that el and make my queryhook to fetch a new detail everytime the element changes
-  //Then I can grab the videos from there and display it.
   const [videotrailer, setVideoTrailer] = useState<VideosProp[]>([]);
   const [maintrailer, setMainTrailer] = useState<VideosProp>({
     name: "",
@@ -45,7 +39,7 @@ const Herosection: React.FC = () => {
   });
   // console.log(moviedata) ?.videos?.results!;
 
-  console.log(maintrailer);
+  // console.log(maintrailer);
 
   useEffect(() => {
     const videoArray = () => {
@@ -67,7 +61,6 @@ const Herosection: React.FC = () => {
 
       setTimeout(() => {
         setElementObj(element);
-
         setIsBackgroundRepeating(false);
         setIsBackgroundCover(false);
         setIsBackgroundPosition(false);
@@ -158,4 +151,4 @@ const Herosection: React.FC = () => {
   );
 };
 
-export default Herosection;
+export default React.memo(Herosection);

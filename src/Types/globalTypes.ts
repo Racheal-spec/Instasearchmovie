@@ -7,4 +7,16 @@ export type CommonContentProp = {
   first_air_date?: number;
   name?: string;
   poster_path: string;
+  genre_ids?: number[];
+  backdrop_path?: string;
+  // genres?: {
+  //   id: number;
+  //   name: string;
+  // }[];
+  // production_companies?: {
+  //   id: number;
+  //   logo_path: string;
+  //   name: string;
+  //   origin_country: string;
+  // }[];
 };

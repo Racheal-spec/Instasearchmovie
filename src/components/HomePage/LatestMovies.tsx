@@ -1,6 +1,6 @@
 import React from "react";
 import { useLatestMoviesQuery } from "../../services/MoviesApiSlice/ApiSlice";
-import HomeContent from "./HomeContent";
+import Card from "../Card/Card";
 
 const LatestMovies = () => {
   // const dispatch = useDispatch();
@@ -26,7 +26,7 @@ const LatestMovies = () => {
       </div>
       <div className="main-card">
         {Latest?.map((latest) => (
-          <HomeContent
+          <Card
             key={latest.id}
             id={latest.id}
             vote_average={latest.vote_average}
@@ -34,6 +34,8 @@ const LatestMovies = () => {
             release_date={latest.release_date}
             poster_path={latest.poster_path}
             overview={latest.overview}
+            genre_ids={latest.genre_ids}
+            backdrop_path={latest.backdrop_path}
           />
         ))}
       </div>

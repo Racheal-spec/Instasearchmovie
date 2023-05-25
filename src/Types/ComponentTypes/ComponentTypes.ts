@@ -7,6 +7,19 @@ export type ContentProp = {
   first_air_date?: number;
   name?: string;
   poster_path: string;
+  backdrop_path?: string;
+  genre_ids?: number[];
+  genIds?: number[];
+  // production_companies?: {
+  //   id: number;
+  //   logo_path: string;
+  //   name: string;
+  //   origin_country: string;
+  // }[];
+  // genres?: {
+  //   id: number;
+  //   name: string;
+  // }[];
 };
 
 export type DetailsResponse = {
@@ -70,6 +83,7 @@ export type DetailsResponse = {
   };
   vote_average: number;
   vote_count: number;
+  genIds?: number[];
 };
 
 export type SimilarsResponse = {

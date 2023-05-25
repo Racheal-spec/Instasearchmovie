@@ -1,7 +1,9 @@
 import React, { useState } from "react";
-import "../../Pages/Home/Home.scss";
-import SearchList from "./SearchList";
-import { useLazySearchMoviesQuery } from "../../services/MoviesApiSlice/ApiSlice";
+import SearchList from "../SearchList";
+import { useLazySearchMoviesQuery } from "../../../services/MoviesApiSlice/ApiSlice";
+import GlobalTitle from "../../GlobalTitle/title";
+import "./HomeSearch.scss";
+import Button from "../../Button";
 
 const HomeSearch: React.FC = () => {
   const [searches, setSearches] = useState("");
@@ -25,6 +27,14 @@ const HomeSearch: React.FC = () => {
 
   return (
     <div className="searchResult">
+      <GlobalTitle title="Search" />
+      <div>
+        <p className="searchDesc">
+          {" "}
+          Search your favourite movies Search your favourite movies Search your
+          favourite movies Search your favourite movies
+        </p>
+      </div>
       <div className="search-section">
         <form className="search-form" onSubmit={getResults}>
           <input
@@ -35,9 +45,9 @@ const HomeSearch: React.FC = () => {
             placeholder="Search your favourite movie"
             onChange={updateResults}
           />
-          <button type="submit" className="search-btn">
+          <Button type="submit" primary>
             search
-          </button>
+          </Button>
         </form>
 
         {results && (

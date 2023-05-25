@@ -8,8 +8,9 @@ import { useInView } from "react-intersection-observer";
 import { CommonContentProp } from "../../Types/globalTypes";
 import { addToWatchlist } from "../../features/Reducers/watchlistSlice";
 import { useAppDispatch } from "../../services/hooks";
+import "./Card.scss";
 
-const HomeContent: React.FC<CommonContentProp> = ({
+const Card: React.FC<CommonContentProp> = ({
   id,
   title,
   overview,
@@ -18,6 +19,8 @@ const HomeContent: React.FC<CommonContentProp> = ({
   first_air_date,
   name,
   poster_path,
+  backdrop_path,
+  genre_ids,
 }) => {
   const [itemAdded, setItemAdded] = useState(false);
 
@@ -33,9 +36,11 @@ const HomeContent: React.FC<CommonContentProp> = ({
     release_date: release_date,
     poster_path: poster_path,
     overview: overview,
+    backdrop_path,
+    genre_ids,
   };
   const clickBtn = () => {
-    dispatch(addToWatchlist(movie));
+    dispatch(addToWatchlist(movie!));
     setItemAdded(true);
   };
 
@@ -83,7 +88,7 @@ const HomeContent: React.FC<CommonContentProp> = ({
             alt="images"
           />
         </Link>
-        <div className="card--content">
+        <div className="cardcontent">
           <p>
             <i className="fas fa-star"></i>
             {vote_average}
@@ -114,4 +119,4 @@ const HomeContent: React.FC<CommonContentProp> = ({
   );
 };
 
-export default HomeContent;
+export default Card;

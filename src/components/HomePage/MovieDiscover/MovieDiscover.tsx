@@ -1,6 +1,7 @@
 import React from "react";
-import { useDiscoverMoviesQuery } from "../../services/MoviesApiSlice/ApiSlice";
-import HomeContent from "./HomeContent";
+import { useDiscoverMoviesQuery } from "../../../services/MoviesApiSlice/ApiSlice";
+import Card from "../../Card/Card";
+import "./MovieDiscover.scss";
 
 // import { loadMovies } from "../MoviesApiSlice/ApiSlice";
 // import HomeContent from "./HomeContent";
@@ -23,7 +24,7 @@ const MovieVideo = () => {
       </div>
       <div className="discover-card">
         {Discover?.map((discover) => (
-          <HomeContent
+          <Card
             key={discover.id}
             id={discover.id}
             vote_average={discover.vote_average}
@@ -31,6 +32,8 @@ const MovieVideo = () => {
             release_date={discover.release_date}
             poster_path={discover.poster_path}
             overview={discover.overview}
+            genre_ids={discover.genre_ids}
+            backdrop_path={discover.backdrop_path}
           />
         ))}
       </div>

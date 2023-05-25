@@ -1,11 +1,12 @@
 import React from "react";
-import prime from "../../images/amazon.png";
-import vudu from "../../images/vudu.svg";
-import tmdb from "../../images/tmdb.svg";
-import kanopy from "../../images/kanopy-logo.svg";
-import netflix from "../../images/netflixmod.png";
+import prime from "../../../images/amazon.png";
+import vudu from "../../../images/vudu.svg";
+import tmdb from "../../../images/tmdb.svg";
+import kanopy from "../../../images/kanopy-logo.svg";
+import netflix from "../../../images/netflixmod.png";
+import "./Brands.scss";
 
-const Brands = () => {
+const Brands: React.FC = () => {
   return (
     <div className="brands">
       <div className="heading">

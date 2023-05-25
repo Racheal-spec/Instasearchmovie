@@ -1,21 +1,7 @@
-//import { Button } from '@mui/material';
 import classNames from "classnames";
+import { ButtonProp } from "../../Types/ComponentTypes/ButtonType";
 import "./index.scss";
 
-type ButtonProp = {
-  primary: boolean;
-  secondary: boolean;
-  outline: boolean;
-  disabled: boolean;
-  hover: boolean;
-  props: {
-    className: string;
-  };
-  children: React.ReactNode;
-  onClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
-  onMouseLeave: (event: React.MouseEvent<HTMLButtonElement>) => void;
-  onMouseEnter: (event: React.MouseEvent<HTMLButtonElement>) => void;
-};
 const Button: React.FC<Partial<ButtonProp>> = ({
   children,
   onClick,
@@ -23,6 +9,7 @@ const Button: React.FC<Partial<ButtonProp>> = ({
   outline,
   primary,
   secondary,
+  type,
   onMouseEnter,
   onMouseLeave,
   ...props
@@ -34,6 +21,7 @@ const Button: React.FC<Partial<ButtonProp>> = ({
         onMouseLeave={onMouseLeave}
         disabled={disabled}
         onClick={onClick}
+        type={type}
         {...props}
         className={classNames("root_enable", {
           outlineBtn: Boolean(outline),

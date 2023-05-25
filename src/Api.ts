@@ -14,6 +14,10 @@ export const TrendingMovies = `trending/all/day?api_key=${Api_key}&language=en-U
 export const LatestMovies = `movie/top_rated?api_key=${Api_key}&language=en-US&page=1&include_adult=false`;
 export const DiscoverMovies = `discover/movie?api_key=${Api_key}&language=en-US&sort_by=popularity.desc&page=1&timezone=America%2FNew_York&include_null_first_air_dates=false`;
 
+//MOVIES GENRES
+
+export const GenreListURL = `genre/movie/list?api_key=${Api_key}&language=en-US&sort_by=popularity.desc&page=1&timezone=America%2FNew_York&include_null_first_air_dates=false`;
+
 //MOVIE DETAILS
 export const movieDetailsURL = (movie_id: string | number) =>
   `movie/${movie_id}?api_key=${Api_key}&language=en-US&include_adult=false&append_to_response=videos`;

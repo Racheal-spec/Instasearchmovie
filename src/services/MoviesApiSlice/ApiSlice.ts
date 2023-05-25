@@ -1,6 +1,7 @@
 import {
   BASE_URL,
   DiscoverMovies,
+  GenreListURL,
   LatestMovies,
   movieDetailsURL,
   searchedMoviesURL,
@@ -11,7 +12,7 @@ import {
 //ACTION CREATOR
 
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { MoviesType } from "../../Types/APITypes";
+import { GenresType, MoviesType } from "../../Types/APITypes";
 import {
   DetailsProp,
   SimilarsResponse,
@@ -58,6 +59,11 @@ export const moviesApiSlice = createApi({
           return similarMovieURL(movie_id);
         },
       }),
+      genresMoviesList: builder.query<GenresType, void>({
+        query: () => {
+          return GenreListURL;
+        },
+      }),
     };
   },
 });
@@ -69,4 +75,5 @@ export const {
   useLazySearchMoviesQuery,
   useMoviesDetailsQuery,
   useSimilarMoviesQuery,
+  useGenresMoviesListQuery,
 } = moviesApiSlice;

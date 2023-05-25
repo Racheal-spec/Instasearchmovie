@@ -1,5 +1,6 @@
 import React from "react";
 import { useParams } from "react-router-dom";
+import { URL_YOUTUBE } from "../../Api";
 import {
   useMoviesDetailsQuery,
   useSimilarMoviesQuery,
@@ -11,9 +12,6 @@ const Details: React.FC<DetailsProp> = () => {
   let idParam = useParams();
   let detailId: string = idParam.id!;
   const { data, isLoading } = useMoviesDetailsQuery(detailId);
-
-  //Youtube trailer URL
-  const URL_YOUTUBE = "https://www.youtube.com/embed/";
 
   //  //Similar Movies
   const { data: similars, isLoading: isLoadingSimilar } =
