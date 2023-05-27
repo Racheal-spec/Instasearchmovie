@@ -76,4 +76,5 @@ export const {
   useMoviesDetailsQuery,
   useSimilarMoviesQuery,
   useGenresMoviesListQuery,
+  useSearchMoviesQuery,
 } = moviesApiSlice;

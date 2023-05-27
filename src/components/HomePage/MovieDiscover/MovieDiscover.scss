@@ -1,27 +1,65 @@
+@import "../../../../colors";
+
 /* Disover section*/
 
 .discover-section {
-  background-image: linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 0.541),
-      rgba(0, 0, 0, 0.425)
-    ),
-    url(../../../images/poor1.jpg);
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
+  padding: 20px 0;
   .title {
-    color: white;
+    color: $whiteText;
     text-align: left;
-    margin: 5px 20px;
-    font-size: 0.7rem;
+    width: 40%;
+    padding: 5px 0;
+    font-size: 1rem;
   }
-  .discover-card {
-    position: relative;
+  .discoverWrapper {
     display: grid;
-    grid-template-columns: repeat(20, 250px);
-    grid-gap: 60px;
-    overflow-y: hidden;
-    margin: 0 30px;
+    grid-template-columns: 2fr 1fr;
+    padding: 30px 0;
+    .discover-card {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      // grid-auto-rows: minmax(100px, auto);
+      grid-gap: 12px;
+      .discoverDiv:nth-child(1) {
+        grid-column: 1 / 3;
+        grid-row: 1 / 3;
+      }
+      .discoverDiv:nth-child(2) {
+        grid-column: 3 / 4;
+        grid-row: 1 / 2;
+      }
+      .discoverDiv:nth-child(3) {
+        grid-column: 4 / 5;
+        grid-row: 1 / 2;
+      }
+      .discoverDiv:nth-child(4) {
+        grid-column: 3 / 4;
+        grid-row: 2 / 3;
+      }
+      .discoverDiv:nth-child(5) {
+        grid-column: 4 / 5;
+        grid-row: 2 / 3;
+      }
+    }
+    .moreDiv {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      color: $whiteText;
+      padding: 70px 50px;
+      p {
+        text-align: left;
+        font-size: 0.9rem;
+        padding: 10px 5px;
+      }
+      h4 {
+        padding: 0 5px;
+      }
+      .btnStyle {
+        display: flex;
+        align-items: center;
+        padding: 6px 0;
+      }
+    }
   }
 }

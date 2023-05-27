@@ -9,6 +9,8 @@ export type CommonContentProp = {
   poster_path: string;
   genre_ids?: number[];
   backdrop_path?: string;
+  original_language?: string;
+  adult?: boolean;
   // genres?: {
   //   id: number;
   //   name: string;

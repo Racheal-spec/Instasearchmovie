@@ -9,6 +9,7 @@ const Button: React.FC<Partial<ButtonProp>> = ({
   outline,
   primary,
   secondary,
+  outlineDarkBtn,
   type,
   onMouseEnter,
   onMouseLeave,
@@ -26,6 +27,7 @@ const Button: React.FC<Partial<ButtonProp>> = ({
         className={classNames("root_enable", {
           outlineBtn: Boolean(outline),
           root_disabled: Boolean(disabled),
+          outlineDarkBtn: Boolean(outlineDarkBtn),
           PrimaryColor: Boolean(primary),
           secondaryColor: Boolean(secondary),
           [props?.props?.className!]: true,

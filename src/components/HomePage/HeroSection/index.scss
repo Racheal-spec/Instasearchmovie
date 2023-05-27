@@ -5,6 +5,7 @@
 .first-section {
   height: 100vh;
   position: relative;
+  padding: 0 30px;
   // margin-bottom: 20px;
   @media screen and (max-width: 600px) {
     padding-top: 20%;
@@ -72,7 +73,7 @@
     .iframeStyle {
       position: absolute;
       bottom: 2%;
-      right: 20px;
+      right: 70px;
       // background-color: red;
       // padding: 0 20px;
       // &::after {

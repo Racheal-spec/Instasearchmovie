@@ -1,6 +1,7 @@
 export type ButtonProp = {
   primary: boolean;
   secondary: boolean;
+  outlineDarkBtn: boolean;
   outline: boolean;
   disabled: boolean;
   hover: boolean;

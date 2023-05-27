@@ -12,7 +12,7 @@
   }
   .brands-container {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(8, 1fr);
     @media screen and (max-width: 600px) {
       grid-template-columns: repeat(2, 1fr);
     }

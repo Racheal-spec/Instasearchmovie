@@ -1,0 +1,34 @@
+@import "../../../../colors";
+
+.joinWrapper {
+  padding: 30px 0;
+  .JoinDiv {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 70px;
+    background: linear-gradient(
+      to bottom,
+      $greenGradient -45%,
+      $yellowGradient
+    );
+    .joinDesc {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-start;
+      color: $whiteText;
+      p {
+        width: 90%;
+        padding: 15px 0;
+        text-align: left;
+      }
+    }
+    img {
+      position: relative;
+      z-index: -1;
+      padding: 0 20px;
+      width: 80%;
+    }
+  }
+}

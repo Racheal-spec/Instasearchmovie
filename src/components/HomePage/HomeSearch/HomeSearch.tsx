@@ -1,28 +1,26 @@
 import React, { useState } from "react";
-import SearchList from "../SearchList";
 import { useLazySearchMoviesQuery } from "../../../services/MoviesApiSlice/ApiSlice";
 import GlobalTitle from "../../GlobalTitle/title";
 import "./HomeSearch.scss";
 import Button from "../../Button";
+import { useNavigate } from "react-router-dom";
+import { setSearches } from "../../../features/Reducers/searchSlice";
+import { useAppDispatch, useAppSelector } from "../../../services/hooks";
 
 const HomeSearch: React.FC = () => {
-  const [searches, setSearches] = useState("");
-  const [results, setResults] = useState(false);
-  const [click, setClick] = useState(false);
-  const [searchtrigger, { data, isLoading, isError }] =
-    useLazySearchMoviesQuery();
+  const [searchtrigger] = useLazySearchMoviesQuery();
+  const navigate = useNavigate();
+  const searches = useAppSelector((state) => state.searches.initialSearch);
+  const dispatch = useAppDispatch();
 
   const updateResults = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearches(e.target.value);
+    dispatch(setSearches(e.target.value));
   };
   const getResults = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     searchtrigger(searches);
-    setResults(true);
+    navigate(`/search?query=${searches}`);
     setSearches("");
-  };
-  const btnClick = () => {
-    setClick(!click);
   };
 
   return (
@@ -49,31 +47,6 @@ const HomeSearch: React.FC = () => {
             search
           </Button>
         </form>
-
-        {results && (
-          <div className="search-result">
-            <div className={click ? "cancel" : ""}>
-              <h2>Search Results</h2>
-              <div className="search-card">
-                <div className="cancel-btn">
-                  <i className="far fa-times-circle" onClick={btnClick}></i>
-                </div>
-                {data?.results
-                  .filter((result) => result.poster_path)
-                  .map((result) => (
-                    <SearchList
-                      key={result.id}
-                      id={result.id}
-                      vote_average={result.vote_average}
-                      title={result.title}
-                      release_date={result.release_date}
-                      poster_path={result.poster_path}
-                    />
-                  ))}
-              </div>
-            </div>
-          </div>
-        )}
       </div>
     </div>
   );

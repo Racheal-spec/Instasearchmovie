@@ -1,40 +1,49 @@
-footer{
-    background-color: #1a1a1a;
-    min-height: 40vh;
-    .footerClass{
-     ul{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        padding: 50px 0;
-        h1{
-        color: white;
-        font-weight: bold;
-        border: 2px solid teal;
-        border-radius: 6px;
-        padding: 3px 20px;
+@import "../../../colors";
+
+footer {
+  background-color: $inputBg;
+  min-height: 30vh;
+  .footerClass {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 80px 70px;
+    .footerDesc {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      h2 {
+        color: $whiteText;
         margin: 10px 0;
-        }
-        p{
-          color: grey;
-          font-weight: bold;
-          font-size: 0.8rem;
-          padding: 10px 30px;
-          @media screen  and (max-width: 600px) {
-            text-align: center;
-          }
-        }
-        .icons{
-          .fa-linkedin-in, .fa-instagram, .fa-twitter, .fa-github{
-            color: rgba(255, 255, 255, 0.692);
-            font-size: 1.4rem;
-            margin: 20px 15px;
-          }
+        text-align: left;
+      }
+      p {
+        color: $whiteText;
+        font-size: 0.8rem;
+        padding: 10px 0px;
+        width: 80%;
+        @media screen and (max-width: 600px) {
+          text-align: center;
         }
       }
     }
+    .footerIcons {
+      p {
+        color: $whiteText;
+      }
+      .icons {
+        .fa-linkedin-in,
+        .fa-instagram,
+        .fa-twitter,
+        .fa-github {
+          color: rgba(255, 255, 255, 0.692);
+          font-size: 1.4rem;
+          margin: 20px 15px;
+        }
+      }
+      .footercopy {
+        color: $footerGreyBg;
+      }
+    }
   }
- 
-  
-  
+}

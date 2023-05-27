@@ -23,6 +23,15 @@ const Brands: React.FC = () => {
           <img src={tmdb} alt="amazon-prime"></img>
         </div>
         <div className="logo">
+          <img src={tmdb} alt="amazon-prime"></img>
+        </div>
+        <div className="logo">
+          <img src={tmdb} alt="amazon-prime"></img>
+        </div>
+        <div className="logo">
+          <img src={tmdb} alt="amazon-prime"></img>
+        </div>
+        <div className="logo">
           <img src={kanopy} alt="amazon-prime"></img>
         </div>
         <div className="logo">

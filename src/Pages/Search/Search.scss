@@ -1,0 +1,65 @@
+@import "../../../colors";
+
+.searchsection {
+  padding: 100px 65px;
+  .search-input {
+    padding: 13px;
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    background-color: $inputBg;
+    color: $whiteText;
+    border: 1px solid $inputStroke;
+    position: relative;
+    &::placeholder {
+      color: $greyText;
+    }
+  }
+  .cancelX {
+    font-weight: bold;
+    color: $greyText;
+    position: absolute;
+    right: 6%;
+    top: 15%;
+    z-index: 1;
+    cursor: pointer;
+  }
+  .searchImgDiv {
+    padding: 100px 0;
+    p {
+      color: $greyText;
+      padding: 10px 0;
+    }
+    img {
+      width: 25%;
+    }
+  }
+
+  .card-overall h2 {
+    color: white;
+  }
+  .search-result {
+    color: white;
+    padding: 40px 0;
+    h3 {
+      text-align: left;
+      padding-top: 10px;
+    }
+    span {
+      color: $primaryColor;
+    }
+    .search-card {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      grid-gap: 20px;
+      //   padding: 20px;
+      color: white;
+      @media screen and (max-width: 600px) {
+        grid-template-columns: repeat(auto-fill, 310px);
+        position: relative;
+        z-index: 9;
+        background: #1a1a1a;
+      }
+    }
+  }
+}

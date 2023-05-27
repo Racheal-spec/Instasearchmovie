@@ -1,5 +1,5 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import "./Nav.scss";
 import { useAppSelector } from "../../services/hooks";
@@ -9,8 +9,19 @@ const Nav: React.FC = () => {
   const watchlists = useAppSelector(
     (state) => state.watchlist.initialWatchlist
   );
+  const [color, setColor] = useState("");
+  let location = useLocation();
+
+  useEffect(() => {
+    if (location.pathname !== "/") {
+      setColor("#2c2e2e");
+    } else {
+      setColor("transparent");
+    }
+  }, [color, location.pathname]);
+
   return (
-    <nav>
+    <nav style={{ backgroundColor: color }}>
       <motion.div
         className="navbar"
         initial={{ y: -200 }}
@@ -19,7 +30,7 @@ const Nav: React.FC = () => {
       >
         <div className="logo">
           <Link to="/" className="link">
-            <h2>InstaMovieSearch</h2>
+            <h3>InstaMovieSearch</h3>
           </Link>
         </div>
         <div className="navbar-list">

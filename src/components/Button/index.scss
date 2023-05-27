@@ -59,6 +59,15 @@
   cursor: pointer;
   font-weight: bold;
 }
+.outlineDarkBtn {
+  background-color: $btnDarkOutline;
+  border-radius: 4;
+  color: $whiteText;
+  border: 1px solid $black;
+  text-transform: capitalize;
+  cursor: pointer;
+  font-weight: bold;
+}
 .PrimaryColor {
   background-color: $primaryColor;
   color: $textDark;

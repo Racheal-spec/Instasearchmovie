@@ -8,9 +8,10 @@ import HomeSearch from "../../components/HomePage/HomeSearch/HomeSearch";
 import { useFetchTrendsQuery } from "../../services/MoviesApiSlice/ApiSlice";
 import Herosection from "../../components/HomePage/HeroSection";
 import Lists from "../../components/Lists/Lists";
+import Join from "../../components/HomePage/JoinUs/Join";
 
 const Home = () => {
-  const { data = [], isLoading } = useFetchTrendsQuery();
+  const { isLoading } = useFetchTrendsQuery();
   // console.log(data);
   return (
     <>
@@ -21,10 +22,10 @@ const Home = () => {
             <HomeSearch />
             <HomeTrending />
             <Lists />
-
             <MovieDiscover />
             <LatestMovies />
             <Brands />
+            <Join />
           </div>
         </div>
       )}

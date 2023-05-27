@@ -94,7 +94,7 @@ const MovieCard: React.FC<CommonContentProp> = ({
         <div className="moviescardcontent">
           <p className="rating">
             <i className="fas fa-star"></i>
-            {vote_average}
+            {vote_average.toPrecision(2)}
           </p>
           <h5>{title || name}</h5>
           <p className="releasedate">

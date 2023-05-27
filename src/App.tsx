@@ -6,10 +6,13 @@ import Footer from "./components/Footer/Footer";
 import Loader from "./components/Loader/Loader";
 import Home from "./Pages/Home/Home";
 import { Route, Routes } from "react-router-dom";
+import Search from "./Pages/Search/Search";
+import { useAppSelector } from "./services/hooks";
 const Watchlist = React.lazy(() => import("./components/Watchlist/Watchlist"));
 const Details = React.lazy(() => import("./Pages/Details/Details"));
 const App = () => {
   const [isLoading, setIsloading] = useState(true);
+  const searches = useAppSelector((state) => state.searches.initialSearch);
 
   useEffect(() => {
     setIsloading(false);
@@ -39,7 +42,12 @@ const App = () => {
                       />
                     }
                   />
-                  {/* <Route path="HomeSearch/:id" element={<Details />} /> */}
+                  <Route path="/search" element={<Search />} />
+                  <Route
+                    path={`/search?query=${searches}`}
+                    element={<Search />}
+                  />
+                  <Route path="/search/Details/:id" element={<Details />} />
                   <Route path="/Details/:id" element={<Details />} />
                 </Routes>
               </div>

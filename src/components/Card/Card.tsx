@@ -21,6 +21,8 @@ const Card: React.FC<CommonContentProp> = ({
   poster_path,
   backdrop_path,
   genre_ids,
+  original_language,
+  adult,
 }) => {
   const [itemAdded, setItemAdded] = useState(false);
 
@@ -77,6 +79,8 @@ const Card: React.FC<CommonContentProp> = ({
     }
   }, [inView, fadeIn]);
 
+  const newReleaseDate = new Date(release_date).toDateString();
+
   return (
     <>
       <motion.div ref={ref} className="card" key={id} animate={fadeIn}>
@@ -89,30 +93,11 @@ const Card: React.FC<CommonContentProp> = ({
           />
         </Link>
         <div className="cardcontent">
-          <p>
-            <i className="fas fa-star"></i>
-            {vote_average}
+          <h4>{title || name}</h4>
+          <p className="lang">
+            {original_language} | {adult === false ? "PG" : ""}
           </p>
-          <h5>{title || name}</h5>
-          <p>{release_date || first_air_date}</p>
-          <motion.button
-            className="click-btn"
-            onClick={clickBtn}
-            whileHover={{
-              scale: 1.1,
-              textShadow: "0px 0px 1px rgb(255,255,255)",
-              boxShadow: "0px 0px 5px rgb(255,255,255)",
-            }}
-          >
-            <i className="fas fa-plus"></i>Watchlist
-          </motion.button>
-          <div>
-            {itemAdded && (
-              <div className="added">
-                <h6>Movie added to watchlist</h6>
-              </div>
-            )}
-          </div>
+          <p>Released: {newReleaseDate || first_air_date}</p>
         </div>
       </motion.div>
     </>
