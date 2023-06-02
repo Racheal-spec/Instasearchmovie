@@ -7,16 +7,16 @@ import {
   searchedMoviesURL,
   similarMovieURL,
   TrendingMovies,
-} from "../../Api";
+} from "../../../Api";
 
 //ACTION CREATOR
 
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { GenresType, MoviesType } from "../../Types/APITypes";
+import { GenresType, MoviesType } from "../../../Types/APITypes";
 import {
   DetailsProp,
   SimilarsResponse,
-} from "../../Types/ComponentTypes/ComponentTypes";
+} from "../../../Types/ComponentTypes/ComponentTypes";
 
 export const moviesApiSlice = createApi({
   reducerPath: "movieApi",

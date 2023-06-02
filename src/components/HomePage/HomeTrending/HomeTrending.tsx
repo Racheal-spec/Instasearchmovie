@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useFetchTrendsQuery } from "../../../services/MoviesApiSlice/ApiSlice";
+import { useFetchTrendsQuery } from "../../../features/Reducers/MoviesApiSlice/ApiSlice";
 import GlobalTitle from "../../GlobalTitle/title";
 import "./HomeTrending.scss";
 import MovieCard from "../../MovieCard/MoviesCard";

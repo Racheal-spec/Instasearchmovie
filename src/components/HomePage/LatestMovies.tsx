@@ -1,5 +1,5 @@
 import React from "react";
-import { useLatestMoviesQuery } from "../../services/MoviesApiSlice/ApiSlice";
+import { useLatestMoviesQuery } from "../../features/Reducers/MoviesApiSlice/ApiSlice";
 import Card from "../Card/Card";
 import MovieCard from "../MovieCard/MoviesCard";
 

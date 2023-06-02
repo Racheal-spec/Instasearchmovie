@@ -1,6 +1,6 @@
 import React from "react";
-import { useAppSelector } from "../../services/hooks";
-import { useGenresMoviesListQuery } from "../../services/MoviesApiSlice/ApiSlice";
+import { useAppSelector } from "../../services/Hooks/hooks";
+import { useGenresMoviesListQuery } from "../../features/Reducers/MoviesApiSlice/ApiSlice";
 import GlobalTitle from "../GlobalTitle/title";
 import ListCard from "../ListCard/ListCard";
 import "./List.scss";

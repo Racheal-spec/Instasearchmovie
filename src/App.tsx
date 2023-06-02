@@ -2,12 +2,13 @@ import React, { useEffect, useState } from "react";
 import "./App.scss";
 import Nav from "./components/Navbar/Nav";
 import Footer from "./components/Footer/Footer";
-
 import Loader from "./components/Loader/Loader";
 import Home from "./Pages/Home/Home";
 import { Route, Routes } from "react-router-dom";
 import Search from "./Pages/Search/Search";
-import { useAppSelector } from "./services/hooks";
+import { useAppSelector } from "./services/Hooks/hooks";
+import Login from "./Pages/Login/Login";
+import Success from "./Pages/Success/Success";
 const Watchlist = React.lazy(() => import("./components/Watchlist/Watchlist"));
 const Details = React.lazy(() => import("./Pages/Details/Details"));
 const App = () => {
@@ -29,6 +30,8 @@ const App = () => {
               <div className="wrapper">
                 <Routes>
                   <Route path="/" element={<Home />} />
+                  <Route path="/login" element={<Login />} />
+                  <Route path="/success" element={<Success />} />
                   <Route
                     path="/watchlist"
                     element={

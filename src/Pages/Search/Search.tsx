@@ -1,8 +1,8 @@
 import React from "react";
 import MovieCard from "../../components/MovieCard/MoviesCard";
 import { setSearches } from "../../features/Reducers/searchSlice";
-import { useAppDispatch, useAppSelector } from "../../services/hooks";
-import { useSearchMoviesQuery } from "../../services/MoviesApiSlice/ApiSlice";
+import { useAppDispatch, useAppSelector } from "../../services/Hooks/hooks";
+import { useSearchMoviesQuery } from "../../features/Reducers/MoviesApiSlice/ApiSlice";
 import "./Search.scss";
 import undrawsearch from "../../images/undrawsearch.svg";
 

@@ -17,26 +17,39 @@
     position: absolute;
     z-index: 9;
     bottom: 0;
-    color: white;
+    color: $whiteText;
     margin: 10px 10px;
     text-align: left;
+    h5 {
+      color: $greyText;
+    }
     .lang {
       text-transform: uppercase;
-    }
-    p {
-      margin: 3px 0;
-      color: $greyText;
       font-size: 0.8rem;
-    }
-    h4 {
-      margin: 3px 0;
-      text-align: left;
-      font-weight: 800;
-    }
+      padding: 4px 0;
 
-    .fa-plus {
-      font-size: 1.2rem;
-      margin: 0 4px;
+      .ratinglang {
+        font-size: 0.8rem;
+        font-weight: bold;
+        color: $whiteText;
+        padding-right: 10px;
+      }
+
+      p {
+        margin: 3px 0;
+        color: $greyText;
+        font-size: 0.8rem;
+      }
+      h4 {
+        margin: 3px 0;
+        text-align: left;
+        font-weight: 800;
+      }
+
+      .fa-plus {
+        font-size: 1.2rem;
+        margin: 0 4px;
+      }
     }
   }
 }

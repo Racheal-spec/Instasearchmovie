@@ -1,5 +1,6 @@
 //Base Url
-export const BASE_URL = "https://api.themoviedb.org/3/";
+export const BASE_URL = process.env.REACT_APP_BASE_URL;
+export const SUPA_BASE_URL = process.env.REACT_APP_SUPABASE_URL;
 
 // export const BASE_URL = `https://cors-anywhere.herokuapp.com/${BASE_URL_1}`;
 

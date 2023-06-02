@@ -4,7 +4,7 @@ import "../HeroSection/index.scss";
 import {
   useFetchTrendsQuery,
   useMoviesDetailsQuery,
-} from "../../../services/MoviesApiSlice/ApiSlice";
+} from "../../../features/Reducers/MoviesApiSlice/ApiSlice";
 import { DetailsProp } from "../../../Types/ComponentTypes/ComponentTypes";
 import { URL_YOUTUBE } from "../../../Api";
 import { VideosProp } from "../../../Types/APITypes";

@@ -1,5 +1,5 @@
 import React from "react";
-import { useDiscoverMoviesQuery } from "../../../services/MoviesApiSlice/ApiSlice";
+import { useDiscoverMoviesQuery } from "../../../features/Reducers/MoviesApiSlice/ApiSlice";
 import { CommonContentProp } from "../../../Types/globalTypes";
 import Button from "../../Button";
 import Card from "../../Card/Card";
@@ -36,7 +36,6 @@ const MovieVideo = () => {
               <Card
                 key={discover.id}
                 id={discover.id}
-                vote_average={discover.vote_average}
                 title={discover.title}
                 release_date={discover.release_date}
                 poster_path={discover.poster_path}

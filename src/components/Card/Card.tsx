@@ -7,7 +7,7 @@ import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { CommonContentProp } from "../../Types/globalTypes";
 import { addToWatchlist } from "../../features/Reducers/watchlistSlice";
-import { useAppDispatch } from "../../services/hooks";
+import { useAppDispatch } from "../../services/Hooks/hooks";
 import "./Card.scss";
 
 const Card: React.FC<CommonContentProp> = ({
@@ -95,9 +95,13 @@ const Card: React.FC<CommonContentProp> = ({
         <div className="cardcontent">
           <h4>{title || name}</h4>
           <p className="lang">
+            <span className="ratinglang">
+              <i className="fas fa-star"></i>
+              {vote_average ? vote_average.toPrecision(2) : ""}
+            </span>
             {original_language} | {adult === false ? "PG" : ""}
           </p>
-          <p>Released: {newReleaseDate || first_air_date}</p>
+          <h5>Released: {newReleaseDate || first_air_date}</h5>
         </div>
       </motion.div>
     </>

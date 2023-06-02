@@ -1,105 +1,155 @@
-import React from "react";
+import React, { useState } from "react";
 import { useParams } from "react-router-dom";
+import { toast } from "react-toastify";
 import { URL_YOUTUBE } from "../../Api";
+import Button from "../../components/Button";
+import TagButton from "../../components/Button/TagButton";
+import Card from "../../components/Card/Card";
+import GlobalTitle from "../../components/GlobalTitle/title";
+import { addToWatchlist } from "../../features/Reducers/watchlistSlice";
+import { useAppDispatch } from "../../services/Hooks/hooks";
 import {
   useMoviesDetailsQuery,
   useSimilarMoviesQuery,
-} from "../../services/MoviesApiSlice/ApiSlice";
-import { DetailsProp } from "../../Types/ComponentTypes/ComponentTypes";
+} from "../../features/Reducers/MoviesApiSlice/ApiSlice";
+import {
+  ContentProp,
+  DetailsProp,
+} from "../../Types/ComponentTypes/ComponentTypes";
 import "./Details.scss";
 
 const Details: React.FC<DetailsProp> = () => {
   let idParam = useParams();
   let detailId: string = idParam.id!;
   const { data, isLoading } = useMoviesDetailsQuery(detailId);
+  const [itemAdded, setItemAdded] = useState(false);
 
+  const dispatch = useAppDispatch();
   //  //Similar Movies
   const { data: similars, isLoading: isLoadingSimilar } =
     useSimilarMoviesQuery(detailId);
+  const movie: ContentProp = {
+    id: data?.id!,
+    title: data?.title!,
+    vote_average: data?.vote_average!,
+    release_date: data?.release_date!,
+    poster_path: data?.poster_path!,
+    overview: data?.overview,
+  };
+  const clickBtn = () => {
+    dispatch(addToWatchlist(movie));
 
+    setItemAdded(true);
+    toast.success("Movie added to watchlist!", {
+      className: "toast",
+    });
+  };
   return (
-    <div>
+    <section>
       {!isLoading && (
         <div className="moviedetail-page" key={detailId}>
           <div className="detail-content">
-            <h1>{data?.title}</h1>
-            <h4>{data?.tagline}</h4>
             <div className="moviedetail-wrapper">
-              <img
-                className="lozad"
-                src={`https://image.tmdb.org/t/p/w500${data?.poster_path!}`}
-                alt="images"
-              />
-              <div className="moviedetail-content">
-                <h5>Overview</h5>
-                <p>{data?.overview}</p>
-                <h5>Rating</h5>
-                <p>
-                  <i className="fas fa-star"></i>
-                  {data?.vote_average}
-                </p>
-                <h5>Official Website</h5>
-                <a href={data?.homepage}>{data?.homepage}</a>
-                <h5>Duration: {data?.runtime} mins</h5>
-                <h5>Release Date</h5>
-                <p>{data?.release_date}</p>
-                <div className="genre">
-                  <h5>Genres</h5>
-                  {data?.genres!.map((genre) => (
-                    <li key={genre.id}>
-                      <p>{genre.name}</p>
-                    </li>
-                  ))}
-                </div>
-              </div>
-            </div>
-            <h3>Trailers</h3>
-          </div>
-
-          <div className="movie-video">
-            {data?.videos!.results.map((video) => (
-              <div key={video.id}>
-                <iframe
-                  title={video.name}
-                  src={`${URL_YOUTUBE}${video.key}`}
-                  allowFullScreen
-                />
-              </div>
-            ))}
-          </div>
-          <div className="companies">
-            <h3>Production Companies</h3>
-            <div className="companies-list">
-              {data?.production_companies!.map((companies) => (
-                <li key={companies.id}>
-                  <img
-                    src={`https://image.tmdb.org/t/p/w500${companies.logo_path}`}
-                    className="lozad"
-                    alt={companies.name}
-                  />
-
-                  <p>{companies.name}</p>
-                </li>
-              ))}
-            </div>
-          </div>
-
-          <h3>Movies like {data?.title}</h3>
-          <div className="similar-section">
-            {similars?.results?.map((similar) => (
-              <div key={similar.id} className="similar-card">
+              <div className="imgDiv">
                 <img
-                  src={`https://image.tmdb.org/t/p/w500${similar.poster_path}`}
                   className="lozad"
+                  src={`https://image.tmdb.org/t/p/w500${data?.poster_path!}`}
                   alt="images"
                 />
-                <h5>{similar.title}</h5>
               </div>
-            ))}
+              <div className="moviedetail-content">
+                <div className="genre">
+                  {data?.genres!.map((genre) => (
+                    <div key={genre.id}>
+                      <TagButton title={genre.name} />
+                    </div>
+                  ))}
+                </div>
+                <h1>{data?.title}</h1>
+                <p className="rating">
+                  <i className="fas fa-star"></i>
+                  {data?.vote_average?.toPrecision(2)}
+                </p>
+                <p>{data?.release_date}</p>
+                <p>{data?.overview}</p>
+
+                <h5>
+                  Official Website:{" "}
+                  <span>
+                    {" "}
+                    <a href={data?.homepage}>{data?.homepage}</a>
+                  </span>
+                </h5>
+
+                <h5>Duration: {data?.runtime} mins</h5>
+                <Button onClick={clickBtn} primary>
+                  Add movie to watchlist
+                </Button>
+              </div>
+            </div>
+            {/************ MOVIE TRAILERS SECTION ***********************/}
+            <div className="movie-video">
+              <GlobalTitle title="Trailers" />
+              <div className="videodiv">
+                {data?.videos!.results!.slice(0, 12).map((video) => (
+                  <iframe
+                    key={video.id}
+                    title={video.name}
+                    src={`${URL_YOUTUBE}${video.key}`}
+                    allowFullScreen
+                  />
+                ))}
+              </div>
+            </div>
+            {/************ MOVIE COMPANIES SECTION ***********************/}
+            <div className="companies">
+              <GlobalTitle title="Production Companies" />
+              <div className="companies-list">
+                {data?.production_companies!.map((companies) => (
+                  <div className="prodImgDiv" key={companies.id}>
+                    {companies.logo_path === null ? (
+                      <div className="noImageDiv">No Logo Found</div>
+                    ) : (
+                      <img
+                        src={`https://image.tmdb.org/t/p/w500${companies.logo_path}`}
+                        className="lozad"
+                        alt={companies.name}
+                      />
+                    )}
+                    {/* <p>{companies.name}</p> */}
+                  </div>
+                ))}
+              </div>
+            </div>
+            {/************ SIMILAR MOVIES SECTION ***********************/}
+            <div className="similarsect">
+              <GlobalTitle title={`Movies like ${data?.title}`} />
+              <div className="similarDiv">
+                {similars?.results?.map((similar) => (
+                  <div key={similar.id} className="similar-card">
+                    {similar.poster_path === null ? (
+                      <div className="noImageDiv">No Image Found</div>
+                    ) : (
+                      <>
+                        <Card
+                          id={similar.id}
+                          title={similar.title}
+                          poster_path={similar.poster_path}
+                          release_date={similar.release_date}
+                          vote_average={similar.vote_average}
+                          original_language={similar.original_language}
+                          adult={similar.adult}
+                        />
+                      </>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       )}
-    </div>
+    </section>
   );
 };
 

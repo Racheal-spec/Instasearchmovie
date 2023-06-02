@@ -17,7 +17,7 @@ const ListCard: React.FC<DetailsProp> = ({
     });
   });
 
-  console.log(genreArray);
+  // console.log(genreArray);
   return (
     <div className="listcardWrapper">
       <div className="listcardDiv">
@@ -29,7 +29,7 @@ const ListCard: React.FC<DetailsProp> = ({
         </div>
         <div className="rating">
           <i className="fas fa-star"></i>
-          <p>{vote_average}</p>
+          <p>{vote_average?.toPrecision(2)}</p>
         </div>
 
         <div className="listimagediv">

@@ -2,7 +2,7 @@ export type ContentProp = {
   id: number;
   title: string;
   overview: string | undefined;
-  vote_average: number;
+  vote_average?: number;
   release_date: string;
   first_air_date?: number;
   name?: string;

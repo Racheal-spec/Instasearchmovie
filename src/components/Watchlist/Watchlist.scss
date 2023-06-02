@@ -1,83 +1,69 @@
-.watch-msg{
-   padding: 10px 0;
-   background-color: rgb(241, 238, 238);
-   min-height: 100vh;
-   h1{
+@import "../../../colors";
+
+.watch-msg {
+  padding: 10px 0;
+  min-height: 100vh;
+  h1 {
     margin-bottom: 30px;
-    color: teal;
+    color: $secondaryColor;
     font-size: 1.8rem;
     @media screen and (max-width: 600px) {
-        font-size: 1.5rem;
-        width: 100%;
+      font-size: 1.5rem;
+      width: 100%;
     }
-}
-    .watchmsg-div{
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-        justify-content: center;
-        height: 100vh;
-        img{
-            max-width: 30%;
-            @media screen and (max-width: 600px) {
-                max-width: 60%;
-            }
-        }
+  }
+  .watchmsg-div {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+    img {
+      max-width: 30%;
+      @media screen and (max-width: 600px) {
+        max-width: 60%;
+      }
     }
-    .watchlist-card{
-        background-color: white;
-        color: black;
-        border: none;
-        margin: 10px 30px;
-    }
+  }
+  .watchlist-card {
+    background-color: $inputBg;
+    color: $black;
+    border: none;
+    margin: 10px 30px;
+  }
 }
 
-.watch-card{
-    display: flex;
-   @media screen and (max-width:600px) {
-    flex-direction: column;  
-   }
-    .watchcard--img{
-        max-width: 25%;
-    @media screen and (max-width:600px) {
+.watch-card {
+  display: flex;
+  @media screen and (max-width: 600px) {
+    flex-direction: column;
+  }
+  .watchcard--img {
+    width: 15%;
+    @media screen and (max-width: 600px) {
       max-width: 100%;
       height: 300px;
       object-fit: cover;
-        }
     }
-   .watchcard--content{
-    width: 75%;
+  }
+  .watchcard--content {
+    width: 55%;
     text-align: left;
     margin: 10px 30px;
-    .watch-btn{
-        width: 20%;
-        height: 40px;
-        border-radius: 8px;
-        margin: 10px 0;
-        font-weight: bold;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background-color: teal;
-        border: none;
-        color: white;
-        cursor: pointer;
-        @media screen and (max-width: 600px) {
-            width: 50%;
-        }
+    .rating {
+      font-weight: bold;
     }
-    p{
-        font-weight: 400;
-        margin: 5px 0;
+    p {
+      margin: 10px 0;
+      color: $trendDateColor;
     }
-    .fa-star{
-        margin: 5px 0;
-        color: burlywood;
-      }
-      h1{
-        font-size: 18px;
-        margin: 5px 0;
-      }
-   } 
+    .fa-star {
+      margin-right: 5px;
+      color: burlywood;
+    }
+    h1 {
+      font-size: 18px;
+      margin: 5px 0;
+    }
+  }
 }
-

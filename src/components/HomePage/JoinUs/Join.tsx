@@ -13,7 +13,7 @@ const Join: React.FC = () => {
             Join over 100, 000 Nigerians to Watch top rated hollywood, nollywood
             and bollywood hits for family and kids---All free
           </p>
-          <Button primary>Join Us</Button>
+          <Button primary></Button>
         </div>
         <img src={greenland} alt="amazon-prime"></img>
       </div>

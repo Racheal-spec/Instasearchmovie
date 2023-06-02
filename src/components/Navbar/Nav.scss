@@ -30,6 +30,9 @@ nav {
         font-weight: bold;
         list-style: none;
         margin: 8px 0;
+        .btnClass {
+          margin: 0 10px;
+        }
         .link {
           text-decoration: none;
           margin: 0 8px;

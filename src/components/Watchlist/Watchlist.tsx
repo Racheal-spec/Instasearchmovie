@@ -1,5 +1,5 @@
-import React from "react";
-import { useAppSelector } from "../../services/hooks";
+import React, { useEffect, useState } from "react";
+import { useAppSelector } from "../../services/Hooks/hooks";
 // import MovieList from './MovieList';
 import undraw from "../../images/undraw-pending.svg";
 import "./Watchlist.scss";

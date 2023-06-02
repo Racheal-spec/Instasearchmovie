@@ -5,7 +5,7 @@ import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { CommonContentProp } from "../../Types/globalTypes";
 import { addToWatchlist } from "../../features/Reducers/watchlistSlice";
-import { useAppDispatch } from "../../services/hooks";
+import { useAppDispatch } from "../../services/Hooks/hooks";
 import "./MoviesCard.scss";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -41,6 +41,7 @@ const MovieCard: React.FC<CommonContentProp> = ({
   };
   const clickBtn = () => {
     dispatch(addToWatchlist(movie));
+
     setItemAdded(true);
     toast.success("Movie added to watchlist!", {
       className: "toast",
@@ -94,7 +95,7 @@ const MovieCard: React.FC<CommonContentProp> = ({
         <div className="moviescardcontent">
           <p className="rating">
             <i className="fas fa-star"></i>
-            {vote_average.toPrecision(2)}
+            {vote_average?.toPrecision(2)}
           </p>
           <h5>{title || name}</h5>
           <p className="releasedate">

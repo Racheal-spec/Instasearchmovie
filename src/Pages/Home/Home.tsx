@@ -5,7 +5,7 @@ import MovieDiscover from "../../components/HomePage/MovieDiscover/MovieDiscover
 import "./Home.scss";
 import Brands from "../../components/HomePage/Brands/Brands";
 import HomeSearch from "../../components/HomePage/HomeSearch/HomeSearch";
-import { useFetchTrendsQuery } from "../../services/MoviesApiSlice/ApiSlice";
+import { useFetchTrendsQuery } from "../../features/Reducers/MoviesApiSlice/ApiSlice";
 import Herosection from "../../components/HomePage/HeroSection";
 import Lists from "../../components/Lists/Lists";
 import Join from "../../components/HomePage/JoinUs/Join";

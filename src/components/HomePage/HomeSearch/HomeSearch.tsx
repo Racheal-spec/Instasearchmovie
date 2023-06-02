@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { useLazySearchMoviesQuery } from "../../../services/MoviesApiSlice/ApiSlice";
+import { useLazySearchMoviesQuery } from "../../../features/Reducers/MoviesApiSlice/ApiSlice";
 import GlobalTitle from "../../GlobalTitle/title";
 import "./HomeSearch.scss";
 import Button from "../../Button";
 import { useNavigate } from "react-router-dom";
 import { setSearches } from "../../../features/Reducers/searchSlice";
-import { useAppDispatch, useAppSelector } from "../../../services/hooks";
+import { useAppDispatch, useAppSelector } from "../../../services/Hooks/hooks";
 
 const HomeSearch: React.FC = () => {
   const [searchtrigger] = useLazySearchMoviesQuery();

@@ -1,150 +1,161 @@
-.moviedetail-page{
-  background-color: rgb(241, 238, 238);
+@import "../../../colors";
 
-  padding: 50px 0;
-    .detail-content{
-      padding: 40px 0;
-        h1{
-            margin: 10px 0;
-            font-weight: 400;
-            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-          }
-        h4{
-            margin: 10px 0;
-            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-            font-weight: lighter;
-        } 
-        a{
-          color: teal;
+.moviedetail-page {
+  padding: 50px 35px;
+  .detail-content {
+    padding: 40px 0;
+
+    a {
+      color: teal;
+    }
+    .moviedetail-wrapper {
+      display: flex;
+      align-items: center;
+      margin: 30px;
+
+      @media screen and (max-width: 600px) {
+        flex-direction: column;
+      }
+      .imgDiv {
+        background: linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 0.849) 30%,
+          rgba(143, 141, 49, 0.42) 100%
+        );
+        width: 75%;
+        border-radius: 10px;
+        .lozad {
+          width: 100%;
+          height: 450px;
+          object-fit: cover;
+          border-radius: 10px;
+          position: relative;
+          z-index: -1;
         }
-      
-        .movie-video{
-          display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          margin: 30px 40px;
-          div{
-            margin:10px;
-          }
-          @media screen and (max-width:600px) {
-           grid-template-columns: 1fr;
-           margin: 0;
-          }
+      }
+      .moviedetail-content {
+        text-align: left;
+        margin: 0 30px;
+        @media screen and (max-width: 600px) {
+          margin: 20px 5px;
         }
-        .companies{
-          list-style: none;
-          margin: 60px 15px;
-          color: teal;
-         .companies-list{
+        .genre {
           display: flex;
-          margin: 30px 0;
-          @media screen and (max-width: 600px) {
-            flex-direction: column;
+        }
+        .fa-star {
+          padding-right: 6px;
+          color: burlywood;
+        }
+        .rating {
+          padding: 6px 0px;
+          font-weight: bold;
+        }
+        h1 {
+          color: $whiteText;
+          font-weight: bold;
+          padding: 15px 0;
+        }
+        p {
+          color: $whiteText;
+          padding: 10px 0;
+        }
+        h5 {
+          color: $whiteText;
+          padding: 10px 0;
+          span {
+            color: teal;
+            padding: 0 5px;
           }
-         }
-          img{
-            width: 30%;
+        }
+      }
+    }
+
+    .movie-video {
+      padding: 30px;
+      .videodiv {
+        padding: 20px 0;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        row-gap: 20px;
+      }
+      @media screen and (max-width: 600px) {
+        grid-template-columns: 1fr;
+        margin: 0;
+      }
+    }
+    .companies {
+      padding: 10px 30px;
+      list-style: none;
+      color: teal;
+      .companies-list {
+        display: flex;
+        align-items: center;
+        padding: 30px 0;
+        @media screen and (max-width: 600px) {
+          flex-direction: column;
+        }
+        .prodImgDiv {
+          display: flex;
+          align-items: center;
+          flex-direction: column;
+          justify-content: center;
+          background-color: $greyText;
+          min-height: 100px;
+          margin-right: 8px;
+          .noImageDiv {
+            padding: 0px 10px;
+          }
+          img {
+            max-width: 30%;
             @media screen and (max-width: 600px) {
-              width: 13%
+              width: 13%;
             }
           }
-        } 
-        .moviedetail-wrapper{
+        }
+      }
+    }
+    .similarsect {
+      padding: 40px 30px;
+      .similarDiv {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        row-gap: 50px;
+        column-gap: 20px;
+        padding: 40px 0;
+        @media screen and (max-width: 600px) {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .similar-card {
           display: flex;
-          margin: 30px;
-          @media  screen and (max-width:600px) {
-             flex-direction: column; 
+          flex-direction: column;
+          align-items: flex-start;
+
+          img {
+            max-width: 100%;
+            height: 260px;
           }
-          .lozad{
+          .noImageDiv {
+            background-color: $greyText;
             width: 100%;
-            height: 400px;
-            object-fit: cover;
-              border-radius: 10px;
+            padding: 121px 0;
           }
-         
-          .moviedetail-content{
-              text-align: left;
-              margin: 0 30px;
-              @media  screen and (max-width:600px) {
-              margin: 20px 5px;
-             }
-             .genre{
-            
-               li{
-                 list-style: none;
-                 p{
-                   background-color: teal;
-                   color: white;
-                   font-weight: 500;
-                   margin: 10px 0;
-                   width: 22%;
-                   padding: 5px;
-                   text-align: center;
-                   border-radius: 10px;
-                   
-                   @media screen and (max-width:600px) {
-                     width: 35%;
-                   }
-                 }
-               }
-             }
-            .fa-star{
-                margin: 5px 0;
-                color: burlywood;
-              }
-              h5{
-                  margin: 10px 0;
-                  color: teal;
-              }
-              .click-btn{
-                width: 20%;
-                height: 30px;
-                border-radius: 8px;
-                margin: 10px 0;
-                font-weight: bold;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                background-color: #2c2929e5;
-                border: none;
-                color: teal;
-                cursor: pointer;
-                &:hover{
-                  background-color: #252424c0;
-                }
-                @media  screen and (max-width:600px) {
-                    width: 50%; 
-                 }
-              }
-              .fa-plus{
-                font-size: 1.2rem;
-                margin: 0 4px;
-              }
+          p {
+            color: $whiteText;
+          }
+          h4 {
+            color: $whiteText;
+            text-align: left;
+          }
+          .fa-star {
+            padding-right: 6px;
+            color: burlywood;
+          }
+          .rating {
+            font-weight: bold;
+            padding: 10px 0;
           }
         }
-    }
-    h3{
-      color: teal;
-      margin: 20px 35px;
-      text-align: left;
-    }
-   .similar-section{
-    display: grid;
-    grid-template-columns: repeat(8, 1fr);
-    grid-row-gap: 10px;
-    padding: 20px 0;
-    @media screen and (max-width:600px) {
-      grid-template-columns: repeat(2, 1fr);
-    }
-    h4{
-      color: teal;
-    }
-     .similar-card{
-      h5{
-        color: teal;
       }
-       img{
-         max-width: 50%;
-       }
-     }
-   }
+    }
+  }
 }

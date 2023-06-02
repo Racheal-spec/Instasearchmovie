@@ -1,7 +1,8 @@
 import React from "react";
 import { remove } from "../../features/Reducers/watchlistSlice";
-import { useAppDispatch } from "../../services/hooks";
+import { useAppDispatch } from "../../services/Hooks/hooks";
 import { ContentProp } from "../../Types/ComponentTypes/ComponentTypes";
+import Button from "../Button";
 
 const MovieList: React.FC<ContentProp> = ({
   id,
@@ -36,16 +37,16 @@ const MovieList: React.FC<ContentProp> = ({
           alt="images"
         />
         <div className="watchcard--content">
-          <p>
+          <p className="rating">
             <i className="fas fa-star"></i>
-            {vote_average}
+            {vote_average?.toPrecision(2)}
           </p>
           <h1>{title || name}</h1>
-          <p>{release_date || first_air_date}</p>
+          <p>Released: {release_date || first_air_date}</p>
           <p>{overview}</p>
-          <button className="watch-btn" onClick={removeBtn}>
+          <Button primary onClick={removeBtn}>
             Remove Movie
-          </button>
+          </Button>
         </div>
       </div>
     </div>
