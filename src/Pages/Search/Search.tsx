@@ -14,7 +14,7 @@ const Search: React.FC = () => {
   const updateResults = (e: React.ChangeEvent<HTMLInputElement>) => {
     dispatch(setSearches(e.target.value));
   };
-  console.log(data);
+
   return (
     <section className="searchsection">
       <input
@@ -31,7 +31,7 @@ const Search: React.FC = () => {
       {data?.results.length === 0 ? (
         <div className="searchImgDiv">
           <img src={undrawsearch} alt="search-placeholder" />
-          <p>Waiting for search...</p>
+          <p>Waiting for search result...</p>
         </div>
       ) : (
         <div className="search-result">

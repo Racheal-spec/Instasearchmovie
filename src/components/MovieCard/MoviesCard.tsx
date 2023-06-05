@@ -9,6 +9,7 @@ import { useAppDispatch } from "../../services/Hooks/hooks";
 import "./MoviesCard.scss";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { IMAGE_BASE_URL } from "../../Api";
 
 const MovieCard: React.FC<CommonContentProp> = ({
   id,
@@ -25,10 +26,6 @@ const MovieCard: React.FC<CommonContentProp> = ({
   const [itemAdded, setItemAdded] = useState(false);
 
   const dispatch = useAppDispatch();
-
-  // const detailHandler = () => {
-  //   dispatch(loadDetail(id));
-  // };
   const movie = {
     id: id,
     title: title,
@@ -43,17 +40,8 @@ const MovieCard: React.FC<CommonContentProp> = ({
     dispatch(addToWatchlist(movie));
 
     setItemAdded(true);
-    toast.success("Movie added to watchlist!", {
-      className: "toast",
-    });
   };
 
-  //   useEffect(() => {
-  //     const timer = setTimeout(() => {
-  //       setItemAdded(false);
-  //     }, 1000);
-  //     return () => clearTimeout(timer);
-  //   });
   const observer = lozad();
   observer.observe();
 
@@ -87,7 +75,7 @@ const MovieCard: React.FC<CommonContentProp> = ({
         <Link to={`Details/${id}`}>
           <img
             className="lozad"
-            data-src={`https://image.tmdb.org/t/p/w500${poster_path}`}
+            data-src={`${IMAGE_BASE_URL}${poster_path}`}
             data-placeholder-background="grey"
             alt="images"
           />

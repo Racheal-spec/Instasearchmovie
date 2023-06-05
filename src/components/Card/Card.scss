@@ -33,6 +33,10 @@
         font-weight: bold;
         color: $whiteText;
         padding-right: 10px;
+
+        .fa-star {
+          color: $primaryColor;
+        }
       }
 
       p {

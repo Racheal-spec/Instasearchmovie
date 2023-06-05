@@ -5,29 +5,39 @@ import "./Nav.scss";
 import { useAppSelector } from "../../services/Hooks/hooks";
 import Button from "../Button";
 import { supabase } from "../../config/supabaseClient";
-import { Auth } from "@supabase/auth-ui-react";
-import { ThemeSupa } from "@supabase/auth-ui-shared";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import { useUserDataQuery } from "../../features/Reducers/UserSplice/UserSplice";
+import UseAuth from "../../services/Hooks/UseAuth";
 
 const Nav: React.FC = () => {
   const watchlists = useAppSelector(
     (state) => state.watchlist.initialWatchlist
   );
+  const { data: userdata } = useUserDataQuery();
+  const { newsession } = UseAuth(userdata);
   const [color, setColor] = useState("");
   let location = useLocation();
   let navigate = useNavigate();
 
   useEffect(() => {
-    if (location.pathname !== "/") {
-      setColor("#2c2e2e");
-    } else {
+    if (location.pathname === "/") {
       setColor("transparent");
+    } else if (location.pathname !== "/Details") {
+      setColor("transparent");
+    } else {
+      setColor("#2c2e2e");
     }
   }, [color, location.pathname]);
 
   const SignOutUser = async () => {
-    await supabase.auth.signOut();
-    navigate("/");
+    let signout = await supabase.auth.signOut();
+
+    if (signout) {
+      window.location.reload();
+      toast.success("You have successfully signed out!");
+      navigate("/");
+    }
   };
 
   return (
@@ -61,16 +71,23 @@ const Nav: React.FC = () => {
           <ul className="navLists">
             <div className="btnClass">
               {" "}
-              <Button primary onClick={() => navigate("/login")}>
-                Sign Up
+              {newsession?.user !== undefined ? (
+                <div className="profilediv">
+                  <h4>Hey, {newsession?.user.user_metadata.name}</h4>
+                  <img
+                    src={newsession?.user.user_metadata.avatar_url}
+                    alt="user"
+                  />
+                </div>
+              ) : (
+                <Button primary onClick={() => navigate("/login")}>
+                  Sign In
+                </Button>
+              )}
+              <Button outline onClick={() => SignOutUser()}>
+                Sign Out
               </Button>
             </div>
-            <Button outline onClick={() => navigate("/login")}>
-              Login
-            </Button>
-            <Button outline onClick={() => SignOutUser()}>
-              Sign Out
-            </Button>
           </ul>
         </div>
       </motion.div>
@@ -79,3 +96,6 @@ const Nav: React.FC = () => {
 };
 
 export default Nav;
+function useSupabaseAuthClient() {
+  throw new Error("Function not implemented.");
+}

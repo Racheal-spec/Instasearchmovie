@@ -6,7 +6,6 @@ const ListCard: React.FC<DetailsProp> = ({
   title,
   genres,
   vote_average,
-  production_companies,
   backdrop_path,
   genIds,
   poster_path,
@@ -24,7 +23,9 @@ const ListCard: React.FC<DetailsProp> = ({
         <h4>{title}</h4>
         <div className="genrediv">
           {genreArray?.map((genre) => (
-            <div className="genrename">{genre.name}</div>
+            <div key={genre.id} className="genrename">
+              {genre.name}
+            </div>
           ))}
         </div>
         <div className="rating">

@@ -14,9 +14,38 @@
       referrerpolicy="no-referrer"
     />
     <title>Instamoviesearch|Your best bet for all your favourite movies</title>
+
+    <!-- Loading Spinner Styling -->
+    <style>
+      .loader {
+        border: 16px solid #f3f3f3;
+        border-top: 16px solid #008b8b;
+        border-radius: 50%;
+        width: 70px;
+        height: 70px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        /* transform: translate(50%, 50%); */
+        animation: spin 2s linear infinite;
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
+    <!-- Loading Spinner Div -->
+    <div class="loader-container">
+      <div class="loader"></div>
+    </div>
   </body>
 </html>

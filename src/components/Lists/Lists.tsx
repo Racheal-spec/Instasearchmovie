@@ -13,8 +13,11 @@ const Lists: React.FC = () => {
 
   return (
     <section className="main-section">
-      <GlobalTitle title="Lists" />
-      <p className="listDesc">List of all movies added to your watchlist</p>
+      <GlobalTitle
+        title="Lists"
+        description="List of all movies added to your watchlist"
+      />
+
       <div>
         {watchlists.length === 0 ? (
           <div className="nolist">
@@ -24,6 +27,7 @@ const Lists: React.FC = () => {
           <div className="listWrapper">
             {watchlists.map((list) => (
               <ListCard
+                key={list.id}
                 genIds={list.genre_ids}
                 title={list.title}
                 genres={genredata?.genres}

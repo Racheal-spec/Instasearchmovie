@@ -1,10 +1,12 @@
+import { User } from "@supabase/supabase-js";
+
 export type ContentProp = {
   id: number;
   title: string;
   overview: string | undefined;
   vote_average?: number;
   release_date: string;
-  first_air_date?: number;
+  first_air_date?: string;
   name?: string;
   poster_path: string;
   backdrop_path?: string;

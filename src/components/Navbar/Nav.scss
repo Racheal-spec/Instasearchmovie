@@ -32,6 +32,23 @@ nav {
         margin: 8px 0;
         .btnClass {
           margin: 0 10px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          .profilediv {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            h4 {
+              color: $whiteText;
+            }
+            img {
+              border-radius: 50%;
+              width: 40px;
+              height: 40px;
+              margin: 0 10px;
+            }
+          }
         }
         .link {
           text-decoration: none;

@@ -6,7 +6,7 @@ export type CommonContentProp = {
   overview?: string;
   vote_average?: number;
   release_date: string;
-  first_air_date?: number;
+  first_air_date?: string;
   name?: string;
   poster_path: string;
   genre_ids?: number[];

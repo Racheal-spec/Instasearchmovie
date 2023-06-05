@@ -29,9 +29,9 @@ export const moviesApiSlice = createApi({
   }),
   endpoints: (builder) => {
     return {
-      fetchTrends: builder.query<MoviesType, void>({
-        query: () => {
-          return TrendingMovies;
+      fetchTrends: builder.query<MoviesType, number>({
+        query: (page) => {
+          return TrendingMovies(page);
         },
       }),
       searchMovies: builder.query<MoviesType, string>({
@@ -39,14 +39,14 @@ export const moviesApiSlice = createApi({
           return searchedMoviesURL(searches);
         },
       }),
-      latestMovies: builder.query<MoviesType, void>({
-        query: () => {
-          return LatestMovies;
+      latestMovies: builder.query<MoviesType, number>({
+        query: (page) => {
+          return LatestMovies(page);
         },
       }),
-      discoverMovies: builder.query<MoviesType, void>({
-        query: () => {
-          return DiscoverMovies;
+      discoverMovies: builder.query<MoviesType, number>({
+        query: (page) => {
+          return DiscoverMovies(page);
         },
       }),
       moviesDetails: builder.query<Partial<DetailsProp>, string | number>({
@@ -70,6 +70,7 @@ export const moviesApiSlice = createApi({
 
 export const {
   useFetchTrendsQuery,
+  useLazyFetchTrendsQuery,
   useLatestMoviesQuery,
   useDiscoverMoviesQuery,
   useLazySearchMoviesQuery,

@@ -13,10 +13,18 @@
   .arrowicon {
     display: flex;
     justify-content: flex-end;
+    align-items: center;
     cursor: pointer;
-    .fa-circle-left {
-      font-size: 1.8rem;
-      margin: 0 4px;
+    .arrowcss {
+      font-size: 1.2rem;
+      color: $whiteText;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      span {
+        font-size: 0.8rem;
+        margin: 0 2px;
+      }
     }
   }
   .main-card {

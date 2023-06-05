@@ -42,7 +42,7 @@ const MovieList: React.FC<ContentProp> = ({
             {vote_average?.toPrecision(2)}
           </p>
           <h1>{title || name}</h1>
-          <p>Released: {release_date || first_air_date}</p>
+          <h4>Released: {release_date || first_air_date}</h4>
           <p>{overview}</p>
           <Button primary onClick={removeBtn}>
             Remove Movie

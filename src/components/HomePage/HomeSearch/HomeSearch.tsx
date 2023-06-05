@@ -25,14 +25,12 @@ const HomeSearch: React.FC = () => {
 
   return (
     <div className="searchResult">
-      <GlobalTitle title="Search" />
-      <div>
-        <p className="searchDesc">
-          {" "}
-          Search your favourite movies Search your favourite movies Search your
-          favourite movies Search your favourite movies
-        </p>
-      </div>
+      <GlobalTitle
+        title="Search"
+        description=" Search your favourite movies Search your favourite movies Search your
+          favourite movies Search your favourite movies"
+      />
+      <div></div>
       <div className="search-section">
         <form className="search-form" onSubmit={getResults}>
           <input

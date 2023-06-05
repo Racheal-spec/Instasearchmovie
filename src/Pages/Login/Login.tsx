@@ -1,28 +1,24 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { supabase } from "../../config/supabaseClient";
 import { Auth } from "@supabase/auth-ui-react";
 import { ThemeSupa } from "@supabase/auth-ui-shared";
-import { useNavigate } from "react-router-dom";
-import { useUserDataQuery } from "../../features/Reducers/UserSplice/UserSplice";
-import UseAuth from "../../services/Hooks/UseAuth";
+import "./Login.scss";
 
 const Login = () => {
-  const { data: userdata } = useUserDataQuery();
-  let navigate = useNavigate();
-  const { user, newsession } = UseAuth(userdata);
-  console.log(user?.data, newsession);
-
-  //   console.log(userdata);
-
   return (
     <div>
-      <div>Login</div>
-      <Auth
-        supabaseClient={supabase}
-        appearance={{ theme: ThemeSupa }}
-        theme="dark"
-        providers={["google"]}
-      />
+      <div className="loginsection">
+        <Auth
+          supabaseClient={supabase}
+          appearance={{
+            theme: ThemeSupa,
+            extend: true,
+            className: { container: "authcss" },
+          }}
+          theme="dark"
+          providers={["google"]}
+        />
+      </div>
     </div>
   );
 };

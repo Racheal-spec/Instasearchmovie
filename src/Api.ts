@@ -9,11 +9,17 @@ export const Api_key = process.env.REACT_APP_API_KEY;
 //Youtube trailer URL
 export const URL_YOUTUBE = "https://www.youtube.com/embed/";
 
+//IMAGE_PATH
+export const IMAGE_BASE_URL = "https://image.tmdb.org/t/p/original";
+
 //MOVIES URL
 
-export const TrendingMovies = `trending/all/day?api_key=${Api_key}&language=en-US&page=1&include_adult=false`;
-export const LatestMovies = `movie/top_rated?api_key=${Api_key}&language=en-US&page=1&include_adult=false`;
-export const DiscoverMovies = `discover/movie?api_key=${Api_key}&language=en-US&sort_by=popularity.desc&page=1&timezone=America%2FNew_York&include_null_first_air_dates=false`;
+export const TrendingMovies = (page: number) =>
+  `trending/all/day?api_key=${Api_key}&language=en-US&page=${page}&include_adult=false`;
+export const LatestMovies = (page: number) =>
+  `tv/top_rated?api_key=${Api_key}&language=en-US&page=${page}&include_adult=false`;
+export const DiscoverMovies = (page: number) =>
+  `discover/movie?api_key=${Api_key}&language=en-US&sort_by=popularity.desc&page=${page}&timezone=America%2FNew_York&include_null_first_air_dates=false`;
 
 //MOVIES GENRES
 

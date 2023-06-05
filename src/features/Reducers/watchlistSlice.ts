@@ -1,9 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { toast } from "react-toastify";
-import {
-  ContentProp,
-  DetailsProp,
-} from "../../Types/ComponentTypes/ComponentTypes";
+import { ContentProp } from "../../Types/ComponentTypes/ComponentTypes";
 
 type watchlistState = ContentProp[];
 
@@ -23,6 +20,7 @@ export const WatchlistSlice = createSlice({
         toast.warn(`${watchlistMovie.title} already added to watchlist`);
       } else {
         state.initialWatchlist.push(action.payload);
+        toast.success("Movie added to watchlist!");
       }
     },
     remove(state, action: PayloadAction<number>) {

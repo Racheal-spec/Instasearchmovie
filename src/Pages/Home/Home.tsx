@@ -11,7 +11,7 @@ import Lists from "../../components/Lists/Lists";
 import Join from "../../components/HomePage/JoinUs/Join";
 
 const Home = () => {
-  const { isLoading } = useFetchTrendsQuery();
+  const { isLoading } = useFetchTrendsQuery(1);
   // console.log(data);
   return (
     <>

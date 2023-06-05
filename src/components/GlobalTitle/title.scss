@@ -1,14 +1,24 @@
 @import "../../../colors";
 
-.title {
-  color: $whiteText;
-  text-align: left;
-  margin: 5px 0px;
-  font-size: 0.8rem;
-  .line {
-    width: 50px;
-    height: 6px;
-    background-color: $secondaryColor;
-    margin: 4px 0;
+.titleDiv {
+  padding: 20px 0;
+  .title {
+    color: $whiteText;
+    text-align: left;
+    margin: 5px 0px;
+    font-size: 0.8rem;
+    .line {
+      width: 50px;
+      height: 6px;
+      background-color: $secondaryColor;
+      margin: 4px 0;
+    }
+    .desc {
+      color: $whiteText;
+      font-size: 0.9rem;
+      text-align: left;
+      width: 60%;
+      padding: 15px 0;
+    }
   }
 }

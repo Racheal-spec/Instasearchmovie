@@ -23,9 +23,9 @@ const persistConfig = {
 };
 export const rootReducers = combineReducers({
   watchlist: watchlistReducer,
+  searches: searchReducer,
   [moviesApiSlice.reducerPath]: moviesApiSlice.reducer,
   [UserApiSlice.reducerPath]: UserApiSlice.reducer,
-  searches: searchReducer,
 });
 const persistedReducer = persistReducer(persistConfig, rootReducers);
 export const store = configureStore({
@@ -33,6 +33,7 @@ export const store = configureStore({
   middleware: (getDefaultMiddleware) => {
     return getDefaultMiddleware({
       serializableCheck: false,
+      immutableCheck: false,
       // serializableCheck:{
       //   ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       // },

@@ -3,13 +3,15 @@ import "./title.scss";
 
 type TitleProp = {
   title: string;
+  description: string;
 };
-const GlobalTitle: React.FC<TitleProp> = ({ title }) => {
+const GlobalTitle: React.FC<TitleProp> = ({ title, description }) => {
   return (
-    <div>
+    <div className="titleDiv">
       <div className="title">
         <h1>{title}</h1>
         <div className="line"></div>
+        <p className="desc">{description ? description : ""}</p>
       </div>
     </div>
   );

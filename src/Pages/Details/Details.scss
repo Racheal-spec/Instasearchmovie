@@ -1,28 +1,21 @@
 @import "../../../colors";
 
 .moviedetail-page {
-  padding: 50px 35px;
   .detail-content {
-    padding: 40px 0;
-
     a {
       color: teal;
     }
     .moviedetail-wrapper {
       display: flex;
       align-items: center;
-      margin: 30px;
+      justify-content: center;
+      padding: 120px 60px;
 
       @media screen and (max-width: 600px) {
         flex-direction: column;
       }
       .imgDiv {
-        background: linear-gradient(
-          to bottom,
-          rgba(0, 0, 0, 0.849) 30%,
-          rgba(143, 141, 49, 0.42) 100%
-        );
-        width: 75%;
+        width: 30%;
         border-radius: 10px;
         .lozad {
           width: 100%;
@@ -30,12 +23,13 @@
           object-fit: cover;
           border-radius: 10px;
           position: relative;
-          z-index: -1;
+          // z-index: -1;
         }
       }
       .moviedetail-content {
         text-align: left;
         margin: 0 30px;
+        width: 70%;
         @media screen and (max-width: 600px) {
           margin: 20px 5px;
         }
@@ -69,90 +63,89 @@
         }
       }
     }
-
-    .movie-video {
-      padding: 30px;
-      .videodiv {
-        padding: 20px 0;
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        row-gap: 20px;
-      }
-      @media screen and (max-width: 600px) {
-        grid-template-columns: 1fr;
-        margin: 0;
-      }
-    }
-    .companies {
-      padding: 10px 30px;
-      list-style: none;
-      color: teal;
-      .companies-list {
-        display: flex;
-        align-items: center;
-        padding: 30px 0;
-        @media screen and (max-width: 600px) {
-          flex-direction: column;
+    .moviestyles {
+      padding: 0 35px;
+      .movie-video {
+        padding: 30px;
+        .videodiv {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          row-gap: 20px;
         }
-        .prodImgDiv {
+        @media screen and (max-width: 600px) {
+          grid-template-columns: 1fr;
+          margin: 0;
+        }
+      }
+      .companies {
+        padding: 10px 30px;
+        list-style: none;
+        color: teal;
+        .companies-list {
           display: flex;
           align-items: center;
-          flex-direction: column;
-          justify-content: center;
-          background-color: $greyText;
-          min-height: 100px;
-          margin-right: 8px;
-          .noImageDiv {
-            padding: 0px 10px;
+          @media screen and (max-width: 600px) {
+            flex-direction: column;
           }
-          img {
-            max-width: 30%;
-            @media screen and (max-width: 600px) {
-              width: 13%;
+          .prodImgDiv {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+            background-color: $greyText;
+            min-height: 100px;
+            margin-right: 8px;
+            .noImageDiv {
+              padding: 0px 10px;
+            }
+            img {
+              max-width: 30%;
+              @media screen and (max-width: 600px) {
+                width: 13%;
+              }
             }
           }
         }
       }
-    }
-    .similarsect {
-      padding: 40px 30px;
-      .similarDiv {
-        display: grid;
-        grid-template-columns: repeat(7, 1fr);
-        row-gap: 50px;
-        column-gap: 20px;
-        padding: 40px 0;
-        @media screen and (max-width: 600px) {
-          grid-template-columns: repeat(2, 1fr);
-        }
-        .similar-card {
-          display: flex;
-          flex-direction: column;
-          align-items: flex-start;
+      .similarsect {
+        padding: 40px 30px;
+        .similarDiv {
+          display: grid;
+          grid-template-columns: repeat(7, 1fr);
+          row-gap: 50px;
+          column-gap: 20px;
+          @media screen and (max-width: 600px) {
+            grid-template-columns: repeat(2, 1fr);
+          }
+          .similar-card {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
 
-          img {
-            max-width: 100%;
-            height: 260px;
-          }
-          .noImageDiv {
-            background-color: $greyText;
-            width: 100%;
-            padding: 121px 0;
-          }
-          p {
-            color: $whiteText;
-          }
-          h4 {
-            color: $whiteText;
-            text-align: left;
-          }
-          .fa-star {
-            padding-right: 6px;
-            color: burlywood;
-          }
-          .rating {
-            font-weight: bold;
-            padding: 10px 0;
+            img {
+              max-width: 100%;
+              height: 260px;
+            }
+            .noImageDiv {
+              background-color: $greyText;
+              width: 100%;
+              padding: 121px 0;
+            }
+            p {
+              color: $whiteText;
+            }
+            h4 {
+              color: $whiteText;
+              text-align: left;
+            }
+            .fa-star {
+              padding-right: 6px;
+              color: burlywood;
+            }
+            .rating {
+              font-weight: bold;
+              padding: 10px 0;
+            }
           }
         }
       }

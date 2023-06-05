@@ -1,12 +1,11 @@
 @import "../../../colors";
 
 .watch-msg {
-  padding: 10px 0;
   min-height: 100vh;
+  padding: 0px 0;
   h1 {
-    margin-bottom: 30px;
-    color: $secondaryColor;
-    font-size: 1.8rem;
+    margin-bottom: 10px;
+    font-size: 1.5rem;
     @media screen and (max-width: 600px) {
       font-size: 1.5rem;
       width: 100%;
@@ -18,6 +17,9 @@
     flex-direction: column;
     justify-content: center;
     height: 100vh;
+    h1 {
+      color: $secondaryColor;
+    }
     img {
       max-width: 30%;
       @media screen and (max-width: 600px) {
@@ -25,45 +27,78 @@
       }
     }
   }
-  .watchlist-card {
-    background-color: $inputBg;
-    color: $black;
-    border: none;
-    margin: 10px 30px;
-  }
-}
+  .watchlistdiv {
+    .watchlistheader {
+      background: linear-gradient(
+          to bottom,
+          #1e1e1e 10%,
+          rgba(26, 26, 20, 0.598) 90%
+        ),
+        url("../../images/poor1.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      padding: 110px 0;
+      h3 {
+        color: $whiteText;
+        padding: 5px 0;
+      }
+      p {
+        color: $greyText;
+      }
+    }
 
-.watch-card {
-  display: flex;
-  @media screen and (max-width: 600px) {
-    flex-direction: column;
+    .watchlistbody {
+      padding: 50px 120px;
+      h1 {
+        text-align: left;
+      }
+      .watchlist-card {
+        background-color: $inputBg;
+        color: $black;
+        border: none;
+        margin: 25px 0;
+      }
+    }
   }
-  .watchcard--img {
-    width: 15%;
+
+  .watch-card {
+    display: flex;
     @media screen and (max-width: 600px) {
-      max-width: 100%;
-      height: 300px;
-      object-fit: cover;
+      flex-direction: column;
     }
-  }
-  .watchcard--content {
-    width: 55%;
-    text-align: left;
-    margin: 10px 30px;
-    .rating {
-      font-weight: bold;
+    .watchcard--img {
+      width: 15%;
+      @media screen and (max-width: 600px) {
+        max-width: 100%;
+        height: 300px;
+        object-fit: cover;
+      }
     }
-    p {
-      margin: 10px 0;
-      color: $trendDateColor;
-    }
-    .fa-star {
-      margin-right: 5px;
-      color: burlywood;
-    }
-    h1 {
-      font-size: 18px;
-      margin: 5px 0;
+    .watchcard--content {
+      width: 55%;
+      text-align: left;
+      margin: 10px 30px;
+      .rating {
+        font-weight: bold;
+      }
+      p {
+        margin: 10px 0;
+        color: $trendDateColor;
+        font-size: 0.9rem;
+      }
+      h4 {
+        color: $trendDateColor;
+      }
+      .fa-star {
+        margin-right: 5px;
+        color: $primaryColor;
+      }
+      h1 {
+        font-size: 18px;
+        margin: 5px 0;
+        color: $whiteText;
+      }
     }
   }
 }

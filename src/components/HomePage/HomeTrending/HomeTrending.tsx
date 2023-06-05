@@ -3,39 +3,26 @@ import { useFetchTrendsQuery } from "../../../features/Reducers/MoviesApiSlice/A
 import GlobalTitle from "../../GlobalTitle/title";
 import "./HomeTrending.scss";
 import MovieCard from "../../MovieCard/MoviesCard";
-import arrowleft from "../../../images/arrowleft.png";
-import arrowright from "../../../images/arrowright.png";
+import { useNavigate } from "react-router-dom";
 
 const HomeTrending = () => {
-  const { data, isLoading } = useFetchTrendsQuery();
-  const [click, setClick] = useState(false);
-  const [clickright, setClickRight] = useState(false);
+  const { data, isLoading } = useFetchTrendsQuery(1);
   const Trends = data?.results;
-  // const dispatch = useDispatch();
+  let navigate = useNavigate();
 
-  // useEffect(() => {
-  //   dispatch(loadMovies());
-  // }, [dispatch]);
-
-  const handleArrowLeft = () => {
-    setClick(true);
-    console.log("click left");
-  };
-
-  const handleArrowRight = () => {
-    setClickRight(true);
-    console.log("click right");
+  const handleMore = () => {
+    navigate("/trending");
   };
 
   return (
     <div className="main-section">
-      <GlobalTitle title="Trending Movies" />
+      <GlobalTitle title="Trending Movies" description="" />
       <div className="arrowicon">
-        <div onClick={handleArrowLeft}>
-          <img src={arrowleft} alt="arrow-left" />
-        </div>
-        <div onClick={handleArrowRight}>
-          <img src={arrowright} alt="arrow-right" />
+        <div onClick={handleMore}>
+          <div className="arrowcss">
+            <span>more</span>
+            &#187;
+          </div>
         </div>
       </div>
 

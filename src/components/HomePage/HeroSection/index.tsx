@@ -6,13 +6,13 @@ import {
   useMoviesDetailsQuery,
 } from "../../../features/Reducers/MoviesApiSlice/ApiSlice";
 import { DetailsProp } from "../../../Types/ComponentTypes/ComponentTypes";
-import { URL_YOUTUBE } from "../../../Api";
+import { IMAGE_BASE_URL, URL_YOUTUBE } from "../../../Api";
 import { VideosProp } from "../../../Types/APITypes";
 import TagButton from "../../Button/TagButton";
 import { bgProp } from "../../../Types/ComponentTypes/HeroSectionTypes";
 
 const Herosection: React.FC = () => {
-  const { data, isLoading } = useFetchTrendsQuery();
+  const { data, isLoading } = useFetchTrendsQuery(2);
 
   const [isBackgroundRepeating, setIsBackgroundRepeating] = useState(false);
   const [isBackgroundCover, setIsBackgroundCover] = useState(false);
@@ -78,7 +78,7 @@ const Herosection: React.FC = () => {
   }, [imagesArray]);
 
   let bgStyles: bgProp = {
-    background: `linear-gradient(to bottom,rgba(0, 0, 0, 0.849) 60%,rgba(0, 139, 139, 0.598)),url(https://image.tmdb.org/t/p/w500${
+    background: `linear-gradient(to bottom,rgba(0, 139, 139, 0.598) 40%,#1e1e1e 90%),url(${IMAGE_BASE_URL}${
       elementObj.backdrop_path
     }) ${isBackgroundRepeating ? "repeat" : "no-repeat"} ${
       isBackgroundPosition ? "center" : "center"
@@ -130,7 +130,7 @@ const Herosection: React.FC = () => {
             </motion.h4>
             <div className="genrediv">
               {moviedata?.genres?.map((genre) => (
-                <TagButton title={genre.name} />
+                <TagButton key={genre.id} title={genre.name} />
               ))}
             </div>
           </div>
