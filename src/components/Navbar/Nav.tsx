@@ -17,8 +17,20 @@ const Nav: React.FC = () => {
   const { data: userdata } = useUserDataQuery();
   const { newsession } = UseAuth(userdata);
   const [color, setColor] = useState("");
+  const [colorChange, setColorchange] = useState(false);
   let location = useLocation();
   let navigate = useNavigate();
+
+  const changeNavbarColor = () => {
+    if (window.scrollY >= 100) {
+      setColorchange(true);
+    } else {
+      setColorchange(false);
+    }
+  };
+
+  console.log(colorChange);
+  window.addEventListener("scroll", changeNavbarColor);
 
   useEffect(() => {
     if (location.pathname === "/") {
@@ -41,7 +53,7 @@ const Nav: React.FC = () => {
   };
 
   return (
-    <nav style={{ backgroundColor: color }}>
+    <nav style={{ backgroundColor: colorChange ? "#232323" : color }}>
       <motion.div
         className="navbar"
         initial={{ y: -200 }}
