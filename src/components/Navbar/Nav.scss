@@ -35,10 +35,14 @@ nav {
           display: flex;
           align-items: center;
           justify-content: center;
+          .btnSignIn {
+            margin: 0 10px;
+          }
           .profilediv {
             display: flex;
             align-items: center;
             justify-content: center;
+
             h4 {
               color: $whiteText;
             }

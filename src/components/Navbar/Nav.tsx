@@ -28,8 +28,6 @@ const Nav: React.FC = () => {
       setColorchange(false);
     }
   };
-
-  console.log(colorChange);
   window.addEventListener("scroll", changeNavbarColor);
 
   useEffect(() => {
@@ -92,9 +90,11 @@ const Nav: React.FC = () => {
                   />
                 </div>
               ) : (
-                <Button primary onClick={() => navigate("/login")}>
-                  Sign In
-                </Button>
+                <div className="btnSignIn">
+                  <Button primary onClick={() => navigate("/login")}>
+                    Sign In
+                  </Button>
+                </div>
               )}
               <Button outline onClick={() => SignOutUser()}>
                 Sign Out
