@@ -4,8 +4,9 @@ import GlobalTitle from "../../GlobalTitle/title";
 import "./HomeTrending.scss";
 import MovieCard from "../../MovieCard/MoviesCard";
 import { useNavigate } from "react-router-dom";
+import { ContentProp } from "../../../Types/ComponentTypes/ComponentTypes";
 
-const HomeTrending = () => {
+const HomeTrending: React.FC<ContentProp> = () => {
   const { data, isLoading } = useFetchTrendsQuery(1);
   const Trends = data?.results;
   let navigate = useNavigate();

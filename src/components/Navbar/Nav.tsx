@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import "./Nav.scss";
@@ -9,6 +9,7 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useUserDataQuery } from "../../features/Reducers/UserSplice/UserSplice";
 import UseAuth from "../../services/Hooks/UseAuth";
+import { FaBars, FaTimes } from "react-icons/fa";
 
 const Nav: React.FC = () => {
   const watchlists = useAppSelector(
@@ -20,6 +21,7 @@ const Nav: React.FC = () => {
   const [colorChange, setColorchange] = useState(false);
   let location = useLocation();
   let navigate = useNavigate();
+  let navRef = useRef<HTMLButtonElement>(null);
 
   const changeNavbarColor = () => {
     if (window.scrollY >= 100) {
@@ -50,35 +52,37 @@ const Nav: React.FC = () => {
     }
   };
 
+  const showNavBar = () => {
+    navRef?.current?.classList.toggle("responsive_nav");
+  };
+
   return (
-    <nav style={{ backgroundColor: colorChange ? "#232323" : color }}>
-      <motion.div
-        className="navbar"
-        initial={{ y: -200 }}
-        animate={{ y: 0 }}
-        transition={{ delay: 0.2, type: "spring", stiffness: 60 }}
-      >
-        <div className="logo">
-          <Link to="/" className="link">
-            <h3>InstaMovieSearch</h3>
-          </Link>
-        </div>
-        <div className="navbar-list">
-          <ul className="navLists">
-            <Link to="/" className="link">
+    <header style={{ backgroundColor: colorChange ? "#232323" : color }}>
+      <div className="logo">
+        <Link to="/" className="link">
+          <h3>InstaMovieSearch</h3>
+        </Link>
+      </div>
+      <nav ref={navRef}>
+        <motion.div
+          className="navbar"
+          initial={{ y: -200 }}
+          animate={{ y: 0 }}
+          transition={{ delay: 0.2, type: "spring", stiffness: 60 }}
+        >
+          <div className="navLists">
+            <Link to="/" onClick={showNavBar} className="link">
               <li>Home</li>
             </Link>
-            <Link to="/watchlist" className="link">
+            <Link to="/watchlist" onClick={showNavBar} className="link">
               <li>
                 Watchlist{" "}
                 <span className="listLengthSpan">{watchlists?.length}</span>
               </li>
             </Link>
-          </ul>
-        </div>
+          </div>
 
-        <div className="navbar-list">
-          <ul className="navLists">
+          <div className="navLists">
             <div className="btnClass">
               {" "}
               {newsession?.user !== undefined ? (
@@ -91,23 +95,39 @@ const Nav: React.FC = () => {
                 </div>
               ) : (
                 <div className="btnSignIn">
-                  <Button primary onClick={() => navigate("/login")}>
+                  <Button
+                    primary
+                    onClick={() => {
+                      navigate("/login");
+                      navRef?.current?.classList.toggle("responsive_nav");
+                    }}
+                  >
                     Sign In
                   </Button>
                 </div>
               )}
-              <Button outline onClick={() => SignOutUser()}>
+              <Button
+                outline
+                onClick={() => {
+                  SignOutUser();
+                  navRef?.current?.classList.toggle("responsive_nav");
+                }}
+              >
                 Sign Out
               </Button>
             </div>
-          </ul>
-        </div>
-      </motion.div>
-    </nav>
+
+            <button onClick={showNavBar} className=" nav-closebtn nav-btn">
+              <FaTimes />
+            </button>
+          </div>
+        </motion.div>
+      </nav>
+      <button onClick={showNavBar} className="nav-btn">
+        <FaBars />
+      </button>
+    </header>
   );
 };
 
 export default Nav;
-function useSupabaseAuthClient() {
-  throw new Error("Function not implemented.");
-}

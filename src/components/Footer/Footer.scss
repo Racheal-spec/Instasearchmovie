@@ -5,9 +5,13 @@ footer {
   min-height: 30vh;
   .footerClass {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
     padding: 80px 70px;
+    @media screen and (max-width: 1024px) {
+      flex-direction: column;
+      padding: 40px 30px;
+    }
     .footerDesc {
       display: flex;
       flex-direction: column;
@@ -23,11 +27,14 @@ footer {
         padding: 10px 0px;
         width: 80%;
         @media screen and (max-width: 600px) {
-          text-align: center;
+          text-align: left;
         }
       }
     }
     .footerIcons {
+      @media screen and (max-width: 1024px) {
+        padding: 20px 0px;
+      }
       p {
         color: $whiteText;
       }
@@ -39,10 +46,17 @@ footer {
           color: rgba(255, 255, 255, 0.692);
           font-size: 1.4rem;
           margin: 20px 15px;
+          @media screen and (max-width: 600px) {
+            margin: 20px 0px;
+            padding-right: 10px;
+          }
         }
       }
       .footercopy {
         color: $footerGreyBg;
+        @media screen and (max-width: 600px) {
+          font-size: 0.8rem;
+        }
       }
     }
   }

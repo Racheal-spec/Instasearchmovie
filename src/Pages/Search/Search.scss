@@ -2,6 +2,9 @@
 
 .searchsection {
   padding: 100px 65px;
+  @media screen and (max-width: 1024px) {
+    padding: 40px 20px;
+  }
   .search-input {
     padding: 13px;
     width: 100%;
@@ -23,6 +26,10 @@
     top: 15%;
     z-index: 1;
     cursor: pointer;
+    @media screen and (max-width: 1024px) {
+      right: 13%;
+      top: 13.5%;
+    }
   }
   .searchImgDiv {
     padding: 100px 0;
@@ -52,13 +59,15 @@
       display: grid;
       grid-template-columns: repeat(5, 1fr);
       grid-gap: 20px;
-      //   padding: 20px;
       color: white;
-      @media screen and (max-width: 600px) {
-        grid-template-columns: repeat(auto-fill, 310px);
+      @media screen and (max-width: 1024px) {
+        grid-template-columns: 1fr 1fr;
         position: relative;
         z-index: 9;
+        width: 100%;
+        grid-gap: 10px;
         background: #1a1a1a;
+        padding: 20px 0;
       }
     }
   }

@@ -12,6 +12,10 @@
       $greenGradient -45%,
       $yellowGradient
     );
+    @media screen and (max-width: 1024px) {
+      padding: 30px 20px;
+      flex-direction: column-reverse;
+    }
     .joinDesc {
       display: flex;
       flex-direction: column;
@@ -22,6 +26,13 @@
         width: 90%;
         padding: 15px 0;
         text-align: left;
+        @media screen and (max-width: 1024px) {
+          text-align: center;
+        }
+      }
+      @media screen and (max-width: 1024px) {
+        align-items: center;
+        padding-top: 20px;
       }
     }
     img {

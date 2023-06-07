@@ -2,7 +2,9 @@
 
 .searchResult {
   padding: 50px 0;
-
+  @media screen and (max-width: 1024px) {
+    padding: 0px;
+  }
   .search-section {
     .search-form {
       margin-top: 20px;
@@ -10,6 +12,9 @@
       align-items: center;
       justify-content: flex-start;
       flex-direction: row;
+      @media screen and (max-width: 1024px) {
+        margin-top: 0;
+      }
       .search-input {
         padding: 13px;
         width: 90%;
@@ -18,6 +23,9 @@
         border: 1px solid $inputStroke;
         &::placeholder {
           color: $greyText;
+        }
+        @media screen and (max-width: 1024px) {
+          margin-right: 10px;
         }
       }
       .search-btn {

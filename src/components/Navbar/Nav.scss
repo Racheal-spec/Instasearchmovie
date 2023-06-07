@@ -1,40 +1,81 @@
 @import "../../../colors";
 
-nav {
-  padding: 0px 20px;
-  position: fixed;
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   width: 100%;
   height: 70px;
+  padding: 0px 70px;
+  position: fixed;
   z-index: 999;
-  .navbar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin: 0 40px;
-    @media screen and (max-width: 600px) {
-      margin: 0 10px;
+  @media screen and (max-width: 1024px) {
+    padding: 0px 20px;
+  }
+  .responsive_nav {
+    @media screen and (max-width: 1024px) {
+      transform: none;
     }
-    .logo {
-      .link {
-        text-decoration: none;
-        h3 {
-          color: $whiteText;
-          border-radius: 6px;
-          padding: 3px 5px;
+  }
+  .logo {
+    .link {
+      text-decoration: none;
+
+      h3 {
+        color: $whiteText;
+        border-radius: 6px;
+        padding: 3px 5px;
+        @media screen and (max-width: 1024px) {
+          font-size: 1rem;
         }
       }
     }
-    .navbar-list {
+  }
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @media screen and (max-width: 1024px) {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 999;
+      transition: 1s;
+      transform: translateY(-100vh);
+      background-color: $cardbg;
+      color: $whiteText;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      @media screen and (max-width: 1024px) {
+        margin: 0 10px;
+        flex-direction: column;
+      }
+
       .navLists {
         display: flex;
         font-weight: bold;
         list-style: none;
         margin: 8px 0;
+        @media screen and (max-width: 1024px) {
+          flex-direction: column;
+        }
         .btnClass {
           margin: 0 10px;
           display: flex;
           align-items: center;
           justify-content: center;
+          @media screen and (max-width: 1024px) {
+            flex-direction: column;
+          }
           .btnSignIn {
             margin: 0 10px;
           }
@@ -58,23 +99,55 @@ nav {
           text-decoration: none;
           margin: 0 8px;
           color: $whiteText;
+          @media screen and (max-width: 1024px) {
+            margin: 12px 0;
+          }
           h2 {
             font-family: Georgia, "Times New Roman", Times, serif;
           }
           .listLengthSpan {
             background-color: $whiteText;
             color: $textDark;
-            border: 1px solid teal;
+            border: 1px solid $secondaryColor;
             padding: 0px 6px;
           }
+        }
+        .nav-btn {
+          display: none;
+          background: transparent;
+          border: none;
+          outline: none;
+          cursor: pointer;
+          font-size: 1.8rem;
+          padding: 5px;
+          @media screen and (max-width: 1024px) {
+            display: block;
+          }
+        }
+        .nav-closebtn {
+          position: absolute;
+          top: 2%;
+          right: 2%;
         }
       }
     }
   }
-}
-
-@media screen and (max-width: 600px) {
-  nav {
-    min-height: 5vh;
+  .nav-btn {
+    display: none;
+    background: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    color: $whiteText;
+    font-size: 1.4rem;
+    padding: 5px;
+    @media screen and (max-width: 1024px) {
+      display: block;
+    }
+  }
+  @media screen and (max-width: 600px) {
+    nav {
+      min-height: 5vh;
+    }
   }
 }

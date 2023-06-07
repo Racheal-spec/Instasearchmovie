@@ -37,9 +37,6 @@ const Herosection: React.FC = () => {
     published_at: "",
     id: "",
   });
-  // console.log(moviedata) ?.videos?.results!;
-
-  // console.log(maintrailer);
 
   useEffect(() => {
     const videoArray = () => {
@@ -84,6 +81,14 @@ const Herosection: React.FC = () => {
       isBackgroundPosition ? "center" : "center"
     }/${isBackgroundCover ? "contain" : "cover"}`,
   };
+
+  const truncate = (str: string, length: number) => {
+    if (str?.length > length) {
+      return str?.slice(0, length) + "...";
+    } else {
+      return str;
+    }
+  };
   return (
     <div style={bgStyles}>
       <section className="first-section">
@@ -103,7 +108,7 @@ const Herosection: React.FC = () => {
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.5, duration: 1 }}
               >
-                <q> {moviedata?.tagline}</q>
+                <q> {truncate(moviedata?.tagline, 50)}</q>
               </motion.p>
             ) : (
               <motion.p
@@ -111,7 +116,7 @@ const Herosection: React.FC = () => {
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.5, duration: 1 }}
               >
-                <q> {elementObj.overview}</q>
+                <q> {truncate(elementObj?.overview!, 50)}</q>
               </motion.p>
             )}
             <motion.h4
@@ -137,8 +142,6 @@ const Herosection: React.FC = () => {
 
           <div className="iframeStyle" key={maintrailer?.key}>
             <iframe
-              width="323px"
-              height="326px"
               frameBorder="0"
               title={maintrailer?.name}
               src={`${URL_YOUTUBE}${maintrailer?.key}`}

@@ -20,7 +20,13 @@ const Home = () => {
           <Herosection />
           <div className="homewrapper">
             <HomeSearch />
-            <HomeTrending />
+            <HomeTrending
+              id={0}
+              title=""
+              overview=""
+              release_date=""
+              poster_path=""
+            />
             <Lists />
             <MovieDiscover />
             <LatestMovies />

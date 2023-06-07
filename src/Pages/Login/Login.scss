@@ -6,8 +6,12 @@
     rgba(0, 139, 139, 0.598),
     url("../../images/imgbg.png")
   );
+
   .authcss {
     width: 50%;
     margin: 0 auto;
+    @media screen and (max-width: 1024px) {
+      width: 80%;
+    }
   }
 }

@@ -1,10 +1,13 @@
 .homewrapper {
   padding: 0 70px;
   color: rgba(23, 23, 23, 0.598);
+  @media screen and (max-width: 1024px) {
+    padding: 0 20px;
+  }
 }
 
 //MEDIA QUERIES
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 1024px) {
   .first-section {
     height: 45vh;
     h1 {

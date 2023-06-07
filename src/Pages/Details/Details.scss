@@ -3,7 +3,7 @@
 .moviedetail-page {
   .detail-content {
     a {
-      color: teal;
+      color: $secondaryColor;
     }
     .moviedetail-wrapper {
       display: flex;
@@ -13,25 +13,32 @@
 
       @media screen and (max-width: 600px) {
         flex-direction: column;
+        padding: 120px 0px;
       }
       .imgDiv {
         width: 30%;
         border-radius: 10px;
+        @media screen and (max-width: 1024px) {
+          width: 85%;
+        }
         .lozad {
           width: 100%;
           height: 450px;
           object-fit: cover;
           border-radius: 10px;
           position: relative;
-          // z-index: -1;
+          @media screen and (max-width: 1024px) {
+            height: 350px;
+          }
         }
       }
       .moviedetail-content {
         text-align: left;
         margin: 0 30px;
         width: 70%;
-        @media screen and (max-width: 600px) {
+        @media screen and (max-width: 1024px) {
           margin: 20px 5px;
+          width: 85%;
         }
         .genre {
           display: flex;
@@ -67,34 +74,44 @@
       padding: 0 35px;
       .movie-video {
         padding: 30px;
+        @media screen and (max-width: 1024px) {
+          padding: 0px;
+        }
         .videodiv {
           display: grid;
           grid-template-columns: repeat(4, 1fr);
           row-gap: 20px;
-        }
-        @media screen and (max-width: 600px) {
-          grid-template-columns: 1fr;
-          margin: 0;
+          @media screen and (max-width: 1024px) {
+            grid-template-columns: 1fr;
+          }
         }
       }
       .companies {
         padding: 10px 30px;
         list-style: none;
         color: teal;
+        @media screen and (max-width: 1024px) {
+          padding: 10px 0px;
+        }
         .companies-list {
           display: flex;
           align-items: center;
-          @media screen and (max-width: 600px) {
+          @media screen and (max-width: 1024px) {
             flex-direction: column;
           }
           .prodImgDiv {
             display: flex;
             align-items: center;
-            flex-direction: column;
+            // flex-direction: column;
             justify-content: center;
+            flex-wrap: wrap;
             background-color: $greyText;
             min-height: 100px;
             margin-right: 8px;
+            @media screen and (max-width: 600px) {
+              margin-right: 0px;
+              margin-top: 10px;
+            }
             .noImageDiv {
               padding: 0px 10px;
             }
@@ -109,6 +126,9 @@
       }
       .similarsect {
         padding: 40px 30px;
+        @media screen and (max-width: 600px) {
+          padding: 10px 0px;
+        }
         .similarDiv {
           display: grid;
           grid-template-columns: repeat(7, 1fr);
@@ -116,6 +136,8 @@
           column-gap: 20px;
           @media screen and (max-width: 600px) {
             grid-template-columns: repeat(2, 1fr);
+
+            gap: 10px;
           }
           .similar-card {
             display: flex;
