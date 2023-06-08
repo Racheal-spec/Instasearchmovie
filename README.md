@@ -13,11 +13,16 @@ A movie search app developed with react-typescript, redux and supabase using The
 
 ## TECHNICAL NOTES
 
-1.State management using Redux toolkit
+1. State management using Redux toolkit
+
 2. Authentication and authorization using supabase
+
 3. Used an advanced data fetching and caching tool called RTK-Query
+
 4. Enforced type safety at runtime using typescript
+
 5. Responsive design using css-grid and flex-box
+
 6. Environment set-up using Create-React-App
 
 ## LIVE DEMO
