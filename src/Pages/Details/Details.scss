@@ -20,6 +20,7 @@
         border-radius: 10px;
         @media screen and (max-width: 1024px) {
           width: 85%;
+          margin-right: 20px;
         }
         .lozad {
           width: 100%;
@@ -81,8 +82,11 @@
           display: grid;
           grid-template-columns: repeat(4, 1fr);
           row-gap: 20px;
-          @media screen and (max-width: 1024px) {
+          @media screen and (max-width: 600px) {
             grid-template-columns: 1fr;
+          }
+          @media screen and (max-width: 1024px) {
+            grid-template-columns: 1fr 1fr;
           }
         }
       }
@@ -96,9 +100,7 @@
         .companies-list {
           display: flex;
           align-items: center;
-          @media screen and (max-width: 1024px) {
-            flex-direction: column;
-          }
+
           .prodImgDiv {
             display: flex;
             align-items: center;
@@ -112,6 +114,7 @@
               margin-right: 0px;
               margin-top: 10px;
             }
+
             .noImageDiv {
               padding: 0px 10px;
             }
@@ -136,7 +139,10 @@
           column-gap: 20px;
           @media screen and (max-width: 600px) {
             grid-template-columns: repeat(2, 1fr);
-
+            gap: 10px;
+          }
+          @media screen and (max-width: 1024px) {
+            grid-template-columns: repeat(4, 1fr);
             gap: 10px;
           }
           .similar-card {

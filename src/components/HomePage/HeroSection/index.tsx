@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import "../HeroSection/index.scss";
 import {
@@ -18,7 +18,7 @@ const Herosection: React.FC = () => {
   const [isBackgroundCover, setIsBackgroundCover] = useState(false);
   const [isBackgroundPosition, setIsBackgroundPosition] = useState(false);
   const [elementObj, setElementObj] = useState<DetailsProp>({
-    title: data?.results[0].title,
+    title: data?.results[0].title || data?.results[0].name,
     backdrop_path: data?.results[0].backdrop_path,
     overview: data?.results[0].overview,
   });
@@ -65,7 +65,7 @@ const Herosection: React.FC = () => {
 
       // return () => {
       //   // clears timeout before running the new effect
-      //   clearTimeout(timeout);
+      //   clearTimeout(Eltimeout);
       // };
     }
   }, [data?.results]);
@@ -73,6 +73,18 @@ const Herosection: React.FC = () => {
   useEffect(() => {
     imagesArray();
   }, [imagesArray]);
+
+  let firstRender = useRef(false);
+
+  useEffect(() => {
+    if (firstRender.current) {
+      return;
+    }
+    if (data?.results) {
+      setElementObj(data?.results?.[0]);
+      firstRender.current = true;
+    }
+  }, [data?.results]);
 
   let bgStyles: bgProp = {
     background: `linear-gradient(to bottom,rgba(0, 139, 139, 0.598) 40%,#1e1e1e 90%),url(${IMAGE_BASE_URL}${
@@ -100,7 +112,11 @@ const Herosection: React.FC = () => {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5, duration: 1 }}
             >
-              {elementObj.title || elementObj.name}
+              {elementObj.title
+                ? elementObj.title
+                : "loading..." || elementObj.name
+                ? elementObj.name
+                : "loading..."}
             </motion.h1>
             {moviedata?.tagline ? (
               <motion.p
@@ -139,7 +155,6 @@ const Herosection: React.FC = () => {
               ))}
             </div>
           </div>
-
           <div className="iframeStyle" key={maintrailer?.key}>
             <iframe
               frameBorder="0"

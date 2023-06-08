@@ -35,7 +35,6 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-
     @media screen and (max-width: 1024px) {
       position: fixed;
       top: 0;
@@ -44,7 +43,7 @@ header {
       height: 100%;
       z-index: 999;
       transition: 1s;
-      transform: translateY(-100vh);
+      transform: translateY(-140vh);
       background-color: $cardbg;
       color: $whiteText;
       display: flex;

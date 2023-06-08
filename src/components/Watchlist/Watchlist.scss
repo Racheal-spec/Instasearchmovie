@@ -77,6 +77,11 @@
         height: 250px;
         object-fit: cover;
       }
+      @media screen and (max-width: 1024px) {
+        width: 40%;
+        height: 280px;
+        object-fit: cover;
+      }
     }
     .watchcard--content {
       width: 55%;
