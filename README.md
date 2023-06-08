@@ -1,6 +1,6 @@
 # Instasearchmovie
 
-INSTAMOVIESEARCH
+## INSTAMOVIESEARCH
 
 A movie search app developed with react-typescript, redux and supabase using The MovieDB API. Here, users are able to;
 
@@ -11,7 +11,7 @@ A movie search app developed with react-typescript, redux and supabase using The
 5. Save movies to watchlist
 6. View all movie details
 
-TECHNICAL NOTES
+## TECHNICAL NOTES
 
 1.State management using Redux toolkit
 2. Authentication and authorization using supabase
@@ -20,7 +20,8 @@ TECHNICAL NOTES
 5. Responsive design using css-grid and flex-box
 6. Environment set-up using Create-React-App
 
-LIVE DEMO
+## LIVE DEMO
+
 (https://instamoviesearch.vercel.app)
 
 <img width="1436" alt="Screenshot 2023-06-08 at 7 48 11 AM" src="https://github.com/Racheal-spec/Instasearchmovie/assets/54950873/1f8ec656-d15f-4e89-a7d2-02cb1bc999e6">
@@ -37,3 +38,24 @@ LIVE DEMO
 
 <img width="1440" alt="Screenshot 2023-06-08 at 7 49 50 AM" src="https://github.com/Racheal-spec/Instasearchmovie/assets/54950873/cb4bea18-d8a0-4fa3-a5ad-9d6658b0b288">
 
+## Installation
+
+This project requires node and npm installed globally.
+
+Clone the repository to a directory of your choosing
+
+```sh
+$ git clone git@github.com:Racheal-spec/Instasearchmovie.git
+```
+
+Install the necessary packages
+
+```sh
+$ yarn install
+```
+
+To run the server
+
+```sh
+$ yarn start
+```
