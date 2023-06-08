@@ -2,10 +2,9 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useLatestMoviesQuery } from "../../features/Reducers/MoviesApiSlice/ApiSlice";
 import Card from "../Card/Card";
-import MovieCard from "../MovieCard/MoviesCard";
 
 const LatestMovies = () => {
-  const { data, isLoading } = useLatestMoviesQuery(1);
+  const { data } = useLatestMoviesQuery(1);
   const Latest = data?.results;
 
   let navigate = useNavigate();

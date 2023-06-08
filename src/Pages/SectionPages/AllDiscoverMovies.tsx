@@ -8,7 +8,7 @@ import "./sectionpages.scss";
 
 const AllDiscoverMovies = () => {
   const [page, setPage] = useState(1);
-  const { data, isLoading } = useDiscoverMoviesQuery(page);
+  const { data } = useDiscoverMoviesQuery(page);
 
   const loadPrev = () => {
     setPage((prevstate) => prevstate - 1);

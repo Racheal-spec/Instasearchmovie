@@ -1,4 +1,5 @@
 @import "../../../colors";
+@import "../../mixins/mixins.scss";
 
 .main-section {
   .nolist {
@@ -7,8 +8,7 @@
   }
   .listWrapper {
     position: relative;
-    display: grid;
-    grid-template-columns: repeat(20, 260px);
+    @include grid(repeat(20, 260px));
     grid-gap: 20px;
     overflow-x: scroll;
   }

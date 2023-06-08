@@ -8,7 +8,7 @@ import undrawsearch from "../../images/undrawsearch.svg";
 
 const Search: React.FC = () => {
   const searches = useAppSelector((state) => state.searches.initialSearch);
-  const { data, isLoading, isError } = useSearchMoviesQuery(searches);
+  const { data } = useSearchMoviesQuery(searches);
   const dispatch = useAppDispatch();
 
   const updateResults = (e: React.ChangeEvent<HTMLInputElement>) => {

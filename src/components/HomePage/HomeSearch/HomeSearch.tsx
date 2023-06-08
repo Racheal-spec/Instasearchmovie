@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useLazySearchMoviesQuery } from "../../../features/Reducers/MoviesApiSlice/ApiSlice";
 import GlobalTitle from "../../GlobalTitle/title";
 import "./HomeSearch.scss";

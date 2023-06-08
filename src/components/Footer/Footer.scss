@@ -1,12 +1,11 @@
 @import "../../../colors";
+@import "../../mixins/mixins.scss";
 
 footer {
   background-color: $inputBg;
   min-height: 30vh;
   .footerClass {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
+    @include flex(flex-start, space-between);
     padding: 80px 70px;
     @media screen and (max-width: 1024px) {
       flex-direction: column;
@@ -43,7 +42,7 @@ footer {
         .fa-instagram,
         .fa-twitter,
         .fa-github {
-          color: rgba(255, 255, 255, 0.692);
+          color: $trendDateColor;
           font-size: 1.4rem;
           margin: 20px 15px;
           @media screen and (max-width: 600px) {

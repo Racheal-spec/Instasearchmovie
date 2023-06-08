@@ -7,7 +7,6 @@ import { CommonContentProp } from "../../Types/globalTypes";
 import { addToWatchlist } from "../../features/Reducers/watchlistSlice";
 import { useAppDispatch } from "../../services/Hooks/hooks";
 import "./MoviesCard.scss";
-import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { IMAGE_BASE_URL } from "../../Api";
 
@@ -108,7 +107,6 @@ const MovieCard: React.FC<CommonContentProp> = ({
             </motion.button>
           </div>
         </div>
-        <ToastContainer />
       </motion.div>
     </>
   );

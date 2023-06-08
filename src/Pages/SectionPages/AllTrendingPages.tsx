@@ -1,9 +1,6 @@
 import React, { useState } from "react";
 import MovieCard from "../../components/MovieCard/MoviesCard";
-import {
-  useFetchTrendsQuery,
-  useLazyFetchTrendsQuery,
-} from "../../features/Reducers/MoviesApiSlice/ApiSlice";
+import { useFetchTrendsQuery } from "../../features/Reducers/MoviesApiSlice/ApiSlice";
 import undrawsearch from "../../images/undrawsearch.svg";
 import GlobalTitle from "../../components/GlobalTitle/title";
 import Button from "../../components/Button";
@@ -11,7 +8,7 @@ import "./sectionpages.scss";
 
 const AllTrendingPages = () => {
   const [page, setPage] = useState(1);
-  const { data, isLoading } = useFetchTrendsQuery(page);
+  const { data } = useFetchTrendsQuery(page);
 
   const loadPrev = () => {
     setPage((prevstate) => prevstate - 1);

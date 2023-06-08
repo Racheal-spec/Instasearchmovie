@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import { IMAGE_BASE_URL, URL_YOUTUBE } from "../../Api";
@@ -23,12 +23,10 @@ const Details: React.FC<DetailsProp> = () => {
   let idParam = useParams();
   let detailId: string = idParam.id!;
   const { data, isLoading } = useMoviesDetailsQuery(detailId);
-  const [itemAdded, setItemAdded] = useState(false);
 
   const dispatch = useAppDispatch();
   //  //Similar Movies
-  const { data: similars, isLoading: isLoadingSimilar } =
-    useSimilarMoviesQuery(detailId);
+  const { data: similars } = useSimilarMoviesQuery(detailId);
   const movie: ContentProp = {
     id: data?.id!,
     title: data?.title!,
@@ -39,8 +37,6 @@ const Details: React.FC<DetailsProp> = () => {
   };
   const clickBtn = () => {
     dispatch(addToWatchlist(movie));
-
-    setItemAdded(true);
     toast.success("Movie added to watchlist!", {
       className: "toast",
     });
@@ -129,7 +125,6 @@ const Details: React.FC<DetailsProp> = () => {
                           alt={companies.name}
                         />
                       )}
-                      {/* <p>{companies.name}</p> */}
                     </div>
                   ))}
                 </div>

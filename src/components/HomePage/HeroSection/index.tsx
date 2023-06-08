@@ -12,7 +12,7 @@ import TagButton from "../../Button/TagButton";
 import { bgProp } from "../../../Types/ComponentTypes/HeroSectionTypes";
 
 const Herosection: React.FC = () => {
-  const { data, isLoading } = useFetchTrendsQuery(2);
+  const { data } = useFetchTrendsQuery(2);
 
   const [isBackgroundRepeating, setIsBackgroundRepeating] = useState(false);
   const [isBackgroundCover, setIsBackgroundCover] = useState(false);
@@ -62,11 +62,6 @@ const Herosection: React.FC = () => {
         setIsBackgroundCover(false);
         setIsBackgroundPosition(false);
       }, 12000 * (i + 1));
-
-      // return () => {
-      //   // clears timeout before running the new effect
-      //   clearTimeout(Eltimeout);
-      // };
     }
   }, [data?.results]);
 

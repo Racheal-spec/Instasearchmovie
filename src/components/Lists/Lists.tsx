@@ -17,7 +17,6 @@ const Lists: React.FC = () => {
         title="Lists"
         description="List of all movies added to your watchlist"
       />
-
       <div>
         {watchlists.length === 0 ? (
           <div className="nolist">

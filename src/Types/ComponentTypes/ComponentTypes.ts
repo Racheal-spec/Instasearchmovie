@@ -1,4 +1,7 @@
-import { User } from "@supabase/supabase-js";
+export type TitleProp = {
+  title: string;
+  description: string;
+};
 
 export type ContentProp = {
   id: number;
@@ -12,16 +15,6 @@ export type ContentProp = {
   backdrop_path?: string;
   genre_ids?: number[];
   genIds?: number[];
-  // production_companies?: {
-  //   id: number;
-  //   logo_path: string;
-  //   name: string;
-  //   origin_country: string;
-  // }[];
-  // genres?: {
-  //   id: number;
-  //   name: string;
-  // }[];
 };
 
 export type DetailsResponse = {

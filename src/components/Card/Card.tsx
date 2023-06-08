@@ -1,13 +1,9 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
-// import { loadDetail } from "../MoviesApiSlice/detailAction";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import lozad from "lozad";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { CommonContentProp } from "../../Types/globalTypes";
-import { addToWatchlist } from "../../features/Reducers/watchlistSlice";
-import { useAppDispatch } from "../../services/Hooks/hooks";
 import "./Card.scss";
 
 const Card: React.FC<CommonContentProp> = ({
@@ -24,32 +20,8 @@ const Card: React.FC<CommonContentProp> = ({
   original_language,
   adult,
 }) => {
-  const [itemAdded, setItemAdded] = useState(false);
-
-  const dispatch = useAppDispatch();
-
-  // const detailHandler = () => {
-  //   dispatch(loadDetail(id));
-  // };
-  const movie = {
-    id: id,
-    title: title,
-    vote_average: vote_average,
-    release_date: release_date,
-    poster_path: poster_path,
-    overview: overview,
-    backdrop_path,
-    genre_ids,
-  };
-  const clickBtn = () => {
-    dispatch(addToWatchlist(movie!));
-    setItemAdded(true);
-  };
-
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setItemAdded(false);
-    }, 1000);
+    const timer = setTimeout(() => {}, 1000);
     return () => clearTimeout(timer);
   });
   const observer = lozad();

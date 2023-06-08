@@ -1,10 +1,7 @@
 import React from "react";
 import "./title.scss";
+import { TitleProp } from "../../Types/ComponentTypes/ComponentTypes";
 
-type TitleProp = {
-  title: string;
-  description: string;
-};
 const GlobalTitle: React.FC<TitleProp> = ({ title, description }) => {
   return (
     <div className="titleDiv">

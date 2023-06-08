@@ -1,11 +1,10 @@
 @import "../../../../colors";
+@import "../../../mixins/mixins.scss";
 
 .joinWrapper {
   padding: 30px 0;
   .JoinDiv {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    @include flex(center, center);
     padding: 30px 70px;
     background: linear-gradient(
       to bottom,
@@ -17,10 +16,8 @@
       flex-direction: column-reverse;
     }
     .joinDesc {
-      display: flex;
+      @include flex(flex-start, space-between);
       flex-direction: column;
-      justify-content: space-between;
-      align-items: flex-start;
       color: $whiteText;
       p {
         width: 90%;

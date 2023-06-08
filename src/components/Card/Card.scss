@@ -1,19 +1,15 @@
 @import "../../../colors";
 
 .card {
-  // background-color: #242323;
   height: 100%;
   position: relative;
   background: linear-gradient(to bottom, #8b887547, #0e0e0e 95%);
-
   .lozad {
     max-width: 100%;
-    // height: 100%;
     object-fit: cover;
     position: relative;
     z-index: -1;
   }
-
   .cardcontent {
     position: absolute;
     z-index: 9;
@@ -42,12 +38,10 @@
         font-weight: bold;
         color: $whiteText;
         padding-right: 5px;
-
         .fa-star {
           color: $primaryColor;
         }
       }
-
       p {
         margin: 3px 0;
         color: $greyText;

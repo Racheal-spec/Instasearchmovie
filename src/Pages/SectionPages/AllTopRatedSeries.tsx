@@ -1,11 +1,6 @@
 import React, { useState } from "react";
 import MovieCard from "../../components/MovieCard/MoviesCard";
-import {
-  useDiscoverMoviesQuery,
-  useFetchTrendsQuery,
-  useLatestMoviesQuery,
-  useLazyFetchTrendsQuery,
-} from "../../features/Reducers/MoviesApiSlice/ApiSlice";
+import { useLatestMoviesQuery } from "../../features/Reducers/MoviesApiSlice/ApiSlice";
 import undrawsearch from "../../images/undrawsearch.svg";
 import GlobalTitle from "../../components/GlobalTitle/title";
 import Button from "../../components/Button";
@@ -13,7 +8,7 @@ import "./sectionpages.scss";
 
 const AllTopRatedSeries = () => {
   const [page, setPage] = useState(1);
-  const { data, isLoading } = useLatestMoviesQuery(page);
+  const { data } = useLatestMoviesQuery(page);
 
   const loadPrev = () => {
     setPage((prevstate) => prevstate - 1);

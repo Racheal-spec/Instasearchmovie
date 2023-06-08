@@ -15,7 +15,7 @@ const MovieVideo = () => {
     navigate("/discover");
   };
 
-  const { data, isLoading } = useDiscoverMoviesQuery(1);
+  const { data } = useDiscoverMoviesQuery(1);
 
   const Discover = data?.results;
 

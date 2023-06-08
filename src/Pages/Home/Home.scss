@@ -1,6 +1,9 @@
+@import "colors.scss";
+@import "../../mixins/mixins.scss";
+
 .homewrapper {
   padding: 0 70px;
-  color: rgba(23, 23, 23, 0.598);
+  color: $cardbg;
   @media screen and (max-width: 1024px) {
     padding: 0 20px;
   }
@@ -17,8 +20,7 @@
     .title {
       font-size: 0.6rem;
       .line {
-        width: 60px;
-        height: 5px;
+        @include widthandheight(60px, 5px);
       }
     }
   }
@@ -36,14 +38,13 @@
 //SCROLLBAR STYLES
 
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 7px;
+  @include widthandheight(8px, 7px);
 }
 ::-webkit-scrollbar-track {
-  background: #141414;
+  background: $trendDateColor;
 }
 ::-webkit-scrollbar-thumb {
-  background-color: teal;
+  background-color: $secondaryColor;
   border-radius: 20px;
-  border: 2px solid white;
+  border: 2px solid $whiteText;
 }

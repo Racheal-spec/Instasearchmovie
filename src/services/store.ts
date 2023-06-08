@@ -6,15 +6,14 @@ import searchReducer from "../features/Reducers/searchSlice";
 import storage from "redux-persist/lib/storage";
 import {
   persistReducer,
-  FLUSH,
-  REHYDRATE,
-  PAUSE,
-  PERSIST,
-  PURGE,
-  REGISTER,
+  // FLUSH,
+  // REHYDRATE,
+  // PAUSE,
+  // PERSIST,
+  // PURGE,
+  // REGISTER,
 } from "redux-persist";
 import { setupListeners } from "@reduxjs/toolkit/dist/query";
-// import { setupListeners } from "@reduxjs/toolkit/dist/query";
 
 const persistConfig = {
   key: "root",

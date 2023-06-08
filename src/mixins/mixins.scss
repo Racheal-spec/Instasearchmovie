@@ -1,0 +1,33 @@
+@import "colors.scss";
+
+@mixin flex($align, $justify) {
+  display: flex;
+  align-items: $align;
+  justify-content: $justify;
+}
+@mixin grid($template-columns) {
+  display: grid;
+  grid-template-columns: $template-columns;
+}
+@mixin widthandheight($width, $height) {
+  width: $width;
+  height: $height;
+}
+@mixin nav-btn {
+  display: none;
+  background: transparent;
+  color: $whiteText;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 1.8rem;
+  padding: 5px;
+  @media screen and (max-width: 1024px) {
+    display: block;
+  }
+}
+@mixin background($size, $position, $repeat) {
+  background-size: $size;
+  background-position: $position;
+  background-repeat: $repeat;
+}

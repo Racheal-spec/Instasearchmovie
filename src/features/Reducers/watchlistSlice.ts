@@ -30,8 +30,8 @@ export const WatchlistSlice = createSlice({
           return list.id !== movieid;
         });
       } else {
-        console.warn(
-          `Can't remove product (id: ${action.payload}) as it's not in your watchlist!`
+        toast.warn(
+          `Can't remove movie (id: ${movieid}) as it's not in your watchlist!`
         );
       }
     },

@@ -1,4 +1,5 @@
 @import "../../../colors";
+@import "../../mixins/mixins.scss";
 
 .moviedetail-page {
   .detail-content {
@@ -6,9 +7,7 @@
       color: $secondaryColor;
     }
     .moviedetail-wrapper {
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      @include flex(center, center);
       padding: 120px 60px;
 
       @media screen and (max-width: 600px) {
@@ -23,8 +22,7 @@
           margin-right: 20px;
         }
         .lozad {
-          width: 100%;
-          height: 450px;
+          @include widthandheight(100%, 450px);
           object-fit: cover;
           border-radius: 10px;
           position: relative;
@@ -79,8 +77,8 @@
           padding: 0px;
         }
         .videodiv {
-          display: grid;
-          grid-template-columns: repeat(4, 1fr);
+          @include grid(repeat(4, 1fr));
+
           row-gap: 20px;
           @media screen and (max-width: 600px) {
             grid-template-columns: 1fr;
@@ -93,7 +91,7 @@
       .companies {
         padding: 10px 30px;
         list-style: none;
-        color: teal;
+        color: $secondaryColor;
         @media screen and (max-width: 1024px) {
           padding: 10px 0px;
         }
@@ -102,10 +100,7 @@
           align-items: center;
 
           .prodImgDiv {
-            display: flex;
-            align-items: center;
-            // flex-direction: column;
-            justify-content: center;
+            @include flex(center, center);
             flex-wrap: wrap;
             background-color: $greyText;
             min-height: 100px;
@@ -133,8 +128,8 @@
           padding: 10px 0px;
         }
         .similarDiv {
-          display: grid;
-          grid-template-columns: repeat(7, 1fr);
+          @include grid(repeat(7, 1fr));
+
           row-gap: 50px;
           column-gap: 20px;
           @media screen and (max-width: 600px) {

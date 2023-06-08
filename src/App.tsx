@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import "./App.scss";
 import Nav from "./components/Navbar/Nav";
 import Footer from "./components/Footer/Footer";
-import Loader from "./components/Loader/Loader";
 import Home from "./Pages/Home/Home";
 import { Route, Routes } from "react-router-dom";
 import Search from "./Pages/Search/Search";
@@ -34,55 +33,46 @@ const App = () => {
   }
   return (
     <>
-      {isLoading === false ? (
-        <>
-          <div className="app">
-            <Nav />
+      <div className="app">
+        <Nav />
 
-            <React.Suspense fallback={<h2>Loading...</h2>}>
-              <div className="wrapper">
-                <Routes>
-                  <Route path="/" element={<Home />} />
-                  <Route path="/login" element={<Login />} />
-                  <Route
-                    path="/watchlist"
-                    element={
-                      newsession?.user ? (
-                        <Watchlist
-                          id={0}
-                          title={""}
-                          overview={undefined}
-                          release_date={""}
-                          poster_path={""}
-                        />
-                      ) : (
-                        <Login />
-                      )
-                    }
-                  />
-                  <Route path="/trending" element={<AllTrendingPages />} />
-                  <Route path="/discover" element={<AllDiscoverMovies />} />
-                  <Route path="/topratedtv" element={<AllTopRatedSeries />} />
-                  <Route path="/search" element={<Search />} />
-                  <Route
-                    path={`/search?query=${searches}`}
-                    element={<Search />}
-                  />
-                  <Route path="/search/Details/:id" element={<Details />} />
-                  <Route path="/trending/Details/:id" element={<Details />} />
-                  <Route path="/discover/Details/:id" element={<Details />} />
-                  <Route path="/topratedtv/Details/:id" element={<Details />} />
-                  <Route path="/Details/:id" element={<Details />} />
-                </Routes>
-              </div>
-            </React.Suspense>
+        <React.Suspense fallback={<h2>Loading...</h2>}>
+          <div className="wrapper">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/login" element={<Login />} />
+              <Route
+                path="/watchlist"
+                element={
+                  newsession?.user ? (
+                    <Watchlist
+                      id={0}
+                      title={""}
+                      overview={undefined}
+                      release_date={""}
+                      poster_path={""}
+                    />
+                  ) : (
+                    <Login />
+                  )
+                }
+              />
+              <Route path="/trending" element={<AllTrendingPages />} />
+              <Route path="/discover" element={<AllDiscoverMovies />} />
+              <Route path="/topratedtv" element={<AllTopRatedSeries />} />
+              <Route path="/search" element={<Search />} />
+              <Route path={`/search?query=${searches}`} element={<Search />} />
+              <Route path="/search/Details/:id" element={<Details />} />
+              <Route path="/trending/Details/:id" element={<Details />} />
+              <Route path="/discover/Details/:id" element={<Details />} />
+              <Route path="/topratedtv/Details/:id" element={<Details />} />
+              <Route path="/Details/:id" element={<Details />} />
+            </Routes>
           </div>
-          <Footer />
-          <div></div>
-        </>
-      ) : (
-        <Loader />
-      )}
+        </React.Suspense>
+      </div>
+      <Footer />
+      <div></div>
     </>
   );
 };

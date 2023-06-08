@@ -16,7 +16,6 @@ const ListCard: React.FC<DetailsProp> = ({
     });
   });
 
-  // console.log(genreArray);
   return (
     <div className="listcardWrapper">
       <div className="listcardDiv">
