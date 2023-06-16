@@ -1,12 +1,12 @@
 @import "../../../../colors";
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Arvo:wght@700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Londrina+Outline&display=swap");
 @import "../../../mixins/mixins.scss";
 
 .first-section {
   @include widthandheight(100%, 100vh);
   position: relative;
-  padding: 0 30px;
+  padding: 0px 70px;
   @media screen and (max-width: 1024px) {
     padding: 30px 10px;
     min-height: 70vh;
@@ -38,13 +38,14 @@
   .heroDiv {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    padding-top: 10%;
     h1 {
-      font-size: 5rem;
+      font-size: 3.5rem;
       color: $whiteText;
       text-align: left;
-      padding-top: 14%;
-      padding-left: 30px;
-      font-family: "Roboto", sans-serif;
+      // padding-left: 30px;
+      font-family: "Arvo", serif;
       @media screen and (max-width: 1024px) {
         font-size: 2.6rem;
         padding-left: 0px;
@@ -53,40 +54,41 @@
     p {
       position: relative;
       padding: 14px 0;
-      left: 16%;
       color: $primaryColor;
-      @media screen and (max-width: 1024px) {
-        left: 6%;
-      }
+      font-size: 1.5rem;
+      font-weight: bold;
+      // left: 16%;
+      // @media screen and (max-width: 1024px) {
+      //   left: 6%;
+      // }
     }
     h4 {
       color: $whiteText;
       position: relative;
       padding: 4px 0;
-      left: 16%;
-      @media screen and (max-width: 1024px) {
-        left: 6%;
-      }
+      // left: 16%;
+      // @media screen and (max-width: 1024px) {
+      //   left: 6%;
+      // }
     }
     .genrediv {
       display: flex;
       position: relative;
       padding: 20px 0;
-      left: 16%;
-      @media screen and (max-width: 1024px) {
-        left: 6%;
-      }
+      // left: 16%;
+      // @media screen and (max-width: 1024px) {
+      //   left: 6%;
+      // }
     }
     .heroDescriptionDiv {
       display: flex;
       align-items: flex-start;
       flex-direction: column;
       text-align: left;
-      padding: 0px 10px;
-      width: 80%;
+      width: 55%;
       min-height: 20vh;
       flex-wrap: wrap;
-      @media screen and (max-width: 1024px) {
+      @media screen and (max-width: 768px) {
         width: 100%;
         padding: 40px 10px;
         p {
@@ -99,18 +101,33 @@
       }
     }
     .iframeStyle {
-      position: absolute;
-      bottom: 2%;
-      right: 70px;
-      @media screen and (max-width: 1024px) {
-        bottom: 5%;
-        right: 30px;
+      background: linear-gradient(
+        to bottom,
+        rgba(0, 139, 139, 0.598) 40%,
+        #1e1e1e 90%
+      );
+      position: relative;
+      border-radius: 20px;
+      width: 35%;
+      margin: 0 50px;
+
+      .poster_img {
+        @include widthandheight(100%, 70vh);
+        border-radius: 20px;
       }
-      iframe {
-        @include widthandheight(323px, 326px);
-        @media screen and (max-width: 1024px) {
-          @include widthandheight(223px, 226px);
-        }
+    }
+    .watchbtndiv {
+      .watchbtn {
+        position: absolute;
+        cursor: pointer;
+        top: 27%;
+        right: 7%;
+        background-color: $redbg;
+        color: $whiteText;
+        border: 1px solid red;
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
       }
     }
   }

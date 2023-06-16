@@ -34,7 +34,8 @@
       .moviedetail-content {
         text-align: left;
         margin: 0 30px;
-        width: 70%;
+        width: 50%;
+
         @media screen and (max-width: 1024px) {
           margin: 20px 5px;
           width: 85%;
@@ -67,6 +68,33 @@
             padding: 0 5px;
           }
         }
+        .modalBtnDiv {
+          @include flex(center, flex-start);
+          button {
+            margin-right: 10px;
+          }
+        }
+
+        .modal {
+          @include widthandheight(65%, 80vh);
+          background-color: $cardPlusBg;
+          @include flex(center, center);
+          position: absolute;
+          z-index: 9;
+          transform: translate(-35%, -85%);
+          .framecss {
+            @include widthandheight(100%, 80vh);
+            padding: 30px;
+          }
+
+          .cancel {
+            position: absolute;
+            right: 2%;
+            top: 2%;
+            cursor: pointer;
+            color: $whiteText;
+          }
+        }
       }
     }
     .moviestyles {
@@ -78,7 +106,6 @@
         }
         .videodiv {
           @include grid(repeat(4, 1fr));
-
           row-gap: 20px;
           @media screen and (max-width: 600px) {
             grid-template-columns: 1fr;
@@ -98,7 +125,6 @@
         .companies-list {
           display: flex;
           align-items: center;
-
           .prodImgDiv {
             @include flex(center, center);
             flex-wrap: wrap;
@@ -129,7 +155,6 @@
         }
         .similarDiv {
           @include grid(repeat(7, 1fr));
-
           row-gap: 50px;
           column-gap: 20px;
           @media screen and (max-width: 600px) {
@@ -144,7 +169,6 @@
             display: flex;
             flex-direction: column;
             align-items: flex-start;
-
             img {
               max-width: 100%;
               height: 260px;

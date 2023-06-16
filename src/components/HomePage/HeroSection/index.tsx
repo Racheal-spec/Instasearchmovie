@@ -6,10 +6,11 @@ import {
   useMoviesDetailsQuery,
 } from "../../../features/Reducers/MoviesApiSlice/ApiSlice";
 import { DetailsProp } from "../../../Types/ComponentTypes/ComponentTypes";
-import { IMAGE_BASE_URL, URL_YOUTUBE } from "../../../Api";
-import { VideosProp } from "../../../Types/APITypes";
+import { IMAGE_BASE_URL } from "../../../Api";
 import TagButton from "../../Button/TagButton";
 import { bgProp } from "../../../Types/ComponentTypes/HeroSectionTypes";
+import { useNavigate } from "react-router-dom";
+import { BsPlayFill } from "react-icons/bs";
 
 const Herosection: React.FC = () => {
   const { data } = useFetchTrendsQuery(2);
@@ -21,36 +22,27 @@ const Herosection: React.FC = () => {
     title: data?.results[0].title || data?.results[0].name,
     backdrop_path: data?.results[0].backdrop_path,
     overview: data?.results[0].overview,
+    poster_path: data?.results[0].poster_path,
   });
   const { data: moviedata } = useMoviesDetailsQuery(elementObj.id!);
 
-  const [videotrailer, setVideoTrailer] = useState<VideosProp[]>([]);
-  const [maintrailer, setMainTrailer] = useState<VideosProp>({
-    name: "",
-    iso_639_1: "",
-    iso_3166_1: "",
-    key: "",
-    site: "",
-    size: 0,
-    type: "",
-    official: false,
-    published_at: "",
-    id: "",
-  });
+  const [poster, setPoster] = useState<string>("");
 
+  const navigate = useNavigate();
   useEffect(() => {
-    const videoArray = () => {
+    const posterArray = () => {
       if (moviedata) {
-        setVideoTrailer(moviedata.videos?.results!);
+        setPoster(moviedata?.poster_path!);
       }
+      // setShowModal(true);
     };
-    videoArray();
-    for (let i = 0; i < moviedata?.videos?.results.length!; i++) {
-      if (videotrailer?.[i]?.type === "Trailer") {
-        setMainTrailer(videotrailer?.[i]);
-      }
-    }
-  }, [moviedata, videotrailer]);
+    posterArray();
+    // for (let i = 0; i < moviedata?.videos?.results.length!; i++) {
+    //   if (videotrailer?.[i]?.type === "Trailer") {
+    //     setMainTrailer(videotrailer?.[i]);
+    //   }
+    // }
+  }, [moviedata]);
 
   const imagesArray = useCallback(() => {
     for (let i = 0; i < data?.results?.length!; i++) {
@@ -82,11 +74,19 @@ const Herosection: React.FC = () => {
   }, [data?.results]);
 
   let bgStyles: bgProp = {
-    background: `linear-gradient(to bottom,rgba(0, 139, 139, 0.598) 40%,#1e1e1e 90%),url(${IMAGE_BASE_URL}${
+    background: `linear-gradient(to bottom,rgba(13, 18, 18, 0.598),#1e1e1e 90%),url(${IMAGE_BASE_URL}${
       elementObj.backdrop_path
     }) ${isBackgroundRepeating ? "repeat" : "no-repeat"} ${
       isBackgroundPosition ? "center" : "center"
     }/${isBackgroundCover ? "contain" : "cover"}`,
+  };
+
+  let posterStyles: bgProp = {
+    background: `linear-gradient(to bottom,rgba(0, 139, 139, 0.598) 40%,#1e1e1e 90%),url(${IMAGE_BASE_URL}${poster}) ${
+      isBackgroundRepeating ? "repeat" : "no-repeat"
+    } ${isBackgroundPosition ? "center" : "center"}/${
+      isBackgroundCover ? "contain" : "cover"
+    }`,
   };
 
   const truncate = (str: string, length: number) => {
@@ -96,6 +96,8 @@ const Herosection: React.FC = () => {
       return str;
     }
   };
+
+  console.log(poster);
   return (
     <div style={bgStyles}>
       <section className="first-section">
@@ -150,13 +152,18 @@ const Herosection: React.FC = () => {
               ))}
             </div>
           </div>
-          <div className="iframeStyle" key={maintrailer?.key}>
-            <iframe
-              frameBorder="0"
-              title={maintrailer?.name}
-              src={`${URL_YOUTUBE}${maintrailer?.key}`}
-              allowFullScreen
-            />
+
+          <div className="iframeStyle">
+            <div className="poster_img" style={posterStyles}></div>
+          </div>
+
+          <div className="watchbtndiv">
+            <button
+              className="watchbtn"
+              onClick={() => navigate(`/Details/${elementObj.id}`)}
+            >
+              <BsPlayFill fontSize={"1.5rem"} className="playicon" />
+            </button>
           </div>
         </div>
       </section>

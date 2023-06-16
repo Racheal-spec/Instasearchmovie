@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import { IMAGE_BASE_URL, URL_YOUTUBE } from "../../Api";
@@ -18,6 +18,8 @@ import {
 } from "../../Types/ComponentTypes/ComponentTypes";
 import "./Details.scss";
 import { bgProp } from "../../Types/ComponentTypes/HeroSectionTypes";
+import { FaTimes } from "react-icons/fa";
+import { VideosProp } from "../../Types/APITypes";
 
 const Details: React.FC<DetailsProp> = () => {
   let idParam = useParams();
@@ -35,6 +37,27 @@ const Details: React.FC<DetailsProp> = () => {
     poster_path: data?.poster_path!,
     overview: data?.overview,
   };
+  const [showModal, setShowModal] = useState(false);
+  const [maintrailer, setMainTrailer] = useState<VideosProp>({
+    name: "",
+    iso_639_1: "",
+    iso_3166_1: "",
+    key: "",
+    site: "",
+    size: 0,
+    type: "",
+    official: false,
+    published_at: "",
+    id: "",
+  });
+  useEffect(() => {
+    for (let i = 0; i < data?.videos?.results.length!; i++) {
+      if (data?.videos?.results?.[i]?.type === "Trailer") {
+        setMainTrailer(data?.videos?.results?.[i]);
+      }
+    }
+  }, [data?.videos?.results]);
+
   const clickBtn = () => {
     dispatch(addToWatchlist(movie));
     toast.success("Movie added to watchlist!", {
@@ -46,7 +69,7 @@ const Details: React.FC<DetailsProp> = () => {
   let isBackgroundPosition = false;
 
   let detailsBg: bgProp = {
-    background: `radial-gradient(circle,rgba(13, 18, 18, 0.598) 60%,#232323 80%),url(${IMAGE_BASE_URL}${
+    background: `linear-gradient(rgba(13, 18, 18, 0.598) 10%,#232323 80%),url(${IMAGE_BASE_URL}${
       data?.backdrop_path || data?.poster_path
     }) ${isBackgroundRepeating ? "repeat" : "no-repeat"} ${
       isBackgroundPosition ? "center" : "center"
@@ -90,17 +113,37 @@ const Details: React.FC<DetailsProp> = () => {
                 </h5>
 
                 <h5>Duration: {data?.runtime} mins</h5>
-                <Button onClick={clickBtn} primary>
-                  Add movie to watchlist
-                </Button>
+                <div className="modalBtnDiv">
+                  <Button onClick={clickBtn} primary>
+                    Add movie to watchlist
+                  </Button>
+                  <Button onClick={() => setShowModal(true)} outline>
+                    Watch Trailer
+                  </Button>
+                </div>
+                {showModal ? (
+                  <div className="modal">
+                    <iframe
+                      key={maintrailer?.key}
+                      title={maintrailer?.name}
+                      src={`${URL_YOUTUBE}${maintrailer?.key}`}
+                      allowFullScreen
+                      className="framecss"
+                    />
+
+                    <div className="cancel" onClick={() => setShowModal(false)}>
+                      <FaTimes />
+                    </div>
+                  </div>
+                ) : null}
               </div>
             </div>
             <div className="moviestyles">
               {/************ MOVIE TRAILERS SECTION ***********************/}
               <div className="movie-video">
-                <GlobalTitle title="Trailers" description="" />
+                <GlobalTitle title="Other Trailers" description="" />
                 <div className="videodiv">
-                  {data?.videos!.results!.slice(0, 12).map((video) => (
+                  {data?.videos!.results!.slice(0, 4).map((video) => (
                     <iframe
                       key={video.id}
                       title={video.name}
