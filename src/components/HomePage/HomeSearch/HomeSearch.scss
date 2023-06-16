@@ -13,6 +13,8 @@
       flex-direction: row;
       @media screen and (max-width: 1024px) {
         margin-top: 0;
+        flex-direction: column;
+        @include flex(flex-start, flex-start);
       }
       .search-input {
         padding: 13px;
@@ -25,6 +27,7 @@
         }
         @media screen and (max-width: 1024px) {
           margin-right: 10px;
+          width: 100%;
         }
       }
       .search-btn {

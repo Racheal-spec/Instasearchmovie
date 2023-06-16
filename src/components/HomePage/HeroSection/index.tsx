@@ -37,11 +37,6 @@ const Herosection: React.FC = () => {
       // setShowModal(true);
     };
     posterArray();
-    // for (let i = 0; i < moviedata?.videos?.results.length!; i++) {
-    //   if (videotrailer?.[i]?.type === "Trailer") {
-    //     setMainTrailer(videotrailer?.[i]);
-    //   }
-    // }
   }, [moviedata]);
 
   const imagesArray = useCallback(() => {
@@ -97,7 +92,6 @@ const Herosection: React.FC = () => {
     }
   };
 
-  console.log(poster);
   return (
     <div style={bgStyles}>
       <section className="first-section">

@@ -8,8 +8,8 @@
   position: relative;
   padding: 0px 70px;
   @media screen and (max-width: 1024px) {
-    padding: 30px 10px;
-    min-height: 70vh;
+    padding: 0px 20px;
+    @include widthandheight(100%, 100vh);
   }
   .marqueEl {
     color: $whiteText;
@@ -40,6 +40,9 @@
     justify-content: space-between;
     align-items: center;
     padding-top: 10%;
+    @media screen and (max-width: 768px) {
+      flex-direction: column;
+    }
     h1 {
       font-size: 3.5rem;
       color: $whiteText;
@@ -57,10 +60,10 @@
       color: $primaryColor;
       font-size: 1.5rem;
       font-weight: bold;
-      // left: 16%;
-      // @media screen and (max-width: 1024px) {
-      //   left: 6%;
-      // }
+      @media screen and (max-width: 1024px) {
+        font-size: 1rem;
+        padding: 7px 0;
+      }
     }
     h4 {
       color: $whiteText;
@@ -110,10 +113,15 @@
       border-radius: 20px;
       width: 35%;
       margin: 0 50px;
-
+      @media screen and (max-width: 1024px) {
+        width: 100%;
+      }
       .poster_img {
         @include widthandheight(100%, 70vh);
         border-radius: 20px;
+        @media screen and (max-width: 768px) {
+          @include widthandheight(100%, 35vh);
+        }
       }
     }
     .watchbtndiv {
@@ -125,9 +133,13 @@
         background-color: $redbg;
         color: $whiteText;
         border: 1px solid red;
-        width: 70px;
-        height: 70px;
+        @include widthandheight(70px, 70px);
         border-radius: 50%;
+        @media screen and (max-width: 768px) {
+          top: 65%;
+          right: 0%;
+          @include widthandheight(50px, 50px);
+        }
       }
     }
   }

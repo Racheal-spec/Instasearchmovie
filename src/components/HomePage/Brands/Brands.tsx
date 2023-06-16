@@ -4,6 +4,9 @@ import vudu from "../../../images/vudu.svg";
 import tmdb from "../../../images/tmdb.svg";
 import kanopy from "../../../images/kanopy-logo.svg";
 import netflix from "../../../images/netflixmod.png";
+import hdtoday from "../../../images/hdtoday.png";
+import imdb from "../../../images/imdb.png";
+import twitch from "../../../images/twitchlogo.png";
 import "./Brands.scss";
 
 const Brands: React.FC = () => {
@@ -23,13 +26,13 @@ const Brands: React.FC = () => {
           <img src={tmdb} alt="amazon-prime"></img>
         </div>
         <div className="logo">
-          <img src={tmdb} alt="amazon-prime"></img>
+          <img src={hdtoday} alt="amazon-prime"></img>
         </div>
         <div className="logo">
-          <img src={tmdb} alt="amazon-prime"></img>
+          <img src={imdb} alt="amazon-prime"></img>
         </div>
         <div className="logo">
-          <img src={tmdb} alt="amazon-prime"></img>
+          <img src={twitch} alt="amazon-prime"></img>
         </div>
         <div className="logo">
           <img src={kanopy} alt="amazon-prime"></img>
