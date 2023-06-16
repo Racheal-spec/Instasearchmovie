@@ -157,12 +157,12 @@
           @include grid(repeat(7, 1fr));
           row-gap: 50px;
           column-gap: 20px;
-          @media screen and (max-width: 600px) {
+          // @media screen and (max-width: 468px) {
+          //   grid-template-columns: repeat(2, 1fr);
+          //   gap: 10px;
+          // }
+          @media screen and (max-width: 768px) {
             grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
-          }
-          @media screen and (max-width: 1024px) {
-            grid-template-columns: repeat(4, 1fr);
             gap: 10px;
           }
           .similar-card {
