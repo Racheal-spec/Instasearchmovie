@@ -37,7 +37,7 @@ header {
       @include widthandheight(100%, 100%);
       z-index: 999;
       transition: 1s;
-      transform: translateY(-140vh);
+      transform: translateY(-180vh);
       background-color: $cardbg;
       color: $whiteText;
       @include flex(center, center);

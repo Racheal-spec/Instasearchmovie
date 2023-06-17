@@ -7,8 +7,12 @@
   @include widthandheight(100%, 100vh);
   position: relative;
   padding: 0px 70px;
+
   @media screen and (max-width: 1024px) {
     padding: 0px 20px;
+    @include widthandheight(100%, 60vh);
+  }
+  @media screen and (max-width: 768px) {
     @include widthandheight(100%, 100vh);
   }
   .marqueEl {
@@ -91,9 +95,12 @@
       width: 55%;
       min-height: 20vh;
       flex-wrap: wrap;
+      @media screen and (max-width: 1024px) {
+        width: 100%;
+      }
       @media screen and (max-width: 768px) {
         width: 100%;
-        padding: 40px 10px;
+        padding: 40px 0px;
         p {
           q {
             display: flex;
@@ -114,13 +121,21 @@
       width: 35%;
       margin: 0 50px;
       @media screen and (max-width: 1024px) {
+        width: 70%;
+      }
+      @media screen and (max-width: 768px) {
         width: 100%;
       }
+
       .poster_img {
         @include widthandheight(100%, 70vh);
         border-radius: 20px;
+
+        @media screen and (max-width: 1024px) {
+          @include widthandheight(100%, 45vh);
+        }
         @media screen and (max-width: 768px) {
-          @include widthandheight(100%, 35vh);
+          @include widthandheight(100%, 40vh);
         }
       }
     }

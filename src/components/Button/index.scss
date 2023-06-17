@@ -3,7 +3,7 @@
 
 .root {
   * {
-    margin: 5px 0;
+    margin: 8px 0;
   }
 }
 .root_enable {
@@ -29,6 +29,12 @@
     box-shadow: none;
     background-color: $primaryColor;
     border-color: $secondaryColor;
+  }
+  @media screen and (max-width: 768px) {
+    font-size: 11px;
+  }
+  @media screen and (max-width: 1024px) {
+    font-size: 12px;
   }
 }
 .root_disabled {
