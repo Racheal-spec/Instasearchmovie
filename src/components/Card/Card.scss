@@ -5,7 +5,8 @@
   position: relative;
   background: linear-gradient(to bottom, #8b887547, #0e0e0e 95%);
   .lozad {
-    max-width: 100%;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
     position: relative;
     z-index: -1;

@@ -55,7 +55,7 @@ const Nav: React.FC = () => {
     <div className="headerWrapper">
       <header style={{ backgroundColor: colorChange ? "#232323" : color }}>
         <div className="logo">
-          <Link to="/" className="link">
+          <Link to="/" className="link" aria-label="link to home page">
             <h3>InstaMovieSearch</h3>
           </Link>
         </div>
@@ -67,14 +67,22 @@ const Nav: React.FC = () => {
             transition={{ delay: 0.2, type: "spring", stiffness: 60 }}
           >
             <div className="navLists">
-              <Link to="/" onClick={showNavBar} className="link">
-                <li>Home</li>
+              <Link
+                to="/"
+                onClick={showNavBar}
+                className="link"
+                aria-label="link to home page"
+              >
+                Home
               </Link>
-              <Link to="/watchlist" onClick={showNavBar} className="link">
-                <li>
-                  Watchlist{" "}
-                  <span className="listLengthSpan">{watchlists?.length}</span>
-                </li>
+              <Link
+                to="/watchlist"
+                onClick={showNavBar}
+                className="link"
+                aria-label="link to watchlists page"
+              >
+                Watchlist{" "}
+                <span className="listLengthSpan">{watchlists?.length}</span>
               </Link>
             </div>
 
@@ -99,6 +107,7 @@ const Nav: React.FC = () => {
                         navigate("/login");
                         navRef?.current?.classList.toggle("responsive_nav");
                       }}
+                      arialabel="signin-button"
                     >
                       Sign In
                     </Button>
@@ -106,13 +115,21 @@ const Nav: React.FC = () => {
                 )}
               </div>
 
-              <button onClick={showNavBar} className=" nav-closebtn nav-btn">
+              <button
+                onClick={showNavBar}
+                aria-label="close-menu-button"
+                className=" nav-closebtn nav-btn"
+              >
                 <FaTimes />
               </button>
             </div>
           </motion.div>
         </nav>
-        <button onClick={showNavBar} className="nav-btn">
+        <button
+          aria-label="menu-button"
+          onClick={showNavBar}
+          className="nav-btn"
+        >
           <FaBars />
         </button>
       </header>
@@ -137,8 +154,15 @@ export const Profile = () => {
   return (
     <div>
       <div className="signoutDiv">
-        <Link to="/" onClick={SignOutUser} className="profilelink">
-          <li>Sign Out</li>
+        <Link
+          to="/"
+          onClick={SignOutUser}
+          className="profilelink"
+          aria-label="link to signout"
+        >
+          <ul>
+            <li>Sign Out</li>
+          </ul>
         </Link>
       </div>
     </div>

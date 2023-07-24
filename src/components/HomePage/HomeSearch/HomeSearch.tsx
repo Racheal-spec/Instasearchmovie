@@ -41,7 +41,7 @@ const HomeSearch: React.FC = () => {
             placeholder="Search your favourite movie"
             onChange={updateResults}
           />
-          <Button type="submit" primary>
+          <Button type="submit" primary arialabel="search-button">
             search
           </Button>
         </form>

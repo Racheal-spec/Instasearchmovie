@@ -155,6 +155,7 @@ const Herosection: React.FC = () => {
             <button
               className="watchbtn"
               onClick={() => navigate(`/Details/${elementObj.id}`)}
+              aria-label="youtube-play-button"
             >
               <BsPlayFill fontSize={"1.5rem"} className="playicon" />
             </button>

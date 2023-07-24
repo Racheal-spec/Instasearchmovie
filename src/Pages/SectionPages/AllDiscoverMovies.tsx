@@ -44,11 +44,11 @@ const AllDiscoverMovies = () => {
             </div>
           </div>
           <div className="btnClass">
-            <Button outline onClick={loadPrev}>
+            <Button outline onClick={loadPrev} arialabel="load-previous">
               Prev &#171;
             </Button>
             <div className="btnNext">
-              <Button outline onClick={loadNext}>
+              <Button outline onClick={loadNext} arialabel="load-next">
                 Next &#187;
               </Button>
             </div>

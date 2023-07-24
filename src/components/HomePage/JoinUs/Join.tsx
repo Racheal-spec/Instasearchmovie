@@ -20,6 +20,7 @@ const Join: React.FC = () => {
             onClick={() => {
               navigate("/login");
             }}
+            arialabel="joinus-button"
           >
             Join Us
           </Button>

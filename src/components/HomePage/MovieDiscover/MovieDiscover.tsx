@@ -52,7 +52,9 @@ const MovieVideo = () => {
           <h4>More</h4>
           <p>View all movies now showing in a cinema around you.</p>
           <div className="btnStyle" onClick={handleMore}>
-            <Button outlineDarkBtn>See all movies</Button>
+            <Button outlineDarkBtn arialabel="see-all-movies-button">
+              See all movies
+            </Button>
             <div>
               <img src={arrow} alt="arrow" />
             </div>

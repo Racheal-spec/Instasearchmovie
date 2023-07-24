@@ -44,7 +44,7 @@ const MovieList: React.FC<ContentProp> = ({
           <h1>{title || name}</h1>
           <h4>Released: {release_date || first_air_date}</h4>
           <p>{overview}</p>
-          <Button primary onClick={removeBtn}>
+          <Button primary onClick={removeBtn} arialabel="remove-movie-button">
             Remove Movie
           </Button>
         </div>

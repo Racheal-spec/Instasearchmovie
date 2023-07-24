@@ -9,9 +9,16 @@ import { useAppSelector } from "./services/Hooks/hooks";
 import Login from "./Pages/Login/Login";
 import { useUserDataQuery } from "./features/Reducers/UserSplice/UserSplice";
 import UseAuth from "./services/Hooks/UseAuth";
-import AllTrendingPages from "./Pages/SectionPages/AllTrendingPages";
-import AllDiscoverMovies from "./Pages/SectionPages/AllDiscoverMovies";
-import AllTopRatedSeries from "./Pages/SectionPages/AllTopRatedSeries";
+
+const AllTrendingPages = React.lazy(
+  () => import("./Pages/SectionPages/AllTrendingPages")
+);
+const AllDiscoverMovies = React.lazy(
+  () => import("./Pages/SectionPages/AllDiscoverMovies")
+);
+const AllTopRatedSeries = React.lazy(
+  () => import("./Pages/SectionPages/AllTopRatedSeries")
+);
 const Watchlist = React.lazy(() => import("./components/Watchlist/Watchlist"));
 const Details = React.lazy(() => import("./Pages/Details/Details"));
 const App = () => {

@@ -71,7 +71,7 @@ const MovieCard: React.FC<CommonContentProp> = ({
   return (
     <>
       <motion.div ref={ref} className="moviescard" key={id} animate={fadeIn}>
-        <Link to={`Details/${id}`}>
+        <Link to={`Details/${id}`} aria-label={`Details/${id}`}>
           <img
             className="lozad"
             data-src={`${IMAGE_BASE_URL}${poster_path}`}
@@ -92,6 +92,7 @@ const MovieCard: React.FC<CommonContentProp> = ({
             <motion.button
               className="click-btn"
               onClick={clickBtn}
+              aria-label="add-to-watchlist-button"
               disabled={itemAdded ? true : false}
               whileHover={{
                 scale: 1.1,

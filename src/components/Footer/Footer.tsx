@@ -15,16 +15,28 @@ const Footer = () => {
         <div className="footerIcons">
           <p>Visit our social media platforms</p>
           <div className="icons">
-            <a href="/https://twitter.com/racheltomidev">
+            <a
+              href="/https://twitter.com/racheltomidev"
+              aria-label="link to website twitter profile"
+            >
               <i className="fab fa-twitter"></i>
             </a>
-            <a href="https://github.com/racheal-spec">
+            <a
+              href="https://github.com/racheal-spec"
+              aria-label="link to website github profile"
+            >
               <i className="fab fa-github"></i>
             </a>
-            <a href="https://instagram.com/girlliketomi">
+            <a
+              href="https://instagram.com/girlliketomi"
+              aria-label="link to website instagram profile"
+            >
               <i className="fab fa-instagram"></i>
             </a>
-            <a href="https://linkedin-in/racheltomi">
+            <a
+              href="https://linkedin-in/racheltomi"
+              aria-label="link to website linkedin profile"
+            >
               <i className="fab fa-linkedin-in"></i>
             </a>
           </div>

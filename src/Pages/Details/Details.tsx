@@ -91,7 +91,7 @@ const Details: React.FC<DetailsProp> = () => {
               <div className="moviedetail-content">
                 <div className="genre">
                   {data?.genres!.map((genre) => (
-                    <div>
+                    <div key={genre.id}>
                       <TagButton key={genre.id} title={genre.name} />
                     </div>
                   ))}
@@ -114,10 +114,18 @@ const Details: React.FC<DetailsProp> = () => {
 
                 <h5>Duration: {data?.runtime} mins</h5>
                 <div className="modalBtnDiv">
-                  <Button onClick={clickBtn} primary>
+                  <Button
+                    onClick={clickBtn}
+                    primary
+                    arialabel="add-movie-to-watchlist-button"
+                  >
                     Add movie to watchlist
                   </Button>
-                  <Button onClick={() => setShowModal(true)} outline>
+                  <Button
+                    onClick={() => setShowModal(true)}
+                    outline
+                    arialabel="watch-trailer-button"
+                  >
                     Watch Trailer
                   </Button>
                 </div>

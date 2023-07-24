@@ -5,6 +5,7 @@ export type ButtonProp = {
   outline: boolean;
   disabled: boolean;
   hover: boolean;
+  arialabel: string;
   props: {
     className: string;
   };
