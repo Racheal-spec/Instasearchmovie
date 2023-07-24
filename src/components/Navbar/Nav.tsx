@@ -18,6 +18,7 @@ const Nav: React.FC = () => {
   const { data: userdata } = useUserDataQuery();
   const { newsession } = UseAuth(userdata);
   const [color, setColor] = useState("");
+  const [showprofile, setShowProfile] = useState(false);
   const [colorChange, setColorchange] = useState(false);
   let location = useLocation();
   let navigate = useNavigate();
@@ -42,6 +43,88 @@ const Nav: React.FC = () => {
     }
   }, [color, location.pathname]);
 
+  const handleProfile = () => {
+    setShowProfile(!showprofile);
+  };
+
+  const showNavBar = () => {
+    navRef?.current?.classList.toggle("responsive_nav");
+  };
+
+  return (
+    <div className="headerWrapper">
+      <header style={{ backgroundColor: colorChange ? "#232323" : color }}>
+        <div className="logo">
+          <Link to="/" className="link">
+            <h3>InstaMovieSearch</h3>
+          </Link>
+        </div>
+        <nav ref={navRef}>
+          <motion.div
+            className="navbar"
+            initial={{ y: -200 }}
+            animate={{ y: 0 }}
+            transition={{ delay: 0.2, type: "spring", stiffness: 60 }}
+          >
+            <div className="navLists">
+              <Link to="/" onClick={showNavBar} className="link">
+                <li>Home</li>
+              </Link>
+              <Link to="/watchlist" onClick={showNavBar} className="link">
+                <li>
+                  Watchlist{" "}
+                  <span className="listLengthSpan">{watchlists?.length}</span>
+                </li>
+              </Link>
+            </div>
+
+            <div className="navLists">
+              <div className="btnClass">
+                {" "}
+                {newsession?.user !== undefined ? (
+                  <div className="profilediv">
+                    <h4>Hey, {newsession?.user.user_metadata.name}</h4>
+                    <img
+                      src={newsession?.user.user_metadata.avatar_url}
+                      alt="user"
+                      onClick={handleProfile}
+                    />
+                    {showprofile && <Profile />}
+                  </div>
+                ) : (
+                  <div className="btnSignIn">
+                    <Button
+                      primary
+                      onClick={() => {
+                        navigate("/login");
+                        navRef?.current?.classList.toggle("responsive_nav");
+                      }}
+                    >
+                      Sign In
+                    </Button>
+                  </div>
+                )}
+              </div>
+
+              <button onClick={showNavBar} className=" nav-closebtn nav-btn">
+                <FaTimes />
+              </button>
+            </div>
+          </motion.div>
+        </nav>
+        <button onClick={showNavBar} className="nav-btn">
+          <FaBars />
+        </button>
+      </header>
+    </div>
+  );
+};
+
+export default Nav;
+
+export const Profile = () => {
+  let navigate = useNavigate();
+
   const SignOutUser = async () => {
     let signout = await supabase.auth.signOut();
 
@@ -51,83 +134,13 @@ const Nav: React.FC = () => {
       navigate("/");
     }
   };
-
-  const showNavBar = () => {
-    navRef?.current?.classList.toggle("responsive_nav");
-  };
-
   return (
-    <header style={{ backgroundColor: colorChange ? "#232323" : color }}>
-      <div className="logo">
-        <Link to="/" className="link">
-          <h3>InstaMovieSearch</h3>
+    <div>
+      <div className="signoutDiv">
+        <Link to="/" onClick={SignOutUser} className="profilelink">
+          <li>Sign Out</li>
         </Link>
       </div>
-      <nav ref={navRef}>
-        <motion.div
-          className="navbar"
-          initial={{ y: -200 }}
-          animate={{ y: 0 }}
-          transition={{ delay: 0.2, type: "spring", stiffness: 60 }}
-        >
-          <div className="navLists">
-            <Link to="/" onClick={showNavBar} className="link">
-              <li>Home</li>
-            </Link>
-            <Link to="/watchlist" onClick={showNavBar} className="link">
-              <li>
-                Watchlist{" "}
-                <span className="listLengthSpan">{watchlists?.length}</span>
-              </li>
-            </Link>
-          </div>
-
-          <div className="navLists">
-            <div className="btnClass">
-              {" "}
-              {newsession?.user !== undefined ? (
-                <div className="profilediv">
-                  <h4>Hey, {newsession?.user.user_metadata.name}</h4>
-                  <img
-                    src={newsession?.user.user_metadata.avatar_url}
-                    alt="user"
-                  />
-                </div>
-              ) : (
-                <div className="btnSignIn">
-                  <Button
-                    primary
-                    onClick={() => {
-                      navigate("/login");
-                      navRef?.current?.classList.toggle("responsive_nav");
-                    }}
-                  >
-                    Sign In
-                  </Button>
-                </div>
-              )}
-              <Button
-                outline
-                onClick={() => {
-                  SignOutUser();
-                  navRef?.current?.classList.toggle("responsive_nav");
-                }}
-              >
-                Sign Out
-              </Button>
-            </div>
-
-            <button onClick={showNavBar} className=" nav-closebtn nav-btn">
-              <FaTimes />
-            </button>
-          </div>
-        </motion.div>
-      </nav>
-      <button onClick={showNavBar} className="nav-btn">
-        <FaBars />
-      </button>
-    </header>
+    </div>
   );
 };
-
-export default Nav;

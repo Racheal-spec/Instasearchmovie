@@ -17,7 +17,10 @@ const HomeTrending: React.FC<ContentProp> = () => {
 
   return (
     <div className="main-section">
-      <GlobalTitle title="Trending Movies" description="" />
+      <GlobalTitle
+        title="Trending Movies"
+        description="View trending movies from all movie genres"
+      />
       <div className="arrowicon">
         <div onClick={handleMore}>
           <div className="arrowcss">

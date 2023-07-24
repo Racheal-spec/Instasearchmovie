@@ -1,117 +1,144 @@
 @import "../../../colors";
 @import "../../mixins/mixins.scss";
 
-header {
-  @include flex(center, space-between);
-  @include widthandheight(100%, 70px);
-  padding: 0px 70px;
-  position: fixed;
-  z-index: 999;
-  @media screen and (max-width: 1024px) {
-    padding: 0px 20px;
-  }
-  .responsive_nav {
+.headerWrapper {
+  position: relative;
+  header {
+    @include flex(center, space-between);
+    @include widthandheight(100%, 70px);
+    padding: 0px 70px;
+    position: fixed;
+    z-index: 999;
     @media screen and (max-width: 1024px) {
-      transform: none;
+      padding: 0px 20px;
     }
-  }
-  .logo {
-    .link {
-      text-decoration: none;
-      h3 {
-        color: $whiteText;
-        border-radius: 6px;
-        padding: 3px 5px;
-        @media screen and (max-width: 1024px) {
-          font-size: 1rem;
+    .responsive_nav {
+      @media screen and (max-width: 1024px) {
+        transform: none;
+      }
+    }
+    .logo {
+      .link {
+        text-decoration: none;
+        h3 {
+          color: $whiteText;
+          border-radius: 6px;
+          padding: 3px 5px;
+          @media screen and (max-width: 1024px) {
+            font-size: 1rem;
+          }
         }
       }
     }
-  }
-  nav {
-    @include flex(center, space-between);
-    @media screen and (max-width: 1024px) {
-      position: fixed;
-      top: 0;
-      left: 0;
-      @include widthandheight(100%, 100%);
-      z-index: 999;
-      transition: 1s;
-      transform: translateY(-180vh);
-      background-color: $cardbg;
-      color: $whiteText;
-      @include flex(center, center);
-    }
-    .navbar {
+    nav {
       @include flex(center, space-between);
       @media screen and (max-width: 1024px) {
-        margin: 0 10px;
-        flex-direction: column;
+        position: fixed;
+        top: 0;
+        left: 0;
+        @include widthandheight(100%, 100%);
+        z-index: 999;
+        transition: 1s;
+        transform: translateY(-180vh);
+        background-color: $cardbg;
+        color: $whiteText;
+        @include flex(center, center);
       }
-      .navLists {
-        display: flex;
-        font-weight: bold;
-        list-style: none;
-        margin: 8px 0;
+      .navbar {
+        @include flex(center, space-between);
         @media screen and (max-width: 1024px) {
+          margin: 0 10px;
           flex-direction: column;
         }
-        .btnClass {
-          margin: 0 10px;
-          @include flex(center, center);
+        .navLists {
+          display: flex;
+          font-weight: bold;
+          list-style: none;
+          margin: 8px 0;
           @media screen and (max-width: 1024px) {
             flex-direction: column;
           }
-          .btnSignIn {
+          .btnClass {
             margin: 0 10px;
-          }
-          .profilediv {
             @include flex(center, center);
-            h4 {
-              color: $whiteText;
+            @media screen and (max-width: 1024px) {
+              flex-direction: column;
             }
-            img {
-              border-radius: 50%;
-              @include widthandheight(40px, 40px);
+            .btnSignIn {
               margin: 0 10px;
             }
+            .profilediv {
+              @include flex(center, center);
+              h4 {
+                color: $whiteText;
+              }
+              img {
+                border-radius: 50%;
+                @include widthandheight(40px, 40px);
+                margin: 0 10px;
+                cursor: pointer;
+                border: 1px solid $secondaryColor;
+              }
+            }
           }
-        }
-        .link {
-          text-decoration: none;
-          margin: 0 8px;
-          color: $whiteText;
-          @media screen and (max-width: 1024px) {
-            margin: 12px 0;
+          .link {
+            text-decoration: none;
+            margin: 0 8px;
+            color: $whiteText;
+            @media screen and (max-width: 1024px) {
+              margin: 12px 0;
+            }
+            h2 {
+              font-family: Georgia, "Times New Roman", Times, serif;
+            }
+            .listLengthSpan {
+              background-color: $whiteText;
+              color: $textDark;
+              border: 1px solid $secondaryColor;
+              padding: 0px 6px;
+            }
           }
-          h2 {
-            font-family: Georgia, "Times New Roman", Times, serif;
+          .nav-btn {
+            @include nav-btn;
           }
-          .listLengthSpan {
-            background-color: $whiteText;
-            color: $textDark;
-            border: 1px solid $secondaryColor;
-            padding: 0px 6px;
+          .nav-closebtn {
+            position: absolute;
+            top: 2%;
+            right: 2%;
           }
-        }
-        .nav-btn {
-          @include nav-btn;
-        }
-        .nav-closebtn {
-          position: absolute;
-          top: 2%;
-          right: 2%;
         }
       }
     }
-  }
-  .nav-btn {
-    @include nav-btn;
-  }
 
-  @media screen and (max-width: 600px) {
-    nav {
-      min-height: 5vh;
+    .nav-btn {
+      @include nav-btn;
+    }
+
+    @media screen and (max-width: 600px) {
+      nav {
+        min-height: 5vh;
+      }
+    }
+  }
+  .signoutDiv {
+    background-color: $whiteText;
+    width: 10%;
+    height: auto;
+    // margin-top: 100px;
+    padding: 20px 0;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.4);
+    border-radius: 5px;
+
+    position: absolute;
+    top: 100%;
+    z-index: 999;
+    right: 5%;
+    .profilelink {
+      text-decoration: none;
+      li {
+        color: $bgColor;
+        font-size: 0.9rem;
+      }
     }
   }
 }

@@ -2,13 +2,15 @@
 @import "../../../mixins/mixins.scss";
 
 .searchResult {
-  padding: 50px 0;
+  // padding: 50px 0;
+
   @media screen and (max-width: 1024px) {
     padding: 0px;
   }
   .search-section {
     .search-form {
-      margin-top: 20px;
+      // margin-top: 20px;
+
       @include flex(center, flex-start);
       flex-direction: row;
       @media screen and (max-width: 1024px) {

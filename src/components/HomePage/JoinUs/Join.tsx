@@ -2,8 +2,10 @@ import React from "react";
 import Button from "../../Button";
 import greenland from "../../../images/greenland.jpg";
 import "./Join.scss";
+import { useNavigate } from "react-router-dom";
 
 const Join: React.FC = () => {
+  let navigate = useNavigate();
   return (
     <section className="joinWrapper">
       <div className="JoinDiv">
@@ -13,7 +15,14 @@ const Join: React.FC = () => {
             Join over 100, 000 Nigerians to Watch top rated hollywood, nollywood
             and bollywood hits for family and kids---All free
           </p>
-          <Button primary>Join Us</Button>
+          <Button
+            primary
+            onClick={() => {
+              navigate("/login");
+            }}
+          >
+            Join Us
+          </Button>
         </div>
         <img src={greenland} alt="amazon-prime"></img>
       </div>
